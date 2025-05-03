@@ -1,0 +1,716 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Development Roadmap</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    :root {
+      --primary: #1a365d;
+      --primary-light: #2a4365;
+      --primary-gradient: linear-gradient(135deg, #1a365d 0%, #153e75 100%);
+      --secondary: #4a5568;
+      --success: #2c7a7b;
+      --warning: #b7791f;
+      --danger: #c53030;
+      --light: #f7fafc;
+      --dark: #1a202c;
+      --gray: #718096;
+      --border-color: #e2e8f0;
+      --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      --header-height: 180px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: #f8fafc;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .header {
+      height: var(--header-height);
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 40px 20px;
+      background: var(--primary-gradient);
+      color: white;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    }
+    
+    h1 {
+      position: relative;
+      margin: 0 0 8px 0;
+      font-weight: 700;
+      font-size: 2.5rem;
+      z-index: 1;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .subtitle {
+      position: relative;
+      margin-top: 10px;
+      opacity: 0.9;
+      font-size: 1.1rem;
+      font-weight: 400;
+      z-index: 1;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .tech-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+      justify-content: center;
+    }
+    
+    .tech-badge {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      backdrop-filter: blur(4px);
+    }
+    
+    .roadmap-container {
+      background: white;
+      border-radius: 8px;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 40px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+    
+    .roadmap-header {
+      padding: 20px;
+      background: white;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .roadmap-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0;
+    }
+    
+    .progress-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .progress-bar {
+      width: 160px;
+      height: 8px;
+      background-color: #edf2f7;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: var(--primary-gradient);
+    }
+    
+    .progress-text {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 0.85rem;
+      min-width: 60px;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    
+    thead {
+      background: var(--primary-gradient);
+      color: white;
+    }
+    
+    th {
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+    
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: top;
+    }
+    
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+    
+    tbody tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+    
+    .topic-cell {
+      font-weight: 600;
+      color: var(--dark);
+      width: 20%;
+    }
+    
+    .subtopics-cell, .projects-cell {
+      width: 35%;
+      color: var(--secondary);
+    }
+    
+    .status-cell {
+      width: 10%;
+      text-align: center;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-align: center;
+      letter-spacing: 0.3px;
+    }
+    
+    .badge-success {
+      background-color: rgba(44, 122, 123, 0.1);
+      color: var(--success);
+      border: 1px solid rgba(44, 122, 123, 0.2);
+    }
+    
+    .badge-warning {
+      background-color: rgba(183, 121, 31, 0.1);
+      color: var(--warning);
+      border: 1px solid rgba(183, 121, 31, 0.2);
+    }
+    
+    .badge-danger {
+      background-color: rgba(197, 48, 48, 0.1);
+      color: var(--danger);
+      border: 1px solid rgba(197, 48, 48, 0.2);
+    }
+    
+    ul {
+      margin: 0;
+      padding: 0 0 0 16px;
+    }
+    
+    li {
+      margin-bottom: 4px;
+      font-size: 0.8rem;
+    }
+    
+    li:last-child {
+      margin-bottom: 0;
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      color: var(--gray);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border-color);
+    }
+    
+    .stats-container {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+    }
+    
+    .stat-badge {
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.7rem;
+    }
+    
+    @media (max-width: 768px) {
+      .header {
+        height: auto;
+        padding: 30px 15px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .roadmap-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      
+      .progress-container {
+        width: 100%;
+      }
+      
+      .progress-bar {
+        flex-grow: 1;
+      }
+      
+      th, td {
+        padding: 8px 10px;
+      }
+      
+      .topic-cell {
+        width: 25%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <h1>Professional Development Roadmap</h1>
+      <p class="subtitle">Comprehensive learning pathway for mastering HTML,CSS,BootStrap, lovable, Python</p>
+      <div class="tech-badges">
+        <span class="tech-badge">HTML,CSS,BootStrap</span><span class="tech-badge">lovable</span><span class="tech-badge">Python</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="roadmap-container">
+      <div class="roadmap-header">
+        <h2 class="roadmap-title">HTML,CSS,BootStrap</h2>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 100%;"></div>
+          </div>
+          <span class="progress-text">100% Complete</span>
+        </div>
+      </div>
+      
+      <div class="stats-container">
+        <div class="stat-item">
+          <span class="stat-badge" style="background-color: rgba(44, 122, 123, 0.1); color: var(--success);">3</span>
+          <span>Completed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-badge" style="background-color: rgba(183, 121, 31, 0.1); color: var(--warning);">0</span>
+          <span>In Progress</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-badge" style="background-color: rgba(197, 48, 48, 0.1); color: var(--danger);">0</span>
+          <span>Yet to Start</span>
+        </div>
+      </div>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Topic</th>
+            <th>Sub-Topic</th>
+            <th>Projects/Apps built</th>
+            <th>Status of Completion</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td class="topic-cell">Introduction to HTML</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Build Your Own Static Website using Gen AI</li><li>Introduction to HTML</li><li>HTML Elements</li><li>- Image Element</li><li>- Heading Element</li><li>- Paragraph Element</li><li>- Button Element</li><li>- Container Element</li><li>- Anchor Element</li><li>- Line Break Element</li><li>- Horizontal Rule Element</li><li>- Semantic Elements</li><li>- Multimedia Elements</li><li>HTML Attributes</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Restaurant Website</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+              <span class="badge badge-success">Completed</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Introduction to CSS</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>CSS Properties</li><li>CSS Text Properties</li><li>CSS Background Properties</li><li>CSS Font Family</li><li>CSS Font Size</li><li>CSS Font Style</li><li>CSS Font Weight</li><li>CSS Text Decoration</li><li>CSS Box Properties</li><li>CSS Colors</li><li>Reusability of CSS Rulesets</li><li>CSS Box Model Properties</li><li>CSS Selectors</li><li>CSS Combinators</li><li>CSS Specificity & Cascade</li><li>CSS Gradients and Transitions</li><li>CSS Transforms and Animations</li><li>CSS Animations</li><li>CSS Flexbox</li><li>CSS Grid</li><li>CSS Media Queries</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Photo Gallery
+Landing Page for a Product</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+              <span class="badge badge-success">Completed</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Introduction to Bootstrap</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>How to use Bootstrap?</li><li>Predefined Styles in Bootstrap</li><li>Flexbox Properties</li><li>Bootstrap Components</li><li>Bootstrap Utilities</li><li>Grid System</li><li>Column Wrapping</li><li>Spacing Utilities</li><li>Background Color Utilities</li><li>Bootstrap Navbar</li><li>Bootstrap Spacing Utilities</li><li>Flex Utilities</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Simple Blog Website
+E-commerce Product Listing
+Weather Information Page</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+              <span class="badge badge-success">Completed</span>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <div class="roadmap-container">
+      <div class="roadmap-header">
+        <h2 class="roadmap-title">lovable</h2>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 0%;"></div>
+          </div>
+          <span class="progress-text">0% Complete</span>
+        </div>
+      </div>
+      
+      <div class="stats-container">
+        <div class="stat-item">
+          <span class="stat-badge" style="background-color: rgba(44, 122, 123, 0.1); color: var(--success);">0</span>
+          <span>Completed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-badge" style="background-color: rgba(183, 121, 31, 0.1); color: var(--warning);">0</span>
+          <span>In Progress</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-badge" style="background-color: rgba(197, 48, 48, 0.1); color: var(--danger);">4</span>
+          <span>Yet to Start</span>
+        </div>
+      </div>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Topic</th>
+            <th>Sub-Topic</th>
+            <th>Project</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td class="topic-cell">Introduction to Lovable.dev</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Setting up an account, Understanding AI-based software development, Exploring the interface, Basic Prompt engineering</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Create a simple Notes App using AI prompts</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+              <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Building Applications with AI</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Writing Feature Requests, Structuring User Stories, Managing Code Generation, Version Control Basics with Lovable</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Build a basic Blog Platform with create, edit, delete functionality using Lovable AI</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+              <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Advanced Customization</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Integrating APIs, Customizing AI-Generated Code, Debugging Techniques, Managing Environments (Dev, Staging, Prod)</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Enhance the Blog Platform with an external API (e.g., fetch random quotes, user profiles)</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+              <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Deployment & Collaboration</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Deploying applications using Lovable, Team Collaboration Features, Handling Production Issues, Best Practices in AI-based dev</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Deploy your final app live; simulate working with a remote team on feature requests</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+              <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <div class="roadmap-container">
+      <div class="roadmap-header">
+        <h2 class="roadmap-title">Python</h2>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 0%;"></div>
+          </div>
+          <span class="progress-text">0% Complete</span>
+        </div>
+      </div>
+      
+      <div class="stats-container">
+        <div class="stat-item">
+          <span class="stat-badge" style="background-color: rgba(44, 122, 123, 0.1); color: var(--success);">0</span>
+          <span>Completed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-badge" style="background-color: rgba(183, 121, 31, 0.1); color: var(--warning);">0</span>
+          <span>In Progress</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-badge" style="background-color: rgba(197, 48, 48, 0.1); color: var(--danger);">8</span>
+          <span>Yet to Start</span>
+        </div>
+      </div>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Topic</th>
+            <th>Sub-Topic</th>
+            <th>Project</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td class="topic-cell">Python Basics & Setup</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Installing Python Understanding syntax Data types Operators Input/Output</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Write a simple calculator app that performs basic arithmetic operations</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+              <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Control Flow and Functions</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Conditional statements (if/else) Loops (for/while) Writing functions Parameters and return values Variable scope</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Create a number guessing game using loops and functions</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+              <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Data Structures – Lists, Tuples, and Dictionaries</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Lists Tuples Dictionaries List comprehensions Iterating over data structures</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Build a contact book application using dictionaries and lists</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+              <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Advanced Data Structures – Sets & File I/O</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Sets File input/output (reading and writing files) CSV and JSON handling Context managers</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Create a student grades management system that reads and writes data to a CSV file</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+              <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Object-Oriented Programming (OOP) – Part 1</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Classes and objects Attributes and methods Encapsulation Creating simple classes</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Create a class-based employee management system</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+              <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Object-Oriented Programming (OOP) – Part 2</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Inheritance Method overriding Polymorphism Abstraction and interfaces</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Build a multi-level inheritance system for a school management system</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+              <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Error Handling and Debugging</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Exception handling Raising exceptions Debugging tools (pdb) Unit testing with unittest</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Write a calculator app with error handling and input validation</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+              <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Final Project and Best Practices</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Python best practices (PEP 8) Code optimization Version control with Git Deploying Python apps</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Complete a task management web application using Flask or Django</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+              <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <div class="footer">
+      <p>Generated by Professional Roadmap Generator &copy; 2025</p>
+    </div>
+  </div>
+</body>
+</html>
