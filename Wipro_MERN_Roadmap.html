@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wipro - MERN Roadmap</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    :root {
+      --primary: #2557a7;
+      --primary-light: #3b6fc7;
+      --primary-gradient: linear-gradient(135deg, #2557a7 0%, #1a4b8c 100%);
+      --secondary: #505965;
+      --success: #137333;
+      --warning: #b06000;
+      --danger: #a50e0e;
+      --light: #f8f9fa;
+      --dark: #1f2937;
+      --gray: #6c757d;
+      --border-color: #e5e7eb;
+      --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f8f9fa;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 30px 20px;
+      background: var(--primary-gradient);
+      color: white;
+      border-radius: 4px;
+      box-shadow: var(--card-shadow);
+      position: relative;
+    }
+    
+    h1 {
+      position: relative;
+      margin: 0 0 8px 0;
+      font-weight: 700;
+      font-size: 2.5rem;
+      z-index: 1;
+    }
+    
+    .subtitle {
+      position: relative;
+      margin-top: 10px;
+      opacity: 0.9;
+      font-size: 1.1rem;
+      font-weight: 400;
+      z-index: 1;
+    }
+    
+    .tech-stack-section {
+      margin-bottom: 25px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      border: 1px solid var(--border-color);
+    }
+    
+    .tech-stack-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .tech-stack-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0;
+      position: relative;
+    }
+    
+    .progress-container {
+      display: flex;
+      align-items: center;
+    }
+    
+    .progress-bar {
+      width: 160px;
+      height: 8px;
+      background-color: #eaedf5;
+      border-radius: 4px;
+      margin-right: 12px;
+      overflow: hidden;
+    }
+    
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: var(--primary-gradient);
+    }
+    
+    .progress-text {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 0.85rem;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+      border: 1px solid var(--border-color);
+    }
+    
+    thead {
+      background: var(--primary-gradient);
+      color: white;
+    }
+    
+    th {
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+    
+    td {
+      padding: 10px 16px;
+      border: 1px solid var(--border-color);
+      vertical-align: top;
+      font-size: 0.8rem;
+    }
+    
+    tbody tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    
+    .topic-cell {
+      font-weight: 600;
+      color: var(--dark);
+      width: 15%;
+      font-size: 0.85rem;
+    }
+    
+    .subtopics-cell, .projects-cell {
+      width: 35%;
+      font-size: 0.8rem;
+      color: var(--secondary);
+    }
+    
+    .status-cell {
+      width: 15%;
+      text-align: center;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-align: center;
+      letter-spacing: 0.3px;
+    }
+    
+    .badge-success {
+      background-color: rgba(19, 115, 51, 0.1);
+      color: var(--success);
+      border: 1px solid rgba(19, 115, 51, 0.2);
+    }
+    
+    .badge-warning {
+      background-color: rgba(176, 96, 0, 0.1);
+      color: var(--warning);
+      border: 1px solid rgba(176, 96, 0, 0.2);
+    }
+    
+    .badge-danger {
+      background-color: rgba(165, 14, 14, 0.1);
+      color: var(--danger);
+      border: 1px solid rgba(165, 14, 14, 0.2);
+    }
+    
+    ul {
+      margin: 0;
+      padding: 0 0 0 16px;
+    }
+    
+    li {
+      margin-bottom: 4px;
+      font-size: 0.8rem;
+    }
+    
+    li:last-child {
+      margin-bottom: 0;
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      color: var(--gray);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border-color);
+    }
+    
+    .tech-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+      justify-content: center;
+    }
+    
+    .tech-badge {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .company-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .company-badge {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+      
+      .header {
+        padding: 15px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .tech-stack-title {
+        font-size: 1.5rem;
+      }
+      
+      .progress-bar {
+        width: 120px;
+      }
+      
+      th, td {
+        padding: 8px 10px;
+        font-size: 0.75rem;
+      }
+      
+      .tech-badge {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Wipro - MERN Roadmap</h1>
+    <p class="subtitle">Professional technology learning pathway for Python, HTML,CSS,BootStrap</p>
+    
+    <div class="company-info">
+      <span class="company-badge">Company: Wipro</span>
+      <span class="company-badge">Role: MERN</span>
+    </div>
+    
+    <div class="tech-badges">
+      <span class="tech-badge">Python</span><span class="tech-badge">HTML,CSS,BootStrap</span>
+    </div>
+  </div>
+
+  <div class="tech-stack-section">
+    <div class="tech-stack-header">
+      <h2 class="tech-stack-title">Python</h2>
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-bar-fill" style="width: 0%;"></div>
+        </div>
+        <span class="progress-text">0% Complete</span>
+      </div>
+    </div>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Sub-Topic</th>
+          <th>Project</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td class="topic-cell">Python Basics & Setup</td>
+          <td class="subtopics-cell">
+            <ul>
+            <li>Installing Python Understanding syntax Data types Operators Input/Output</li>
+            </ul>
+          </td>
+          <td class="projects-cell">
+            <ul>
+            <li>Write a simple calculator app that performs basic arithmetic operations</li>
+            </ul>
+          </td>
+          <td class="status-cell">
+          <span class="badge badge-danger">Yet to Start</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topic-cell">Control Flow and Functions</td>
+          <td class="subtopics-cell">
+            <ul>
+            <li>Conditional statements (if/else) Loops (for/while) Writing functions Parameters and return values Variable scope</li>
+            </ul>
+          </td>
+          <td class="projects-cell">
+            <ul>
+            <li>Create a number guessing game using loops and functions</li>
+            </ul>
+          </td>
+          <td class="status-cell">
+          <span class="badge badge-danger">Yet to Start</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topic-cell">Data Structures – Lists, Tuples, and Dictionaries</td>
+          <td class="subtopics-cell">
+            <ul>
+            <li>Lists Tuples Dictionaries List comprehensions Iterating over data structures</li>
+            </ul>
+          </td>
+          <td class="projects-cell">
+            <ul>
+            <li>Build a contact book application using dictionaries and lists</li>
+            </ul>
+          </td>
+          <td class="status-cell">
+          <span class="badge badge-danger">Yet to Start</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topic-cell">Advanced Data Structures – Sets & File I/O</td>
+          <td class="subtopics-cell">
+            <ul>
+            <li>Sets File input/output (reading and writing files) CSV and JSON handling Context managers</li>
+            </ul>
+          </td>
+          <td class="projects-cell">
+            <ul>
+            <li>Create a student grades management system that reads and writes data to a CSV file</li>
+            </ul>
+          </td>
+          <td class="status-cell">
+          <span class="badge badge-danger">Yet to Start</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topic-cell">Object-Oriented Programming (OOP) – Part 1</td>
+          <td class="subtopics-cell">
+            <ul>
+            <li>Classes and objects Attributes and methods Encapsulation Creating simple classes</li>
+            </ul>
+          </td>
+          <td class="projects-cell">
+            <ul>
+            <li>Create a class-based employee management system</li>
+            </ul>
+          </td>
+          <td class="status-cell">
+          <span class="badge badge-danger">Yet to Start</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topic-cell">Object-Oriented Programming (OOP) – Part 2</td>
+          <td class="subtopics-cell">
+            <ul>
+            <li>Inheritance Method overriding Polymorphism Abstraction and interfaces</li>
+            </ul>
+          </td>
+          <td class="projects-cell">
+            <ul>
+            <li>Build a multi-level inheritance system for a school management system</li>
+            </ul>
+          </td>
+          <td class="status-cell">
+          <span class="badge badge-danger">Yet to Start</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topic-cell">Error Handling and Debugging</td>
+          <td class="subtopics-cell">
+            <ul>
+            <li>Exception handling Raising exceptions Debugging tools (pdb) Unit testing with unittest</li>
+            </ul>
+          </td>
+          <td class="projects-cell">
+            <ul>
+            <li>Write a calculator app with error handling and input validation</li>
+            </ul>
+          </td>
+          <td class="status-cell">
+          <span class="badge badge-danger">Yet to Start</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topic-cell">Final Project and Best Practices</td>
+          <td class="subtopics-cell">
+            <ul>
+            <li>Python best practices (PEP 8) Code optimization Version control with Git Deploying Python apps</li>
+            </ul>
+          </td>
+          <td class="projects-cell">
+            <ul>
+            <li>Complete a task management web application using Flask or Django</li>
+            </ul>
+          </td>
+          <td class="status-cell">
+          <span class="badge badge-danger">Yet to Start</span>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tech-stack-section">
+    <div class="tech-stack-header">
+      <h2 class="tech-stack-title">HTML,CSS,BootStrap</h2>
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-bar-fill" style="width: 100%;"></div>
+        </div>
+        <span class="progress-text">100% Complete</span>
+      </div>
+    </div>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Sub-Topic</th>
+          <th>Projects/Apps built</th>
+          <th>Status of Completion</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td class="topic-cell">Introduction to HTML</td>
+          <td class="subtopics-cell">
+            <ul>
+            <li>Build Your Own Static Website using Gen AI</li><li>Introduction to HTML</li><li>HTML Elements</li><li>- Image Element</li><li>- Heading Element</li><li>- Paragraph Element</li><li>- Button Element</li><li>- Container Element</li><li>- Anchor Element</li><li>- Line Break Element</li><li>- Horizontal Rule Element</li><li>- Semantic Elements</li><li>- Multimedia Elements</li><li>HTML Attributes</li>
+            </ul>
+          </td>
+          <td class="projects-cell">
+            <ul>
+            <li>Restaurant Website</li>
+            </ul>
+          </td>
+          <td class="status-cell">
+          <span class="badge badge-success">Completed</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topic-cell">Introduction to CSS</td>
+          <td class="subtopics-cell">
+            <ul>
+            <li>CSS Properties</li><li>CSS Text Properties</li><li>CSS Background Properties</li><li>CSS Font Family</li><li>CSS Font Size</li><li>CSS Font Style</li><li>CSS Font Weight</li><li>CSS Text Decoration</li><li>CSS Box Properties</li><li>CSS Colors</li><li>Reusability of CSS Rulesets</li><li>CSS Box Model Properties</li><li>CSS Selectors</li><li>CSS Combinators</li><li>CSS Specificity & Cascade</li><li>CSS Gradients and Transitions</li><li>CSS Transforms and Animations</li><li>CSS Animations</li><li>CSS Flexbox</li><li>CSS Grid</li><li>CSS Media Queries</li>
+            </ul>
+          </td>
+          <td class="projects-cell">
+            <ul>
+            <li>Photo Gallery
+Landing Page for a Product</li>
+            </ul>
+          </td>
+          <td class="status-cell">
+          <span class="badge badge-success">Completed</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topic-cell">Introduction to Bootstrap</td>
+          <td class="subtopics-cell">
+            <ul>
+            <li>How to use Bootstrap?</li><li>Predefined Styles in Bootstrap</li><li>Flexbox Properties</li><li>Bootstrap Components</li><li>Bootstrap Utilities</li><li>Grid System</li><li>Column Wrapping</li><li>Spacing Utilities</li><li>Background Color Utilities</li><li>Bootstrap Navbar</li><li>Bootstrap Spacing Utilities</li><li>Flex Utilities</li>
+            </ul>
+          </td>
+          <td class="projects-cell">
+            <ul>
+            <li>Simple Blog Website
+E-commerce Product Listing
+Weather Information Page</li>
+            </ul>
+          </td>
+          <td class="status-cell">
+          <span class="badge badge-success">Completed</span>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    <p>Generated by NIAT Tech Stack Roadmap Manager &copy; 2025</p>
+  </div>
+</body>
+</html>
