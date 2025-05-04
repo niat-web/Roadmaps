@@ -1,0 +1,753 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NIAT_X_Flipkart</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    :root {
+      --primary: #000000;
+      --primary-light: #333333;
+      --primary-gradient: linear-gradient(135deg, #000000 0%, #333333 100%);
+      --secondary: #505965;
+      --success: #137333;
+      --warning: #b06000;
+      --danger: #a50e0e;
+      --light: #f8f9fa;
+      --dark: #1f2937;
+      --gray: #6c757d;
+      --border-color: #e5e7eb;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #ffffff;
+      color: #000000;
+      border-bottom: 1px solid #e5e7eb;
+      position: relative;
+    }
+    
+    h1 {
+      position: relative;
+      margin: 0;
+      font-weight: 700;
+      font-size: 2.5rem;
+      z-index: 1;
+    }
+    
+    .container {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .content-area {
+      flex: 1;
+    }
+    
+    .tech-stack-section {
+      margin-bottom: 25px;
+      padding: 20px 0;
+    }
+    
+    .tech-stack-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .tech-stack-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0;
+      position: relative;
+    }
+    
+    .progress-container {
+      display: flex;
+      align-items: center;
+    }
+    
+    .progress-bar {
+      width: 160px;
+      height: 8px;
+      background-color: #eaedf5;
+      border-radius: 4px;
+      margin-right: 12px;
+      overflow: hidden;
+    }
+    
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: var(--primary-gradient);
+    }
+    
+    .progress-text {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 0.85rem;
+    }
+    
+    .roadmap-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 15px;
+      background-color: #fff;
+      border: 1px solid var(--border-color);
+    }
+    
+    .roadmap-table th {
+      background-color: #f8f9fa;
+      color: var(--primary);
+      font-weight: 600;
+      padding: 12px 15px;
+      text-align: left;
+      font-size: 0.85rem;
+      border-bottom: 2px solid var(--border-color);
+    }
+    
+    .roadmap-table td {
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: top;
+      font-size: 0.9rem;
+    }
+    
+    .roadmap-table tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-align: center;
+      letter-spacing: 0.3px;
+    }
+    
+    .badge-success {
+      background-color: rgba(19, 115, 51, 0.1);
+      color: var(--success);
+      border: 1px solid rgba(19, 115, 51, 0.2);
+    }
+    
+    .badge-warning {
+      background-color: rgba(176, 96, 0, 0.1);
+      color: var(--warning);
+      border: 1px solid rgba(176, 96, 0, 0.2);
+    }
+    
+    .badge-danger {
+      background-color: rgba(165, 14, 14, 0.1);
+      color: var(--danger);
+      border: 1px solid rgba(165, 14, 14, 0.2);
+    }
+    
+    ul {
+      margin: 0;
+      padding: 0 0 0 16px;
+    }
+    
+    li {
+      margin-bottom: 4px;
+      font-size: 0.8rem;
+    }
+    
+    li:last-child {
+      margin-bottom: 0;
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      color: var(--gray);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border-color);
+    }
+    
+    .role-section {
+      margin-top: 20px;
+    }
+    
+    .role-title {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+      
+      .container {
+        flex-direction: column;
+      }
+      
+      .header {
+        padding: 15px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .tech-stack-title {
+        font-size: 1.5rem;
+      }
+      
+      .progress-bar {
+        width: 120px;
+      }
+      
+      .roadmap-table th,
+      .roadmap-table td {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>NIAT_X_Flipkart</h1>
+  </div>
+  <div class="container">
+    <div class="content-area">
+
+      <div class="role-section">
+        <h2 class="role-title">MERN</h2>
+      </div>
+
+      <div class="tech-stack-section">
+        <div class="tech-stack-header">
+          <h2 class="tech-stack-title">Python</h2>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-bar-fill" style="width: 0%;"></div>
+            </div>
+            <span class="progress-text">0% Complete</span>
+          </div>
+        </div>
+        <table class="roadmap-table">
+          <thead>
+            <tr>
+              <th style="width: 20%;">Topic</th>
+              <th style="width: 30%;">Sub-Topics</th>
+              <th style="width: 30%;">Projects</th>
+              <th style="width: 20%;">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td>Python Basics & Setup</td>
+              <td>
+                
+                <ul>
+                  <li>Installing Python Understanding syntax Data types Operators Input/Output</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Write a simple calculator app that performs basic arithmetic operations</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Control Flow and Functions</td>
+              <td>
+                
+                <ul>
+                  <li>Conditional statements (if/else) Loops (for/while) Writing functions Parameters and return values Variable scope</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Create a number guessing game using loops and functions</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Data Structures – Lists, Tuples, and Dictionaries</td>
+              <td>
+                
+                <ul>
+                  <li>Lists Tuples Dictionaries List comprehensions Iterating over data structures</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Build a contact book application using dictionaries and lists</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Advanced Data Structures – Sets & File I/O</td>
+              <td>
+                
+                <ul>
+                  <li>Sets File input/output (reading and writing files) CSV and JSON handling Context managers</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Create a student grades management system that reads and writes data to a CSV file</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Object-Oriented Programming (OOP) – Part 1</td>
+              <td>
+                
+                <ul>
+                  <li>Classes and objects Attributes and methods Encapsulation Creating simple classes</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Create a class-based employee management system</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Object-Oriented Programming (OOP) – Part 2</td>
+              <td>
+                
+                <ul>
+                  <li>Inheritance Method overriding Polymorphism Abstraction and interfaces</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Build a multi-level inheritance system for a school management system</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Error Handling and Debugging</td>
+              <td>
+                
+                <ul>
+                  <li>Exception handling Raising exceptions Debugging tools (pdb) Unit testing with unittest</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Write a calculator app with error handling and input validation</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Final Project and Best Practices</td>
+              <td>
+                
+                <ul>
+                  <li>Python best practices (PEP 8) Code optimization Version control with Git Deploying Python apps</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Complete a task management web application using Flask or Django</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tech-stack-section">
+        <div class="tech-stack-header">
+          <h2 class="tech-stack-title">lovable</h2>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-bar-fill" style="width: 0%;"></div>
+            </div>
+            <span class="progress-text">0% Complete</span>
+          </div>
+        </div>
+        <table class="roadmap-table">
+          <thead>
+            <tr>
+              <th style="width: 20%;">Topic</th>
+              <th style="width: 30%;">Sub-Topics</th>
+              <th style="width: 30%;">Projects</th>
+              <th style="width: 20%;">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td>Introduction to Lovable.dev</td>
+              <td>
+                
+                <ul>
+                  <li>Setting up an account, Understanding AI-based software development, Exploring the interface, Basic Prompt engineering</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Create a simple Notes App using AI prompts</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Building Applications with AI</td>
+              <td>
+                
+                <ul>
+                  <li>Writing Feature Requests, Structuring User Stories, Managing Code Generation, Version Control Basics with Lovable</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Build a basic Blog Platform with create, edit, delete functionality using Lovable AI</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Advanced Customization</td>
+              <td>
+                
+                <ul>
+                  <li>Integrating APIs, Customizing AI-Generated Code, Debugging Techniques, Managing Environments (Dev, Staging, Prod)</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Enhance the Blog Platform with an external API (e.g., fetch random quotes, user profiles)</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Deployment & Collaboration</td>
+              <td>
+                
+                <ul>
+                  <li>Deploying applications using Lovable, Team Collaboration Features, Handling Production Issues, Best Practices in AI-based dev</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Deploy your final app live; simulate working with a remote team on feature requests</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tech-stack-section">
+        <div class="tech-stack-header">
+          <h2 class="tech-stack-title">Encore ts</h2>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-bar-fill" style="width: 0%;"></div>
+            </div>
+            <span class="progress-text">0% Complete</span>
+          </div>
+        </div>
+        <table class="roadmap-table">
+          <thead>
+            <tr>
+              <th style="width: 20%;">Topic</th>
+              <th style="width: 30%;">Sub-Topics</th>
+              <th style="width: 30%;">Projects</th>
+              <th style="width: 20%;">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td>Introduction to Encore.ts</td>
+              <td>
+                
+                <ul>
+                  <li>What is Encore.ts, Setting up Development Environment, Overview of Encore Architecture, Key Concepts: Services, APIs, Databases</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Set up Encore.ts and deploy a simple "Hello World" service</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Services & APIs</td>
+              <td>
+                
+                <ul>
+                  <li>Creating Services, Defining Endpoints, Request and Response Types, HTTP Routing, Authorization Basics</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Build a simple service with GET and POST endpoints</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Data Modeling & Persistence</td>
+              <td>
+                
+                <ul>
+                  <li>Using Encore's Database Models, Defining Schemas, Performing CRUD Operations, Migrations in Encore.ts</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Create a service to manage a list of tasks (CRUD functionality)</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Authentication & Authorization</td>
+              <td>
+                
+                <ul>
+                  <li>Implementing Auth Middleware, Role-Based Access Control (RBAC), Protecting APIs, Managing Tokens</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Secure existing endpoints with authentication and role checks</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Advanced API Design</td>
+              <td>
+                
+                <ul>
+                  <li>Validation Techniques, Error Handling Best Practices, Pagination, Filtering, Sorting API Responses</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Upgrade the task management API to include validation, pagination, and filters</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Background Jobs & Event Systems</td>
+              <td>
+                
+                <ul>
+                  <li>Creating Background Tasks, Scheduled Jobs, Event-driven Architecture in Encore, Using Message Queues</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Add a notification system that sends emails for overdue tasks</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>DevOps and Deployment</td>
+              <td>
+                
+                <ul>
+                  <li>Deploying with Encore CLI, Managing Environments (Dev, Staging, Production), Monitoring and Logs, Debugging Strategies</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Deploy a staging version of the project with monitoring enabled</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Final Project & Best Practices</td>
+              <td>
+                
+                <ul>
+                  <li>Encore.ts Design Patterns, Microservice Best Practices, API Documentation with Encore, Code Reviews and Refactoring</li>
+                </ul>
+                
+              </td>
+              <td>
+                
+                <ul>
+                  <li>Build a small microservice-based todo application with complete CRUD, auth, background jobs, and deploy to production environment</li>
+                </ul>
+                
+              </td>
+              <td>
+                <span class="badge badge-danger">Yet to Start</span>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+  <div class="footer">
+    <p>Generated by NIAT Tech Stack Roadmap Manager © 2025</p>
+  </div>
+</body>
+</html>
