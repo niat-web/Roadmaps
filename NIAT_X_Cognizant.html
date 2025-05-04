@@ -20,7 +20,6 @@
       --dark: #1f2937;
       --gray: #6c757d;
       --border-color: #e5e7eb;
-      --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
     
     * {
@@ -57,14 +56,42 @@
       z-index: 1;
     }
     
+    .container {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .role-tabs {
+      width: 200px;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .role-tab {
+      background-color: #fff;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+    }
+    
+    .role-tab.active {
+      background-color: #000000;
+      color: white;
+    }
+    
+    .content-area {
+      flex: 1;
+    }
+    
     .tech-stack-section {
       margin-bottom: 25px;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 4px;
-      box-shadow: var(--card-shadow);
-      position: relative;
-      border: 1px solid var(--border-color);
+      padding: 20px 0;
     }
     
     .tech-stack-header {
@@ -110,55 +137,33 @@
       font-size: 0.85rem;
     }
     
-    table {
+    .roadmap-table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 10px;
-      font-size: 0.85rem;
+      margin-bottom: 15px;
+      background-color: #fff;
       border: 1px solid var(--border-color);
     }
     
-    thead {
-      background: #f5f5f5;
-      color: #000000;
-    }
-    
-    th {
-      padding: 12px 16px;
-      text-align: left;
-      font-weight: 600;
-      font-size: 0.8rem;
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-    }
-    
-    td {
-      padding: 10px 16px;
-      border: 1px solid var(--border-color);
-      vertical-align: top;
-      font-size: 0.8rem;
-    }
-    
-    tbody tr:nth-child(even) {
+    .roadmap-table th {
       background-color: #f8f9fa;
-    }
-    
-    .topic-cell {
+      color: var(--primary);
       font-weight: 600;
-      color: var(--dark);
-      width: 15%;
+      padding: 12px 15px;
+      text-align: left;
       font-size: 0.85rem;
+      border-bottom: 2px solid var(--border-color);
     }
     
-    .subtopics-cell, .projects-cell {
-      width: 35%;
-      font-size: 0.8rem;
-      color: var(--secondary);
+    .roadmap-table td {
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: top;
+      font-size: 0.9rem;
     }
     
-    .status-cell {
-      width: 15%;
-      text-align: center;
+    .roadmap-table tr:nth-child(even) {
+      background-color: #f8f9fa;
     }
     
     .badge {
@@ -212,32 +217,6 @@
       border-top: 1px solid var(--border-color);
     }
     
-    /* Role tabs styling */
-    .role-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin: 20px 0;
-    }
-    
-    .role-tab {
-      background-color: #fff;
-      color: var(--primary);
-      border: 1px solid var(--primary);
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .role-tab.active {
-      background-color: #000000;
-      color: white;
-    }
-    
     .role-section {
       margin-top: 20px;
     }
@@ -253,6 +232,16 @@
     @media (max-width: 768px) {
       body {
         padding: 15px;
+      }
+      
+      .container {
+        flex-direction: column;
+      }
+      
+      .role-tabs {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
       }
       
       .header {
@@ -271,14 +260,15 @@
         width: 120px;
       }
       
-      th, td {
-        padding: 8px 10px;
-        font-size: 0.75rem;
-      }
-      
       .role-tab {
         font-size: 0.8rem;
         padding: 6px 12px;
+      }
+      
+      .roadmap-table th,
+      .roadmap-table td {
+        padding: 8px 10px;
+        font-size: 0.8rem;
       }
     }
   </style>
@@ -287,31 +277,970 @@
   <div class="header">
     <h1>NIAT_X_Cognizant</h1>
   </div>
+  <div class="container">
+    <div class="role-tabs">
+      
+        <div class="role-tab active" onclick="showRole(0)">
+          MERN
+        </div>
+      
+        <div class="role-tab " onclick="showRole(1)">
+          GENAI
+        </div>
+      
+    </div>
+    
+    <div class="content-area">
 
-  <div class="role-tabs">
-    
-      <div class="role-tab active" onclick="showRole(0)">
-        Python
+      <div class="role-section" id="role-0" style="display: block;">
+        <h2 class="role-title">MERN</h2>
+
+        <div class="tech-stack-section">
+          <div class="tech-stack-header">
+            <h2 class="tech-stack-title">Python</h2>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 0%;"></div>
+              </div>
+              <span class="progress-text">0% Complete</span>
+            </div>
+          </div>
+          <table class="roadmap-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">Topic</th>
+                <th style="width: 30%;">Sub-Topics</th>
+                <th style="width: 30%;">Projects</th>
+                <th style="width: 20%;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>Python Basics & Setup</td>
+                <td>
+                  
+                  <ul>
+                    <li>Installing Python Understanding syntax Data types Operators Input/Output</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Write a simple calculator app that performs basic arithmetic operations</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Control Flow and Functions</td>
+                <td>
+                  
+                  <ul>
+                    <li>Conditional statements (if/else) Loops (for/while) Writing functions Parameters and return values Variable scope</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Create a number guessing game using loops and functions</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Data Structures – Lists, Tuples, and Dictionaries</td>
+                <td>
+                  
+                  <ul>
+                    <li>Lists Tuples Dictionaries List comprehensions Iterating over data structures</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a contact book application using dictionaries and lists</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Advanced Data Structures – Sets & File I/O</td>
+                <td>
+                  
+                  <ul>
+                    <li>Sets File input/output (reading and writing files) CSV and JSON handling Context managers</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Create a student grades management system that reads and writes data to a CSV file</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Object-Oriented Programming (OOP) – Part 1</td>
+                <td>
+                  
+                  <ul>
+                    <li>Classes and objects Attributes and methods Encapsulation Creating simple classes</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Create a class-based employee management system</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Object-Oriented Programming (OOP) – Part 2</td>
+                <td>
+                  
+                  <ul>
+                    <li>Inheritance Method overriding Polymorphism Abstraction and interfaces</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a multi-level inheritance system for a school management system</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Error Handling and Debugging</td>
+                <td>
+                  
+                  <ul>
+                    <li>Exception handling Raising exceptions Debugging tools (pdb) Unit testing with unittest</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Write a calculator app with error handling and input validation</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Final Project and Best Practices</td>
+                <td>
+                  
+                  <ul>
+                    <li>Python best practices (PEP 8) Code optimization Version control with Git Deploying Python apps</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Complete a task management web application using Flask or Django</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tech-stack-section">
+          <div class="tech-stack-header">
+            <h2 class="tech-stack-title">lovable</h2>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 0%;"></div>
+              </div>
+              <span class="progress-text">0% Complete</span>
+            </div>
+          </div>
+          <table class="roadmap-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">Topic</th>
+                <th style="width: 30%;">Sub-Topics</th>
+                <th style="width: 30%;">Projects</th>
+                <th style="width: 20%;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>Introduction to Lovable.dev</td>
+                <td>
+                  
+                  <ul>
+                    <li>Setting up an account, Understanding AI-based software development, Exploring the interface, Basic Prompt engineering</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Create a simple Notes App using AI prompts</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Building Applications with AI</td>
+                <td>
+                  
+                  <ul>
+                    <li>Writing Feature Requests, Structuring User Stories, Managing Code Generation, Version Control Basics with Lovable</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a basic Blog Platform with create, edit, delete functionality using Lovable AI</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Advanced Customization</td>
+                <td>
+                  
+                  <ul>
+                    <li>Integrating APIs, Customizing AI-Generated Code, Debugging Techniques, Managing Environments (Dev, Staging, Prod)</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Enhance the Blog Platform with an external API (e.g., fetch random quotes, user profiles)</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Deployment & Collaboration</td>
+                <td>
+                  
+                  <ul>
+                    <li>Deploying applications using Lovable, Team Collaboration Features, Handling Production Issues, Best Practices in AI-based dev</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Deploy your final app live; simulate working with a remote team on feature requests</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tech-stack-section">
+          <div class="tech-stack-header">
+            <h2 class="tech-stack-title">Encore ts</h2>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 0%;"></div>
+              </div>
+              <span class="progress-text">0% Complete</span>
+            </div>
+          </div>
+          <table class="roadmap-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">Topic</th>
+                <th style="width: 30%;">Sub-Topics</th>
+                <th style="width: 30%;">Projects</th>
+                <th style="width: 20%;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>Introduction to Encore.ts</td>
+                <td>
+                  
+                  <ul>
+                    <li>What is Encore.ts, Setting up Development Environment, Overview of Encore Architecture, Key Concepts: Services, APIs, Databases</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Set up Encore.ts and deploy a simple "Hello World" service</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Services & APIs</td>
+                <td>
+                  
+                  <ul>
+                    <li>Creating Services, Defining Endpoints, Request and Response Types, HTTP Routing, Authorization Basics</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a simple service with GET and POST endpoints</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Data Modeling & Persistence</td>
+                <td>
+                  
+                  <ul>
+                    <li>Using Encore's Database Models, Defining Schemas, Performing CRUD Operations, Migrations in Encore.ts</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Create a service to manage a list of tasks (CRUD functionality)</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Authentication & Authorization</td>
+                <td>
+                  
+                  <ul>
+                    <li>Implementing Auth Middleware, Role-Based Access Control (RBAC), Protecting APIs, Managing Tokens</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Secure existing endpoints with authentication and role checks</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Advanced API Design</td>
+                <td>
+                  
+                  <ul>
+                    <li>Validation Techniques, Error Handling Best Practices, Pagination, Filtering, Sorting API Responses</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Upgrade the task management API to include validation, pagination, and filters</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Background Jobs & Event Systems</td>
+                <td>
+                  
+                  <ul>
+                    <li>Creating Background Tasks, Scheduled Jobs, Event-driven Architecture in Encore, Using Message Queues</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Add a notification system that sends emails for overdue tasks</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>DevOps and Deployment</td>
+                <td>
+                  
+                  <ul>
+                    <li>Deploying with Encore CLI, Managing Environments (Dev, Staging, Production), Monitoring and Logs, Debugging Strategies</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Deploy a staging version of the project with monitoring enabled</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Final Project & Best Practices</td>
+                <td>
+                  
+                  <ul>
+                    <li>Encore.ts Design Patterns, Microservice Best Practices, API Documentation with Encore, Code Reviews and Refactoring</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a small microservice-based todo application with complete CRUD, auth, background jobs, and deploy to production environment</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
       </div>
-    
-      <div class="role-tab " onclick="showRole(1)">
-        JAva
+
+      <div class="role-section" id="role-1" style="display: none;">
+        <h2 class="role-title">GENAI</h2>
+
+        <div class="tech-stack-section">
+          <div class="tech-stack-header">
+            <h2 class="tech-stack-title">Technical Business Analyst</h2>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 0%;"></div>
+              </div>
+              <span class="progress-text">0% Complete</span>
+            </div>
+          </div>
+          <table class="roadmap-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">Topic</th>
+                <th style="width: 30%;">Sub-Topics</th>
+                <th style="width: 30%;">Projects</th>
+                <th style="width: 20%;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>Fundamentals of Business Analysis</td>
+                <td>
+                  
+                  <ul>
+                    <li>Role of a Technical Business Analyst, BA vs Technical BA, SDLC Overview, Introduction to Requirements Gathering, Stakeholder Management</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Create a stakeholder map and gather initial requirements for a sample mobile app project</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Requirements Gathering Techniques</td>
+                <td>
+                  
+                  <ul>
+                    <li>Functional vs Non-Functional Requirements, Use Cases and User Stories, Interviewing Stakeholders, Process Mapping, Documenting Requirements</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Write user stories and process flow diagrams for an e-commerce checkout system</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Tools and Documentation</td>
+                <td>
+                  
+                  <ul>
+                    <li>Using JIRA/Confluence for BA work, BRD and FRS templates, Wireframing with Balsamiq/Figma, Change Management Basics</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Create a mini Business Requirements Document (BRD) and a wireframe for a simple booking system</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Technical Collaboration</td>
+                <td>
+                  
+                  <ul>
+                    <li>Understanding APIs, Reading API Documentation, Data Mapping Basics, Collaborating with Dev & QA Teams, Writing Testable Requirements</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Map data fields between a frontend form and backend API, define clear acceptance criteria</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Real-World Simulation & Best Practices</td>
+                <td>
+                  
+                  <ul>
+                    <li>Agile in BA Work, Running Grooming and Sprint Planning Sessions, Risk Identification, Handling Ambiguity, BA Career Growth Paths</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Run a mock sprint planning session and deliver a final consolidated requirement pack</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tech-stack-section">
+          <div class="tech-stack-header">
+            <h2 class="tech-stack-title">Embedded Linux</h2>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 0%;"></div>
+              </div>
+              <span class="progress-text">0% Complete</span>
+            </div>
+          </div>
+          <table class="roadmap-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">Topic</th>
+                <th style="width: 30%;">Sub-Topics</th>
+                <th style="width: 30%;">Projects</th>
+                <th style="width: 20%;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>Introduction to Embedded Linux Systems</td>
+                <td>
+                  
+                  <ul>
+                    <li>- What is Embedded Linux?</li><li>- Linux vs RTOS</li><li>- Architecture of Embedded Linux (Bootloader, Kernel, Root FS)</li><li>- Hardware platforms (Raspberry Pi, BeagleBone)</li><li>- Linux Distributions (Yocto, Buildroot, Raspbian)</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Set up a Raspberry Pi/Linux dev board and boot a custom Linux image</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Bootloaders, Kernel & Root Filesystem</td>
+                <td>
+                  
+                  <ul>
+                    <li>- U-Boot basics and commands</li><li>- Kernel configuration and compilation</li><li>- Device tree overview</li><li>- Creating minimal root filesystem</li><li>- Init systems (Systemd, BusyBox)</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Rebuild the Linux kernel with custom config and boot it with U-Boot on Raspberry Pi</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Drivers, Shell & Process Management</td>
+                <td>
+                  
+                  <ul>
+                    <li>- Writing simple device drivers</li><li>- Kernel modules</li><li>- Interfacing with GPIO, I2C, SPI</li><li>- Linux commands: top, ps, dmesg, lsmod</li><li>- Shell scripting basics</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Write a character device driver for reading a GPIO pin, and control it using a shell script</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Application Development & Debugging</td>
+                <td>
+                  
+                  <ul>
+                    <li>- Cross-compilation with GCC</li><li>- File system layout and permissions</li><li>- GDB for remote debugging</li><li>- Serial console and logs</li><li>- Package management</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build and run a C/C++ application that blinks an LED and logs to serial, using cross-compilation and GDB</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tech-stack-section">
+          <div class="tech-stack-header">
+            <h2 class="tech-stack-title">Spring</h2>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 0%;"></div>
+              </div>
+              <span class="progress-text">0% Complete</span>
+            </div>
+          </div>
+          <table class="roadmap-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">Topic</th>
+                <th style="width: 30%;">Sub-Topics</th>
+                <th style="width: 30%;">Projects</th>
+                <th style="width: 20%;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>Spring Framework Basics</td>
+                <td>
+                  
+                  <ul>
+                    <li>Introduction to Spring, Inversion of Control (IoC), Dependency Injection, Spring Beans, Bean Scopes, ApplicationContext</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a Simple Spring Application with IoC</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Spring Boot Fundamentals</td>
+                <td>
+                  
+                  <ul>
+                    <li>Spring Boot vs Spring, Project Setup (Spring Initializr), Auto Configuration, Starter Dependencies, Application Properties</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Develop a REST API with Spring Boot</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Spring Boot REST API</td>
+                <td>
+                  
+                  <ul>
+                    <li>RESTful Web Services, Controllers, Request Mapping, Response Handling, Exception Handling, Path Variables & Query Params</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a CRUD API for a Bookstore</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Data Persistence with JPA</td>
+                <td>
+                  
+                  <ul>
+                    <li>Spring Data JPA, Entity Relationships, Repository Pattern, CRUD Operations, H2/PostgreSQL Integration</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Implement User Authentication with JPA</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Spring Security</td>
+                <td>
+                  
+                  <ul>
+                    <li>Authentication & Authorization, BCrypt Password Hashing, JWT Token Authentication, Role-Based Access Control</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Secure the Bookstore API with JWT</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Spring Boot & Database</td>
+                <td>
+                  
+                  <ul>
+                    <li>Spring Boot with MySQL/PostgreSQL, Database Migrations (Flyway/Liquibase), Transactions & ACID, Caching (Ehcache, Redis)</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Implement Caching for API Responses</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Spring Boot Microservices</td>
+                <td>
+                  
+                  <ul>
+                    <li>Microservices Architecture, Service Registration (Eureka), API Gateway (Zuul/Spring Cloud Gateway), Inter-Service Communication (Feign/RestTemplate)</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Develop a Microservice-Based Order System</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Advanced Topics</td>
+                <td>
+                  
+                  <ul>
+                    <li>Spring Boot Actuator, Distributed Tracing with Zipkin, Monitoring (Prometheus & Grafana), Deployment (Docker/Kubernetes)</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Deploy the Microservices to Kubernetes</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
       </div>
-    
+
+    </div>
   </div>
   
   <script>
     function showRole(roleIndex) {
-      // Hide all role sections
       const roleSections = document.querySelectorAll('.role-section');
       roleSections.forEach(section => {
         section.style.display = 'none';
       });
       
-      // Show the selected role section
       roleSections[roleIndex].style.display = 'block';
       
-      // Update active tab
       const roleTabs = document.querySelectorAll('.role-tab');
       roleTabs.forEach((tab, index) => {
         if (index === roleIndex) {
@@ -322,425 +1251,13 @@
       });
     }
     
-    // Initialize with the first role shown
     document.addEventListener('DOMContentLoaded', function() {
       showRole(0);
     });
   </script>
-
-  <div class="role-section" id="role-0" style="display: block;">
-    <h2 class="role-title">Python</h2>
-
-    <div class="tech-stack-section">
-      <div class="tech-stack-header">
-        <h2 class="tech-stack-title">Python</h2>
-        <div class="progress-container">
-          <div class="progress-bar">
-            <div class="progress-bar-fill" style="width: 0%;"></div>
-          </div>
-          <span class="progress-text">0% Complete</span>
-        </div>
-      </div>
-      
-      <table>
-        <thead>
-          <tr>
-            <th>Topic</th>
-            <th>Sub-Topic</th>
-            <th>Project</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <tr>
-            <td class="topic-cell">Python Basics & Setup</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>Installing Python Understanding syntax Data types Operators Input/Output</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              <ul>
-              <li>Write a simple calculator app that performs basic arithmetic operations</li>
-              </ul>
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="topic-cell">Control Flow and Functions</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>Conditional statements (if/else) Loops (for/while) Writing functions Parameters and return values Variable scope</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              <ul>
-              <li>Create a number guessing game using loops and functions</li>
-              </ul>
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="topic-cell">Data Structures – Lists, Tuples, and Dictionaries</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>Lists Tuples Dictionaries List comprehensions Iterating over data structures</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              <ul>
-              <li>Build a contact book application using dictionaries and lists</li>
-              </ul>
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="topic-cell">Advanced Data Structures – Sets & File I/O</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>Sets File input/output (reading and writing files) CSV and JSON handling Context managers</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              <ul>
-              <li>Create a student grades management system that reads and writes data to a CSV file</li>
-              </ul>
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="topic-cell">Object-Oriented Programming (OOP) – Part 1</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>Classes and objects Attributes and methods Encapsulation Creating simple classes</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              <ul>
-              <li>Create a class-based employee management system</li>
-              </ul>
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="topic-cell">Object-Oriented Programming (OOP) – Part 2</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>Inheritance Method overriding Polymorphism Abstraction and interfaces</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              <ul>
-              <li>Build a multi-level inheritance system for a school management system</li>
-              </ul>
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="topic-cell">Error Handling and Debugging</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>Exception handling Raising exceptions Debugging tools (pdb) Unit testing with unittest</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              <ul>
-              <li>Write a calculator app with error handling and input validation</li>
-              </ul>
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="topic-cell">Final Project and Best Practices</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>Python best practices (PEP 8) Code optimization Version control with Git Deploying Python apps</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              <ul>
-              <li>Complete a task management web application using Flask or Django</li>
-              </ul>
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-
-  </div>
-
-  <div class="role-section" id="role-1" style="display: none;">
-    <h2 class="role-title">JAva</h2>
-
-    <div class="tech-stack-section">
-      <div class="tech-stack-header">
-        <h2 class="tech-stack-title">PostgreSQL</h2>
-        <div class="progress-container">
-          <div class="progress-bar">
-            <div class="progress-bar-fill" style="width: 0%;"></div>
-          </div>
-          <span class="progress-text">0% Complete</span>
-        </div>
-      </div>
-      
-      <table>
-        <thead>
-          <tr>
-            <th>Topic</th>
-            <th>Sub-Topic</th>
-            <th>Project / Task</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <tr>
-            <td class="topic-cell">Introduction to PostgreSQL</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>What is PostgreSQL? Key differences between PostgreSQL and SQLite, Setting up PostgreSQL</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              
-              
-              
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="topic-cell">PostgreSQL Data Types & Syntax</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>PostgreSQL-specific data types, SQL syntax differences</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              
-              
-              
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="topic-cell">Advanced PostgreSQL Features</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>Stored Procedures, Triggers, Views</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              
-              
-              
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="topic-cell">Indexing & Performance</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>Indexes, Query Optimization</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              
-              
-              
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="topic-cell">PostgreSQL Extensions</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>Introduction to Extensions, Popular Extensions (e.g., PostGIS, pgcrypto)</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              
-              
-              
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="topic-cell">Transactions & Concurrency</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>ACID Properties, Transaction Management, Concurrency Control</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              
-              
-              
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="topic-cell">Backup & Recovery</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>Backup Strategies, Point-in-Time Recovery</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              
-              
-              
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-
-    <div class="tech-stack-section">
-      <div class="tech-stack-header">
-        <h2 class="tech-stack-title">Embedded Linux</h2>
-        <div class="progress-container">
-          <div class="progress-bar">
-            <div class="progress-bar-fill" style="width: 0%;"></div>
-          </div>
-          <span class="progress-text">0% Complete</span>
-        </div>
-      </div>
-      
-      <table>
-        <thead>
-          <tr>
-            <th>Topic</th>
-            <th>Sub-Topics</th>
-            <th>Project / Task</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <tr>
-            <td class="topic-cell">Introduction to Embedded Linux Systems</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>- What is Embedded Linux?</li><li>- Linux vs RTOS</li><li>- Architecture of Embedded Linux (Bootloader, Kernel, Root FS)</li><li>- Hardware platforms (Raspberry Pi, BeagleBone)</li><li>- Linux Distributions (Yocto, Buildroot, Raspbian)</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              <ul>
-              <li>Set up a Raspberry Pi/Linux dev board and boot a custom Linux image</li>
-              </ul>
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="topic-cell">Bootloaders, Kernel & Root Filesystem</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>- U-Boot basics and commands</li><li>- Kernel configuration and compilation</li><li>- Device tree overview</li><li>- Creating minimal root filesystem</li><li>- Init systems (Systemd, BusyBox)</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              <ul>
-              <li>Rebuild the Linux kernel with custom config and boot it with U-Boot on Raspberry Pi</li>
-              </ul>
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="topic-cell">Drivers, Shell & Process Management</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>- Writing simple device drivers</li><li>- Kernel modules</li><li>- Interfacing with GPIO, I2C, SPI</li><li>- Linux commands: top, ps, dmesg, lsmod</li><li>- Shell scripting basics</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              <ul>
-              <li>Write a character device driver for reading a GPIO pin, and control it using a shell script</li>
-              </ul>
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="topic-cell">Application Development & Debugging</td>
-            <td class="subtopics-cell">
-              <ul>
-              <li>- Cross-compilation with GCC</li><li>- File system layout and permissions</li><li>- GDB for remote debugging</li><li>- Serial console and logs</li><li>- Package management</li>
-              </ul>
-            </td>
-            <td class="projects-cell">
-              <ul>
-              <li>Build and run a C/C++ application that blinks an LED and logs to serial, using cross-compilation and GDB</li>
-              </ul>
-            </td>
-            <td class="status-cell">
-            <span class="badge badge-danger">Yet to Start</span>
-            </td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-
-  </div>
-
+  
   <div class="footer">
-    <p>Generated by NIAT Tech Stack Roadmap Manager &copy; 2025</p>
+    <p>Generated by NIAT Tech Stack Roadmap Manager © 2025</p>
   </div>
 </body>
 </html>
