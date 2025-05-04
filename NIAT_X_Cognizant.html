@@ -1,0 +1,746 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NIAT_X_Cognizant</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    :root {
+      --primary: #000000;
+      --primary-light: #333333;
+      --primary-gradient: linear-gradient(135deg, #000000 0%, #333333 100%);
+      --secondary: #505965;
+      --success: #137333;
+      --warning: #b06000;
+      --danger: #a50e0e;
+      --light: #f8f9fa;
+      --dark: #1f2937;
+      --gray: #6c757d;
+      --border-color: #e5e7eb;
+      --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #ffffff;
+      color: #000000;
+      border-bottom: 1px solid #e5e7eb;
+      position: relative;
+    }
+    
+    h1 {
+      position: relative;
+      margin: 0;
+      font-weight: 700;
+      font-size: 2.5rem;
+      z-index: 1;
+    }
+    
+    .tech-stack-section {
+      margin-bottom: 25px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      border: 1px solid var(--border-color);
+    }
+    
+    .tech-stack-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .tech-stack-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0;
+      position: relative;
+    }
+    
+    .progress-container {
+      display: flex;
+      align-items: center;
+    }
+    
+    .progress-bar {
+      width: 160px;
+      height: 8px;
+      background-color: #eaedf5;
+      border-radius: 4px;
+      margin-right: 12px;
+      overflow: hidden;
+    }
+    
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: var(--primary-gradient);
+    }
+    
+    .progress-text {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 0.85rem;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+      border: 1px solid var(--border-color);
+    }
+    
+    thead {
+      background: #f5f5f5;
+      color: #000000;
+    }
+    
+    th {
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+    
+    td {
+      padding: 10px 16px;
+      border: 1px solid var(--border-color);
+      vertical-align: top;
+      font-size: 0.8rem;
+    }
+    
+    tbody tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    
+    .topic-cell {
+      font-weight: 600;
+      color: var(--dark);
+      width: 15%;
+      font-size: 0.85rem;
+    }
+    
+    .subtopics-cell, .projects-cell {
+      width: 35%;
+      font-size: 0.8rem;
+      color: var(--secondary);
+    }
+    
+    .status-cell {
+      width: 15%;
+      text-align: center;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-align: center;
+      letter-spacing: 0.3px;
+    }
+    
+    .badge-success {
+      background-color: rgba(19, 115, 51, 0.1);
+      color: var(--success);
+      border: 1px solid rgba(19, 115, 51, 0.2);
+    }
+    
+    .badge-warning {
+      background-color: rgba(176, 96, 0, 0.1);
+      color: var(--warning);
+      border: 1px solid rgba(176, 96, 0, 0.2);
+    }
+    
+    .badge-danger {
+      background-color: rgba(165, 14, 14, 0.1);
+      color: var(--danger);
+      border: 1px solid rgba(165, 14, 14, 0.2);
+    }
+    
+    ul {
+      margin: 0;
+      padding: 0 0 0 16px;
+    }
+    
+    li {
+      margin-bottom: 4px;
+      font-size: 0.8rem;
+    }
+    
+    li:last-child {
+      margin-bottom: 0;
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      color: var(--gray);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border-color);
+    }
+    
+    /* Role tabs styling */
+    .role-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    
+    .role-tab {
+      background-color: #fff;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .role-tab.active {
+      background-color: #000000;
+      color: white;
+    }
+    
+    .role-section {
+      margin-top: 20px;
+    }
+    
+    .role-title {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+      
+      .header {
+        padding: 15px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .tech-stack-title {
+        font-size: 1.5rem;
+      }
+      
+      .progress-bar {
+        width: 120px;
+      }
+      
+      th, td {
+        padding: 8px 10px;
+        font-size: 0.75rem;
+      }
+      
+      .role-tab {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>NIAT_X_Cognizant</h1>
+  </div>
+
+  <div class="role-tabs">
+    
+      <div class="role-tab active" onclick="showRole(0)">
+        Python
+      </div>
+    
+      <div class="role-tab " onclick="showRole(1)">
+        JAva
+      </div>
+    
+  </div>
+  
+  <script>
+    function showRole(roleIndex) {
+      // Hide all role sections
+      const roleSections = document.querySelectorAll('.role-section');
+      roleSections.forEach(section => {
+        section.style.display = 'none';
+      });
+      
+      // Show the selected role section
+      roleSections[roleIndex].style.display = 'block';
+      
+      // Update active tab
+      const roleTabs = document.querySelectorAll('.role-tab');
+      roleTabs.forEach((tab, index) => {
+        if (index === roleIndex) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+    }
+    
+    // Initialize with the first role shown
+    document.addEventListener('DOMContentLoaded', function() {
+      showRole(0);
+    });
+  </script>
+
+  <div class="role-section" id="role-0" style="display: block;">
+    <h2 class="role-title">Python</h2>
+
+    <div class="tech-stack-section">
+      <div class="tech-stack-header">
+        <h2 class="tech-stack-title">Python</h2>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 0%;"></div>
+          </div>
+          <span class="progress-text">0% Complete</span>
+        </div>
+      </div>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Topic</th>
+            <th>Sub-Topic</th>
+            <th>Project</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td class="topic-cell">Python Basics & Setup</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Installing Python Understanding syntax Data types Operators Input/Output</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Write a simple calculator app that performs basic arithmetic operations</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Control Flow and Functions</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Conditional statements (if/else) Loops (for/while) Writing functions Parameters and return values Variable scope</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Create a number guessing game using loops and functions</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Data Structures – Lists, Tuples, and Dictionaries</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Lists Tuples Dictionaries List comprehensions Iterating over data structures</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Build a contact book application using dictionaries and lists</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Advanced Data Structures – Sets & File I/O</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Sets File input/output (reading and writing files) CSV and JSON handling Context managers</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Create a student grades management system that reads and writes data to a CSV file</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Object-Oriented Programming (OOP) – Part 1</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Classes and objects Attributes and methods Encapsulation Creating simple classes</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Create a class-based employee management system</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Object-Oriented Programming (OOP) – Part 2</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Inheritance Method overriding Polymorphism Abstraction and interfaces</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Build a multi-level inheritance system for a school management system</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Error Handling and Debugging</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Exception handling Raising exceptions Debugging tools (pdb) Unit testing with unittest</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Write a calculator app with error handling and input validation</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Final Project and Best Practices</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Python best practices (PEP 8) Code optimization Version control with Git Deploying Python apps</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Complete a task management web application using Flask or Django</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="role-section" id="role-1" style="display: none;">
+    <h2 class="role-title">JAva</h2>
+
+    <div class="tech-stack-section">
+      <div class="tech-stack-header">
+        <h2 class="tech-stack-title">PostgreSQL</h2>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 0%;"></div>
+          </div>
+          <span class="progress-text">0% Complete</span>
+        </div>
+      </div>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Topic</th>
+            <th>Sub-Topic</th>
+            <th>Project / Task</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td class="topic-cell">Introduction to PostgreSQL</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>What is PostgreSQL? Key differences between PostgreSQL and SQLite, Setting up PostgreSQL</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              
+              
+              
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">PostgreSQL Data Types & Syntax</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>PostgreSQL-specific data types, SQL syntax differences</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              
+              
+              
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Advanced PostgreSQL Features</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Stored Procedures, Triggers, Views</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              
+              
+              
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Indexing & Performance</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Indexes, Query Optimization</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              
+              
+              
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">PostgreSQL Extensions</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Introduction to Extensions, Popular Extensions (e.g., PostGIS, pgcrypto)</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              
+              
+              
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Transactions & Concurrency</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>ACID Properties, Transaction Management, Concurrency Control</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              
+              
+              
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Backup & Recovery</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>Backup Strategies, Point-in-Time Recovery</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              
+              
+              
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tech-stack-section">
+      <div class="tech-stack-header">
+        <h2 class="tech-stack-title">Embedded Linux</h2>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 0%;"></div>
+          </div>
+          <span class="progress-text">0% Complete</span>
+        </div>
+      </div>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Topic</th>
+            <th>Sub-Topics</th>
+            <th>Project / Task</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td class="topic-cell">Introduction to Embedded Linux Systems</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>- What is Embedded Linux?</li><li>- Linux vs RTOS</li><li>- Architecture of Embedded Linux (Bootloader, Kernel, Root FS)</li><li>- Hardware platforms (Raspberry Pi, BeagleBone)</li><li>- Linux Distributions (Yocto, Buildroot, Raspbian)</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Set up a Raspberry Pi/Linux dev board and boot a custom Linux image</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Bootloaders, Kernel & Root Filesystem</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>- U-Boot basics and commands</li><li>- Kernel configuration and compilation</li><li>- Device tree overview</li><li>- Creating minimal root filesystem</li><li>- Init systems (Systemd, BusyBox)</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Rebuild the Linux kernel with custom config and boot it with U-Boot on Raspberry Pi</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Drivers, Shell & Process Management</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>- Writing simple device drivers</li><li>- Kernel modules</li><li>- Interfacing with GPIO, I2C, SPI</li><li>- Linux commands: top, ps, dmesg, lsmod</li><li>- Shell scripting basics</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Write a character device driver for reading a GPIO pin, and control it using a shell script</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="topic-cell">Application Development & Debugging</td>
+            <td class="subtopics-cell">
+              <ul>
+              <li>- Cross-compilation with GCC</li><li>- File system layout and permissions</li><li>- GDB for remote debugging</li><li>- Serial console and logs</li><li>- Package management</li>
+              </ul>
+            </td>
+            <td class="projects-cell">
+              <ul>
+              <li>Build and run a C/C++ application that blinks an LED and logs to serial, using cross-compilation and GDB</li>
+              </ul>
+            </td>
+            <td class="status-cell">
+            <span class="badge badge-danger">Yet to Start</span>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>Generated by NIAT Tech Stack Roadmap Manager &copy; 2025</p>
+  </div>
+</body>
+</html>
