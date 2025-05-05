@@ -1,0 +1,847 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NIAT_X_TCCS2</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    :root {
+      --primary: #000000;
+      --primary-light: #333333;
+      --primary-gradient: linear-gradient(135deg, #000000 0%, #333333 100%);
+      --secondary: #505965;
+      --success: #137333;
+      --warning: #b06000;
+      --danger: #a50e0e;
+      --light: #f8f9fa;
+      --dark: #1f2937;
+      --gray: #6c757d;
+      --border-color: #e5e7eb;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      margin: 0 auto;
+      padding: 16px;
+      background-color: #ffffff;
+      line-height: 1.5;
+      max-width: 100%;
+    }
+    
+    .header {
+      text-align: center;
+      background: #ffffff;
+      color: #000000;
+      border-bottom: 1px solid #e5e7eb;
+      position: relative;
+      margin-bottom: 20px;
+    }
+    
+    h1 {
+      position: relative;
+      margin: 0;
+      font-weight: 700;
+      font-size: 2.2rem;
+      z-index: 1;
+    }
+    
+    .container {
+      display: flex;
+      gap: 16px;
+      margin: 0 auto;
+      max-width: 90%; /* Add spacing on both sides */
+    }
+    
+    .role-tabs {
+      width: 180px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    
+    .role-tab {
+      background-color: #fff;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      padding: 10px 12px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+    }
+    
+    .role-tab.active {
+      background-color: #000000;
+      color: white;
+    }
+    
+    .content-area {
+      flex: 1;
+      display: flex;
+      justify-content: center; /* Center the tables */
+    }
+    
+    
+    .tech-stack-section {
+      margin-bottom: 12px;
+    }
+    
+    .tech-stack-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    
+    .tech-stack-title {
+      font-size: 1.4rem;  /* Reduced from 1.8rem */
+      font-weight: 600;
+      color: var(--primary);
+      margin: 0;
+      position: relative;
+    }
+    
+    .progress-container {
+      display: flex;
+      align-items: center;
+    }
+    
+    .progress-bar {
+      width: 140px;
+      height: 8px;
+      background-color: #eaedf5;
+      border-radius: 4px;
+      margin-right: 10px;
+      overflow: hidden;
+    }
+    
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: var(--primary-gradient);
+    }
+    
+    .progress-text {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 0.8rem;
+    }
+    
+    .roadmap-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 12px;
+      background-color: #fff;
+      border: 1px solid var(--border-color);
+      font-size: 0.85rem;
+    }
+    
+    .roadmap-table th {
+      background-color: #333333; /* Solid color for headers */
+      color: white;
+      font-weight: 600;
+      padding: 8px 10px;
+      text-align: left;
+      font-size: 0.8rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .roadmap-table td {
+      padding: 6px 10px;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: top;
+      font-size: 0.85rem;
+    }
+    
+    .roadmap-table tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-align: center;
+      letter-spacing: 0.3px;
+    }
+    
+    .badge-success {
+      background-color: rgba(19, 115, 51, 0.1);
+      color: var(--success);
+      border: 1px solid rgba(19, 115, 51, 0.2);
+    }
+    
+    .badge-warning {
+      background-color: rgba(176, 96, 0, 0.1);
+      color: var(--warning);
+      border: 1px solid rgba(176, 96, 0, 0.2);
+    }
+    
+    .badge-danger {
+      background-color: rgba(165, 14, 14, 0.1);
+      color: var(--danger);
+      border: 1px solid rgba(165, 14, 14, 0.2);
+    }
+    
+    ul {
+      margin: 0;
+      padding: 0 0 0 14px;
+    }
+    
+    li {
+      margin-bottom: 2px;
+      font-size: 0.75rem;
+    }
+    
+    li:last-child {
+      margin-bottom: 0;
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 12px;
+      }
+      
+      .container {
+        flex-direction: column;
+        max-width: 100%;
+      }
+      
+      .role-tabs {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      
+      .role-section {
+        width: 100%;
+      }
+      
+      .header {
+        padding: 12px;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      .tech-stack-title {
+        font-size: 1.3rem;
+      }
+      
+      .progress-bar {
+        width: 100px;
+      }
+      
+      .role-tab {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+      }
+      
+      .roadmap-table th,
+      .roadmap-table td {
+        padding: 6px 8px;
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>NIAT_X_TCCS2</h1>
+  </div>
+  <div class="container">
+    <div class="role-tabs">
+      
+        <div class="role-tab active" onclick="showRole(0)">
+          MERN
+        </div>
+      
+    </div>
+    
+    <div class="content-area">
+
+      <div class="role-section" id="role-0" style="display: block;">
+
+        <div class="tech-stack-section">
+          <div class="tech-stack-header">
+            <h2 class="tech-stack-title">Automation Testing with Cypress</h2>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 0%;"></div>
+              </div>
+              <span class="progress-text">0% Complete</span>
+            </div>
+          </div>
+          <table class="roadmap-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">TOPIC</th>
+                <th style="width: 30%;">SUB-TOPICS</th>
+                <th style="width: 30%;">PROJECT / TASK</th>
+                <th style="width: 10%;">STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>Introduction & Cypress Setup</td>
+                <td>
+                  
+                  <ul>
+                    <li>- What is Cypress?</li><li>- Key features vs Selenium</li><li>- Installing Cypress</li><li>- Folder structure and test runner</li><li>- Writing the first test case</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Install Cypress and write a basic test for visiting a webpage and checking a heading</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Locators & Assertions</td>
+                <td>
+                  
+                  <ul>
+                    <li>- CSS selectors, cy.get(), aliases</li><li>- Best practices for selecting elements</li><li>- should(), expect()</li><li>- Chaining commands</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Test a login page: assert visibility, input validation, and error messages</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Custom Commands & Hooks</td>
+                <td>
+                  
+                  <ul>
+                    <li>- Creating reusable custom commands</li><li>- Using beforeEach, afterEach hooks</li><li>- cy.request() vs cy.visit()</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Create a reusable login command and test multiple authenticated pages using that setup</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Handling Forms, Alerts & File Uploads</td>
+                <td>
+                  
+                  <ul>
+                    <li>- Working with input forms, checkboxes, radio buttons</li><li>- Handling alerts, modals, confirmations</li><li>- File uploads and downloads</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Test a form submission flow with validations, alerts, and confirmation popups</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>API Testing & Intercepting Requests</td>
+                <td>
+                  
+                  <ul>
+                    <li>- Testing REST APIs with cy.request()</li><li>- Using cy.intercept() for stubbing and spying</li><li>- Mocking network responses</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build tests for a search bar that makes API calls and stub responses for different user inputs</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>CI Integration & Best Practices</td>
+                <td>
+                  
+                  <ul>
+                    <li>- Running Cypress in headless mode</li><li>- Integrating with CI tools (GitHub Actions, Jenkins)</li><li>- Screenshots & video reports</li><li>- Folder organization</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Configure Cypress to run in CI pipeline with test reports and logs, test on pull request trigger</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tech-stack-section">
+          <div class="tech-stack-header">
+            <h2 class="tech-stack-title">FastAPI</h2>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 0%;"></div>
+              </div>
+              <span class="progress-text">0% Complete</span>
+            </div>
+          </div>
+          <table class="roadmap-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">TOPIC</th>
+                <th style="width: 30%;">SUB-TOPICS</th>
+                <th style="width: 30%;">PROJECT</th>
+                <th style="width: 10%;">STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>FastAPI Setup & Fundamentals</td>
+                <td>
+                  
+                  <ul>
+                    <li>IDE Setup (VSCode/PyCharm)</li><li>Virtual Environment</li><li>Installing FastAPI</li><li>App Structure</li><li>Uvicorn Server</li><li>Request Handling</li><li>Path Operations</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Create Your First FastAPI App: Set up and run a basic FastAPI app with automatic docs</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Path Parameters & Query Parameters</td>
+                <td>
+                  
+                  <ul>
+                    <li>Path Parameters</li><li>Query Parameters</li><li>Request Validation</li><li>Pydantic Models</li><li>Response Models</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a Book Search API: Create endpoints with path/query parameters for filtering books</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Pydantic & Data Validation</td>
+                <td>
+                  
+                  <ul>
+                    <li>Pydantic Models</li><li>Field Validation</li><li>Request Body Parsing</li><li>Nested Models</li><li>Custom Validators</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Create a Form Processing API: Accept and validate complex user input with proper error handling</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>SQLite with SQLAlchemy</td>
+                <td>
+                  
+                  <ul>
+                    <li>SQLAlchemy ORM</li><li>FastAPI integration</li><li>Async Database</li><li>CRUD Operations</li><li>Dependency Injection</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a Book Catalog API: Manage books and authors using SQLite & SQLAlchemy</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Advanced API Features</td>
+                <td>
+                  
+                  <ul>
+                    <li>Background Tasks</li><li>WebSockets</li><li>Middleware</li><li>CORS</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Enhance Book Catalog API: Add background tasks (e.g., email notifications) and handle CORS for external access</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Authentication & Security</td>
+                <td>
+                  
+                  <ul>
+                    <li>OAuth2</li><li>JWT</li><li>Password Hashing</li><li>Security Scopes</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Secure Book Catalog API: Implement token-based login/logout with role-based permissions</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Testing & Documentation</td>
+                <td>
+                  
+                  <ul>
+                    <li>pytest</li><li>TestClient</li><li>Mocking</li><li>API Testing</li><li>Auto-Documentation</li><li>OpenAPI</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Write Unit Tests & Documentation: Test CRUD and Auth routes, customize auto-docs</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Deployment & Performance</td>
+                <td>
+                  
+                  <ul>
+                    <li>Docker</li><li>Gunicorn+Uvicorn</li><li>Deploy to Render/Heroku/Railway</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Deploy Book Catalog API: Containerize and deploy with production-ready setup</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tech-stack-section">
+          <div class="tech-stack-header">
+            <h2 class="tech-stack-title">Python</h2>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 0%;"></div>
+              </div>
+              <span class="progress-text">0% Complete</span>
+            </div>
+          </div>
+          <table class="roadmap-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">TOPIC</th>
+                <th style="width: 30%;">SUB-TOPIC</th>
+                <th style="width: 30%;">PROJECT</th>
+                <th style="width: 10%;">STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>Python Basics & Setup</td>
+                <td>
+                  
+                  <ul>
+                    <li>Installing Python Understanding syntax Data types Operators Input/Output</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Write a simple calculator app that performs basic arithmetic operations</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Control Flow and Functions</td>
+                <td>
+                  
+                  <ul>
+                    <li>Conditional statements (if/else) Loops (for/while) Writing functions Parameters and return values Variable scope</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Create a number guessing game using loops and functions</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Data Structures – Lists, Tuples, and Dictionaries</td>
+                <td>
+                  
+                  <ul>
+                    <li>Lists Tuples Dictionaries List comprehensions Iterating over data structures</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a contact book application using dictionaries and lists</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Advanced Data Structures – Sets & File I/O</td>
+                <td>
+                  
+                  <ul>
+                    <li>Sets File input/output (reading and writing files) CSV and JSON handling Context managers</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Create a student grades management system that reads and writes data to a CSV file</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Object-Oriented Programming (OOP) – Part 1</td>
+                <td>
+                  
+                  <ul>
+                    <li>Classes and objects Attributes and methods Encapsulation Creating simple classes</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Create a class-based employee management system</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Object-Oriented Programming (OOP) – Part 2</td>
+                <td>
+                  
+                  <ul>
+                    <li>Inheritance Method overriding Polymorphism Abstraction and interfaces</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a multi-level inheritance system for a school management system</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Error Handling and Debugging</td>
+                <td>
+                  
+                  <ul>
+                    <li>Exception handling Raising exceptions Debugging tools (pdb) Unit testing with unittest</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Write a calculator app with error handling and input validation</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Final Project and Best Practices</td>
+                <td>
+                  
+                  <ul>
+                    <li>Python best practices (PEP 8) Code optimization Version control with Git Deploying Python apps</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Complete a task management web application using Flask or Django</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  
+  <script>
+    function showRole(roleIndex) {
+      const roleSections = document.querySelectorAll('.role-section');
+      roleSections.forEach(section => {
+        section.style.display = 'none';
+      });
+      
+      roleSections[roleIndex].style.display = 'block';
+      
+      const roleTabs = document.querySelectorAll('.role-tab');
+      roleTabs.forEach((tab, index) => {
+        if (index === roleIndex) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      showRole(0);
+    });
+  </script>
+</body>
+</html>
