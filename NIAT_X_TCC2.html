@@ -1,0 +1,1203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NIAT_X_TCC2</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4361ee;
+      --primary-dark: #3a56d4;
+      --primary-light: #4895ef;
+      --success: #2ec4b6;
+      --warning: #ff9f1c;
+      --danger: #e71d36;
+      --dark: #1b1b1b;
+      --text: #2b2d42;
+      --text-light: #8d99ae;
+      --background: #f8f9fa;
+      --card: #ffffff;
+      --border: #e9ecef;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.07), 0 5px 10px rgba(0, 0, 0, 0.05);
+      --radius: 12px;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    .roadmap-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      background-color: var(--card);
+      overflow: hidden;
+    }
+    
+    .roadmap-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      padding: 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .roadmap-header::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      top: -150px;
+      right: -150px;
+    }
+    
+    .roadmap-header::after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      bottom: -100px;
+      left: -100px;
+    }
+    
+    .roadmap-title {
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin: 0;
+      position: relative;
+      z-index: 2;
+      letter-spacing: -0.5px;
+    }
+    
+    .roadmap-subtitle {
+      margin-top: 10px;
+      font-weight: 400;
+      font-size: 1.1rem;
+      opacity: 0.9;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .role-tabs-container {
+      background-color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 15px 30px;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+    }
+    
+    .role-tabs-container::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Edge */
+    }
+    
+    .role-tabs {
+      display: flex;
+      gap: 15px;
+      position: relative;
+    }
+    
+    .role-tab {
+      padding: 10px 20px;
+      background-color: transparent;
+      color: var(--text-light);
+      border: none;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .role-tab:hover {
+      color: var(--primary);
+      background-color: rgba(67, 97, 238, 0.05);
+    }
+    
+    .role-tab.active {
+      color: var(--primary);
+      background-color: rgba(67, 97, 238, 0.1);
+      font-weight: 600;
+    }
+    
+    .role-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 25%;
+      width: 50%;
+      height: 3px;
+      background-color: var(--primary);
+      border-radius: 3px 3px 0 0;
+    }
+    
+    .content-area {
+      padding: 30px;
+    }
+    
+    .role-section {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .tech-stack-section {
+      margin-bottom: 35px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+    
+    .tech-stack-section:hover {
+      box-shadow: var(--shadow-hover);
+    }
+    
+    .tech-stack-header {
+      background: #fff;
+      padding: 20px 25px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .tech-stack-title-area {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .tech-stack-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+    }
+    
+    .tech-stack-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 0;
+    }
+    
+    .progress-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .progress-bar-container {
+      width: 140px;
+      height: 10px;
+      background-color: #eef2ff;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(to right, var(--primary-light), var(--primary));
+      border-radius: 10px;
+      transition: width 1s ease-in-out;
+    }
+    
+    .progress-text {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 0.9rem;
+      min-width: 70px;
+      text-align: right;
+    }
+    
+    .roadmap-table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      overflow: hidden;
+    }
+    
+    .roadmap-table th {
+      background-color: #f7f9fc;
+      color: var(--text);
+      font-weight: 600;
+      padding: 15px 20px;
+      text-align: left;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .roadmap-table td {
+      padding: 15px 20px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      font-size: 0.95rem;
+    }
+    
+    .roadmap-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .roadmap-table tr:nth-child(even) {
+      background-color: #fcfcfd;
+    }
+    
+    .topic-cell {
+      font-weight: 500;
+      color: var(--text);
+    }
+    
+    .subtopics-list, .projects-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .subtopics-list li, .projects-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+      line-height: 1.4;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    
+    .subtopics-list li:last-child, .projects-list li:last-child {
+      margin-bottom: 0;
+    }
+    
+    .subtopics-list li::before, .projects-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      opacity: 0.7;
+    }
+    
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-weight: 500;
+      font-size: 0.8rem;
+      line-height: 1;
+      white-space: nowrap;
+      gap: 5px;
+    }
+    
+    .status-completed {
+      background-color: rgba(46, 196, 182, 0.15);
+      color: var(--success);
+    }
+    
+    .status-in-progress {
+      background-color: rgba(255, 159, 28, 0.15);
+      color: var(--warning);
+    }
+    
+    .status-yet-to-start {
+      background-color: rgba(231, 29, 54, 0.15);
+      color: var(--danger);
+    }
+    
+    .status-icon {
+      font-size: 0.75rem;
+    }
+    
+    .empty-message {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-light);
+    }
+    
+    .empty-message i {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      opacity: 0.5;
+    }
+    
+    .footer {
+      padding: 20px;
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+      background-color: #f7f9fc;
+    }
+    
+    .footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 1200px) {
+      .roadmap-container {
+        border-radius: var(--radius);
+      }
+      
+      .roadmap-title {
+        font-size: 2rem;
+      }
+      
+      .content-area {
+        padding: 20px;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .tech-stack-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      
+      .progress-container {
+        width: 100%;
+      }
+      
+      .progress-bar-container {
+        flex: 1;
+        max-width: 300px;
+      }
+      
+      .roadmap-table th,
+      .roadmap-table td {
+        padding: 12px 15px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      
+      .roadmap-header {
+        padding: 20px;
+      }
+      
+      .roadmap-title {
+        font-size: 1.8rem;
+      }
+      
+      .roadmap-subtitle {
+        font-size: 1rem;
+      }
+      
+      .role-tabs-container {
+        padding: 10px 15px;
+      }
+      
+      .role-tab {
+        padding: 8px 15px;
+        font-size: 0.85rem;
+      }
+      
+      .content-area {
+        padding: 15px;
+      }
+      
+      .tech-stack-title {
+        font-size: 1.2rem;
+      }
+      
+      .tech-stack-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+      }
+      
+      .roadmap-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+      
+      .roadmap-table th,
+      .roadmap-table td {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+      }
+      
+      .subtopics-list li, .projects-list li {
+        white-space: normal;
+        font-size: 0.85rem;
+      }
+      
+      .status-badge {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .roadmap-header {
+        padding: 15px;
+      }
+      
+      .roadmap-title {
+        font-size: 1.5rem;
+      }
+      
+      .tech-stack-header {
+        padding: 15px;
+      }
+      
+      .tech-stack-title-area {
+        width: 100%;
+        justify-content: space-between;
+      }
+      
+      .tech-stack-title {
+        font-size: 1.1rem;
+      }
+      
+      .progress-text {
+        font-size: 0.8rem;
+      }
+      
+      .roadmap-table th {
+        font-size: 0.75rem;
+      }
+      
+      .roadmap-table td {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="roadmap-container">
+    <div class="roadmap-header">
+      <h1 class="roadmap-title">NIAT_X_TCC2</h1>
+      <p class="roadmap-subtitle">Technical Roadmap & Learning Path</p>
+    </div>
+    
+    <div class="role-tabs-container">
+      <div class="role-tabs">
+        
+          <button class="role-tab active" onclick="showRole(0)">
+            MERN
+          </button>
+        
+      </div>
+    </div>
+    
+    <div class="content-area">
+
+      <div class="role-section" id="role-0" style="display: block;">
+
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title-area">
+                <div class="tech-stack-icon">
+                  <i class="fas fa-layer-group"></i>
+                </div>
+                <h2 class="tech-stack-title">Automation Testing with Cypress</h2>
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <span class="progress-text">0% Complete</span>
+              </div>
+            </div>
+            <table class="roadmap-table">
+              <thead>
+                <tr>
+                  <th style="width: 20%;">Topic</th>
+                  <th style="width: 30%;">Sub-Topics</th>
+                  <th style="width: 30%;">Project / Task</th>
+                  <th style="width: 20%;">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+                  <td class="topic-cell">Introduction & Cypress Setup</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>- What is Cypress?</li><li>- Key features vs Selenium</li><li>- Installing Cypress</li><li>- Folder structure and test runner</li><li>- Writing the first test case</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Install Cypress and write a basic test for visiting a webpage and checking a heading</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">Locators & Assertions</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>- CSS selectors, cy.get(), aliases</li><li>- Best practices for selecting elements</li><li>- should(), expect()</li><li>- Chaining commands</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Test a login page: assert visibility, input validation, and error messages</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">Custom Commands & Hooks</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>- Creating reusable custom commands</li><li>- Using beforeEach, afterEach hooks</li><li>- cy.request() vs cy.visit()</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Create a reusable login command and test multiple authenticated pages using that setup</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">Handling Forms, Alerts & File Uploads</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>- Working with input forms, checkboxes, radio buttons</li><li>- Handling alerts, modals, confirmations</li><li>- File uploads and downloads</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Test a form submission flow with validations, alerts, and confirmation popups</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">API Testing & Intercepting Requests</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>- Testing REST APIs with cy.request()</li><li>- Using cy.intercept() for stubbing and spying</li><li>- Mocking network responses</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Build tests for a search bar that makes API calls and stub responses for different user inputs</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">CI Integration & Best Practices</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>- Running Cypress in headless mode</li><li>- Integrating with CI tools (GitHub Actions, Jenkins)</li><li>- Screenshots & video reports</li><li>- Folder organization</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Configure Cypress to run in CI pipeline with test reports and logs, test on pull request trigger</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title-area">
+                <div class="tech-stack-icon">
+                  <i class="fas fa-layer-group"></i>
+                </div>
+                <h2 class="tech-stack-title">FastAPI</h2>
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <span class="progress-text">0% Complete</span>
+              </div>
+            </div>
+            <table class="roadmap-table">
+              <thead>
+                <tr>
+                  <th style="width: 20%;">Topic</th>
+                  <th style="width: 30%;">Sub-Topics</th>
+                  <th style="width: 30%;">Project</th>
+                  <th style="width: 20%;">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+                  <td class="topic-cell">FastAPI Setup & Fundamentals</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>IDE Setup (VSCode/PyCharm)</li><li>Virtual Environment</li><li>Installing FastAPI</li><li>App Structure</li><li>Uvicorn Server</li><li>Request Handling</li><li>Path Operations</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Create Your First FastAPI App: Set up and run a basic FastAPI app with automatic docs</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">Path Parameters & Query Parameters</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>Path Parameters</li><li>Query Parameters</li><li>Request Validation</li><li>Pydantic Models</li><li>Response Models</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Build a Book Search API: Create endpoints with path/query parameters for filtering books</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">Pydantic & Data Validation</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>Pydantic Models</li><li>Field Validation</li><li>Request Body Parsing</li><li>Nested Models</li><li>Custom Validators</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Create a Form Processing API: Accept and validate complex user input with proper error handling</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">SQLite with SQLAlchemy</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>SQLAlchemy ORM</li><li>FastAPI integration</li><li>Async Database</li><li>CRUD Operations</li><li>Dependency Injection</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Build a Book Catalog API: Manage books and authors using SQLite & SQLAlchemy</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">Advanced API Features</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>Background Tasks</li><li>WebSockets</li><li>Middleware</li><li>CORS</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Enhance Book Catalog API: Add background tasks (e.g., email notifications) and handle CORS for external access</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">Authentication & Security</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>OAuth2</li><li>JWT</li><li>Password Hashing</li><li>Security Scopes</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Secure Book Catalog API: Implement token-based login/logout with role-based permissions</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">Testing & Documentation</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>pytest</li><li>TestClient</li><li>Mocking</li><li>API Testing</li><li>Auto-Documentation</li><li>OpenAPI</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Write Unit Tests & Documentation: Test CRUD and Auth routes, customize auto-docs</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">Deployment & Performance</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>Docker</li><li>Gunicorn+Uvicorn</li><li>Deploy to Render/Heroku/Railway</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Deploy Book Catalog API: Containerize and deploy with production-ready setup</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title-area">
+                <div class="tech-stack-icon">
+                  <i class="fas fa-layer-group"></i>
+                </div>
+                <h2 class="tech-stack-title">Python</h2>
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <span class="progress-text">0% Complete</span>
+              </div>
+            </div>
+            <table class="roadmap-table">
+              <thead>
+                <tr>
+                  <th style="width: 20%;">Topic</th>
+                  <th style="width: 30%;">Sub-Topic</th>
+                  <th style="width: 30%;">Project</th>
+                  <th style="width: 20%;">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+                  <td class="topic-cell">Python Basics & Setup</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>Installing Python Understanding syntax Data types Operators Input/Output</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Write a simple calculator app that performs basic arithmetic operations</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">Control Flow and Functions</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>Conditional statements (if/else) Loops (for/while) Writing functions Parameters and return values Variable scope</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Create a number guessing game using loops and functions</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">Data Structures – Lists, Tuples, and Dictionaries</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>Lists Tuples Dictionaries List comprehensions Iterating over data structures</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Build a contact book application using dictionaries and lists</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">Advanced Data Structures – Sets & File I/O</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>Sets File input/output (reading and writing files) CSV and JSON handling Context managers</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Create a student grades management system that reads and writes data to a CSV file</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">Object-Oriented Programming (OOP) – Part 1</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>Classes and objects Attributes and methods Encapsulation Creating simple classes</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Create a class-based employee management system</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">Object-Oriented Programming (OOP) – Part 2</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>Inheritance Method overriding Polymorphism Abstraction and interfaces</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Build a multi-level inheritance system for a school management system</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">Error Handling and Debugging</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>Exception handling Raising exceptions Debugging tools (pdb) Unit testing with unittest</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Write a calculator app with error handling and input validation</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="topic-cell">Final Project and Best Practices</td>
+                  <td>
+                    
+                    <ul class="subtopics-list">
+                      <li>Python best practices (PEP 8) Code optimization Version control with Git Deploying Python apps</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    
+                    <ul class="projects-list">
+                      <li>Complete a task management web application using Flask or Django</li>
+                    </ul>
+                    
+                  </td>
+                  <td>
+                    <span class="status-badge status-yet-to-start">
+                      <i class="fas fa-clock status-icon"></i>
+                      Yet to Start
+                    </span>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+      </div>
+
+    </div>
+    
+    <div class="footer">
+      <p>Generated by <a href="#" target="_blank">NIAT Roadmap Generator</a> | 2025-05-05</p>
+    </div>
+  </div>
+  
+  <script>
+    function showRole(roleIndex) {
+      // Hide all role sections
+      const roleSections = document.querySelectorAll('.role-section');
+      roleSections.forEach(section => {
+        section.style.display = 'none';
+      });
+      
+      // Show selected role section
+      roleSections[roleIndex].style.display = 'block';
+      
+      // Update active tab
+      const roleTabs = document.querySelectorAll('.role-tab');
+      roleTabs.forEach((tab, index) => {
+        if (index === roleIndex) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+    }
+    
+    // Animate progress bars on load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Show first role tab by default
+      showRole(0);
+      
+      // Add smooth scroll for role tabs
+      const tabsContainer = document.querySelector('.role-tabs-container');
+      const tabs = document.querySelectorAll('.role-tab');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          // Scroll the active tab into view with smooth behavior
+          setTimeout(() => {
+            tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          }, 100);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
