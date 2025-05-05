@@ -30,35 +30,36 @@
     
     body {
       font-family: 'Inter', sans-serif;
-      line-height: 1.6;
       color: #333;
-      max-width: 1600px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 16px;
       background-color: #ffffff;
+      line-height: 1.5;
+      max-width: 100%;
     }
     
     .header {
       text-align: center;
-      margin-bottom: 15px;
-      padding: 10px;
       background: #ffffff;
       color: #000000;
       border-bottom: 1px solid #e5e7eb;
       position: relative;
+      margin-bottom: 20px;
     }
     
     h1 {
       position: relative;
       margin: 0;
       font-weight: 700;
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       z-index: 1;
     }
     
     .container {
       display: flex;
-      gap: 20px;
+      gap: 16px;
+      margin: 0 auto;
+      max-width: 90%; /* Add spacing on both sides */
     }
     
     .role-tabs {
@@ -73,9 +74,9 @@
       background-color: #fff;
       color: var(--primary);
       border: 1px solid var(--primary);
-      padding: 8px 16px;
+      padding: 10px 12px;
       border-radius: 4px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 500;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -89,25 +90,25 @@
     
     .content-area {
       flex: 1;
+      display: flex;
+      justify-content: center; /* Center the tables */
     }
     
+    
     .tech-stack-section {
-      margin-bottom: 15px;
-      padding: 10px 0;
+      margin-bottom: 12px;
     }
     
     .tech-stack-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 8px;
     }
     
     .tech-stack-title {
-      font-size: 1.8rem;
-      font-weight: 700;
+      font-size: 1.4rem;  /* Reduced from 1.8rem */
+      font-weight: 600;
       color: var(--primary);
       margin: 0;
       position: relative;
@@ -119,11 +120,11 @@
     }
     
     .progress-bar {
-      width: 160px;
+      width: 140px;
       height: 8px;
       background-color: #eaedf5;
       border-radius: 4px;
-      margin-right: 12px;
+      margin-right: 10px;
       overflow: hidden;
     }
     
@@ -136,32 +137,33 @@
     .progress-text {
       font-weight: 600;
       color: var(--primary);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
     
     .roadmap-table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       background-color: #fff;
       border: 1px solid var(--border-color);
+      font-size: 0.85rem;
     }
     
     .roadmap-table th {
-      background-color: #f8f9fa;
-      color: var(--primary);
+      background-color: #333333; /* Solid color for headers */
+      color: white;
       font-weight: 600;
-      padding: 12px 15px;
+      padding: 8px 10px;
       text-align: left;
-      font-size: 0.85rem;
-      border-bottom: 2px solid var(--border-color);
+      font-size: 0.8rem;
+      border-bottom: 1px solid var(--border-color);
     }
     
     .roadmap-table td {
-      padding: 12px 15px;
+      padding: 6px 10px;
       border-bottom: 1px solid var(--border-color);
       vertical-align: top;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
     
     .roadmap-table tr:nth-child(even) {
@@ -170,8 +172,8 @@
     
     .badge {
       display: inline-block;
-      padding: 4px 10px;
-      border-radius: 4px;
+      padding: 3px 8px;
+      border-radius: 3px;
       font-weight: 600;
       font-size: 0.7rem;
       text-align: center;
@@ -198,29 +200,26 @@
     
     ul {
       margin: 0;
-      padding: 0 0 0 16px;
+      padding: 0 0 0 14px;
     }
     
     li {
-      margin-bottom: 4px;
-      font-size: 0.8rem;
+      margin-bottom: 2px;
+      font-size: 0.75rem;
     }
     
     li:last-child {
       margin-bottom: 0;
     }
     
-    .role-section {
-      margin-top: 10px;
-    }
-    
     @media (max-width: 768px) {
       body {
-        padding: 15px;
+        padding: 12px;
       }
       
       .container {
         flex-direction: column;
+        max-width: 100%;
       }
       
       .role-tabs {
@@ -229,31 +228,35 @@
         flex-wrap: wrap;
       }
       
+      .role-section {
+        width: 100%;
+      }
+      
       .header {
-        padding: 15px;
+        padding: 12px;
       }
       
       h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
       
       .tech-stack-title {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
       }
       
       .progress-bar {
-        width: 120px;
+        width: 100px;
       }
       
       .role-tab {
-        font-size: 0.8rem;
-        padding: 6px 12px;
+        font-size: 0.75rem;
+        padding: 5px 10px;
       }
       
       .roadmap-table th,
       .roadmap-table td {
-        padding: 8px 10px;
-        font-size: 0.8rem;
+        padding: 6px 8px;
+        font-size: 0.75rem;
       }
     }
   </style>
@@ -270,7 +273,7 @@
         </div>
       
         <div class="role-tab " onclick="showRole(1)">
-          .NET
+          Java
         </div>
       
     </div>
@@ -278,590 +281,6 @@
     <div class="content-area">
 
       <div class="role-section" id="role-0" style="display: block;">
-
-        <div class="tech-stack-section">
-          <div class="tech-stack-header">
-            <h2 class="tech-stack-title">HTML,CSS,BootStrap</h2>
-            <div class="progress-container">
-              <div class="progress-bar">
-                <div class="progress-bar-fill" style="width: 100%;"></div>
-              </div>
-              <span class="progress-text">100% Complete</span>
-            </div>
-          </div>
-          <table class="roadmap-table">
-            <thead>
-              <tr>
-                <th style="width: 20%;">Topic</th>
-                <th style="width: 30%;">Sub-Topics</th>
-                <th style="width: 30%;">Projects</th>
-                <th style="width: 20%;">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-
-              <tr>
-                <td>Introduction to HTML</td>
-                <td>
-                  
-                  <ul>
-                    <li>Build Your Own Static Website using Gen AI</li><li>Introduction to HTML</li><li>HTML Elements</li><li>- Image Element</li><li>- Heading Element</li><li>- Paragraph Element</li><li>- Button Element</li><li>- Container Element</li><li>- Anchor Element</li><li>- Line Break Element</li><li>- Horizontal Rule Element</li><li>- Semantic Elements</li><li>- Multimedia Elements</li><li>HTML Attributes</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Restaurant Website</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-success">Completed</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Introduction to CSS</td>
-                <td>
-                  
-                  <ul>
-                    <li>CSS Properties</li><li>CSS Text Properties</li><li>CSS Background Properties</li><li>CSS Font Family</li><li>CSS Font Size</li><li>CSS Font Style</li><li>CSS Font Weight</li><li>CSS Text Decoration</li><li>CSS Box Properties</li><li>CSS Colors</li><li>Reusability of CSS Rulesets</li><li>CSS Box Model Properties</li><li>CSS Selectors</li><li>CSS Combinators</li><li>CSS Specificity & Cascade</li><li>CSS Gradients and Transitions</li><li>CSS Transforms and Animations</li><li>CSS Animations</li><li>CSS Flexbox</li><li>CSS Grid</li><li>CSS Media Queries</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Photo Gallery
-Landing Page for a Product</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-success">Completed</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Introduction to Bootstrap</td>
-                <td>
-                  
-                  <ul>
-                    <li>How to use Bootstrap?</li><li>Predefined Styles in Bootstrap</li><li>Flexbox Properties</li><li>Bootstrap Components</li><li>Bootstrap Utilities</li><li>Grid System</li><li>Column Wrapping</li><li>Spacing Utilities</li><li>Background Color Utilities</li><li>Bootstrap Navbar</li><li>Bootstrap Spacing Utilities</li><li>Flex Utilities</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Simple Blog Website
-E-commerce Product Listing
-Weather Information Page</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-success">Completed</span>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div>
-
-        <div class="tech-stack-section">
-          <div class="tech-stack-header">
-            <h2 class="tech-stack-title">Tailwind CSS</h2>
-            <div class="progress-container">
-              <div class="progress-bar">
-                <div class="progress-bar-fill" style="width: 100%;"></div>
-              </div>
-              <span class="progress-text">100% Complete</span>
-            </div>
-          </div>
-          <table class="roadmap-table">
-            <thead>
-              <tr>
-                <th style="width: 20%;">Topic</th>
-                <th style="width: 30%;">Sub-Topics</th>
-                <th style="width: 30%;">Projects</th>
-                <th style="width: 20%;">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-
-              <tr>
-                <td>Introduction to Tailwind CSS</td>
-                <td>
-                  
-                  <ul>
-                    <li>Utility classes</li><li>Setting Up Tailwind CSS</li><li>Building an Application Using Tailwind CSS</li><li>Tailwind CSS Grid Utility Classes</li><li>Tailwind Responsive Utility Classes</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Global News Network
-Restaurant Dine Application
-Landing Page</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-success">Completed</span>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div>
-
-        <div class="tech-stack-section">
-          <div class="tech-stack-header">
-            <h2 class="tech-stack-title">React JS</h2>
-            <div class="progress-container">
-              <div class="progress-bar">
-                <div class="progress-bar-fill" style="width: 0%;"></div>
-              </div>
-              <span class="progress-text">0% Complete</span>
-            </div>
-          </div>
-          <table class="roadmap-table">
-            <thead>
-              <tr>
-                <th style="width: 20%;">Topic</th>
-                <th style="width: 30%;">Sub-Topics</th>
-                <th style="width: 30%;">Projects</th>
-                <th style="width: 20%;">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-
-              <tr>
-                <td>Components & JSX Basics</td>
-                <td>
-                  
-                  <ul>
-                    <li>Class vs Functional Components</li><li>JSX</li><li>setState() Syntax (Object & Callback)</li><li>Handling Events</li><li>Boolean/Number State</li><li>Conditional Rendering (ternary/if-else)</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Build a simple Counter & Toggle app (Boolean state, button handling, conditional render)</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-danger">Yet to Start</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Working With Lists</td>
-                <td>
-                  
-                  <ul>
-                    <li>Rendering Static Lists</li><li>List with Item-specific State (FAQs, Flashcards)</li><li>List State Add/Delete/Update (Contacts/Todo/Favorites)</li><li>Minimal State Design Patterns</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Build a Contacts Manager with Add/Delete/Favorite toggle & Flashcard-style FAQ viewer</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-danger">Yet to Start</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Component Communication</td>
-                <td>
-                  
-                  <ul>
-                    <li>Props Drilling</li><li>Callback Props with Args</li><li>Filtering List via ActiveItemId (Tabs, Gallery)</li><li>Controlled Components (Input, Checkbox, Radio)</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Build a Gallery App with Tabs navigation and filter + dynamic list rendering</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-danger">Yet to Start</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Component Lifecycle & State</td>
-                <td>
-                  
-                  <ul>
-                    <li>Lifecycle Methods (constructor, render, componentDidMount, componentWillUnmount)</li><li>API Call with setState Updater</li><li>API Status Rendering (Success, Failure, Loading)</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Build a GitHub Repos Viewer (based on selected username with loader & error state views)</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-danger">Yet to Start</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Routing, Forms & API Calls</td>
-                <td>
-                  
-                  <ul>
-                    <li>React Router Basics</li><li>Path Params</li><li>Match Props</li><li>Form Submit with Validation</li><li>Field-Level Validation</li><li>GET/POST API calls using Fetch</li><li>Handling API Errors</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Build a Blog Post Submit App with Routing (Home, Post, Detail) and form validations</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-danger">Yet to Start</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Auth, Context & Styling</td>
-                <td>
-                  
-                  <ul>
-                    <li>Login/Logout Flow (history.push/replace)</li><li>Store JWT with js-cookie</li><li>Plain Context</li><li>Context across Routes</li><li>Styled Components (Dynamic)</li><li>React Icons</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Build an Authenticated Dashboard with Protected Routes, JWT Cookies & Styled UI</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-danger">Yet to Start</span>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div>
-
-        <div class="tech-stack-section">
-          <div class="tech-stack-header">
-            <h2 class="tech-stack-title">Node JS</h2>
-            <div class="progress-container">
-              <div class="progress-bar">
-                <div class="progress-bar-fill" style="width: 0%;"></div>
-              </div>
-              <span class="progress-text">0% Complete</span>
-            </div>
-          </div>
-          <table class="roadmap-table">
-            <thead>
-              <tr>
-                <th style="width: 20%;">Topic</th>
-                <th style="width: 30%;">Sub-Topics</th>
-                <th style="width: 30%;">Projects</th>
-                <th style="width: 20%;">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-
-              <tr>
-                <td>Intro to Node.js & Modules</td>
-                <td>
-                  
-                  <ul>
-                    <li>What is Node.js?</li><li>Node REPL</li><li>Node CLI</li><li>CommonJS Modules: module.exports</li><li>exports</li><li>require()</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Create a modular console-based calculator using CommonJS exports/imports</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-danger">Yet to Start</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Core Modules & NPM</td>
-                <td>
-                  
-                  <ul>
-                    <li>Core Modules: path</li><li>fs; NPM CLI Commands</li><li>Installing Third-Party Packages</li><li>Using `date-fns`</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Build a CLI app to log timestamped notes using date-fns and file system</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-danger">Yet to Start</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>REST APIs Fundamentals</td>
-                <td>
-                  
-                  <ul>
-                    <li>What are REST APIs?</li><li>REST Principles</li><li>Get Books API</li><li>Filtering books</li><li>RESTful Route Design</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Create a mini Express server with a `/books` endpoint that supports query filtering</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-danger">Yet to Start</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Debugging Common Errors (Part 1)</td>
-                <td>
-                  
-                  <ul>
-                    <li>Unknown Imports</li><li>Server in Multiple Terminals</li><li>Wrong URLs</li><li>Missing Function Calls</li><li>Incorrect File Paths</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Build and debug a broken Express app by simulating common mistakes (guided lab-style project)</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-danger">Yet to Start</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Debugging + REST Troubleshooting</td>
-                <td>
-                  
-                  <ul>
-                    <li>Request Methods</li><li>Path Params</li><li>Query Formatting</li><li>Replacing SQLite Methods</li><li>Wrong DB Paths</li><li>Wrong Port Numbers</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Add Path Params & Query Filters to `/books/:id`, fix simulated bugs, and return proper API responses</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-danger">Yet to Start</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Auth & Security (Part 1)</td>
-                <td>
-                  
-                  <ul>
-                    <li>bcrypt.hash()</li><li>bcrypt.compare()</li><li>Goodreads Register/Login APIs</li><li>JWT: jwt.sign()</li><li>jwt.verify()</li><li>Middleware in Express</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Implement full auth flow: Register/Login with bcrypt, token generation, and protected `/profile` API</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-danger">Yet to Start</span>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div>
-
-      </div>
-
-      <div class="role-section" id="role-1" style="display: none;">
-
-        <div class="tech-stack-section">
-          <div class="tech-stack-header">
-            <h2 class="tech-stack-title">HTML,CSS,BootStrap</h2>
-            <div class="progress-container">
-              <div class="progress-bar">
-                <div class="progress-bar-fill" style="width: 100%;"></div>
-              </div>
-              <span class="progress-text">100% Complete</span>
-            </div>
-          </div>
-          <table class="roadmap-table">
-            <thead>
-              <tr>
-                <th style="width: 20%;">Topic</th>
-                <th style="width: 30%;">Sub-Topics</th>
-                <th style="width: 30%;">Projects</th>
-                <th style="width: 20%;">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-
-              <tr>
-                <td>Introduction to HTML</td>
-                <td>
-                  
-                  <ul>
-                    <li>Build Your Own Static Website using Gen AI</li><li>Introduction to HTML</li><li>HTML Elements</li><li>- Image Element</li><li>- Heading Element</li><li>- Paragraph Element</li><li>- Button Element</li><li>- Container Element</li><li>- Anchor Element</li><li>- Line Break Element</li><li>- Horizontal Rule Element</li><li>- Semantic Elements</li><li>- Multimedia Elements</li><li>HTML Attributes</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Restaurant Website</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-success">Completed</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Introduction to CSS</td>
-                <td>
-                  
-                  <ul>
-                    <li>CSS Properties</li><li>CSS Text Properties</li><li>CSS Background Properties</li><li>CSS Font Family</li><li>CSS Font Size</li><li>CSS Font Style</li><li>CSS Font Weight</li><li>CSS Text Decoration</li><li>CSS Box Properties</li><li>CSS Colors</li><li>Reusability of CSS Rulesets</li><li>CSS Box Model Properties</li><li>CSS Selectors</li><li>CSS Combinators</li><li>CSS Specificity & Cascade</li><li>CSS Gradients and Transitions</li><li>CSS Transforms and Animations</li><li>CSS Animations</li><li>CSS Flexbox</li><li>CSS Grid</li><li>CSS Media Queries</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Photo Gallery
-Landing Page for a Product</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-success">Completed</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Introduction to Bootstrap</td>
-                <td>
-                  
-                  <ul>
-                    <li>How to use Bootstrap?</li><li>Predefined Styles in Bootstrap</li><li>Flexbox Properties</li><li>Bootstrap Components</li><li>Bootstrap Utilities</li><li>Grid System</li><li>Column Wrapping</li><li>Spacing Utilities</li><li>Background Color Utilities</li><li>Bootstrap Navbar</li><li>Bootstrap Spacing Utilities</li><li>Flex Utilities</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Simple Blog Website
-E-commerce Product Listing
-Weather Information Page</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-success">Completed</span>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div>
-
-        <div class="tech-stack-section">
-          <div class="tech-stack-header">
-            <h2 class="tech-stack-title">Tailwind CSS</h2>
-            <div class="progress-container">
-              <div class="progress-bar">
-                <div class="progress-bar-fill" style="width: 100%;"></div>
-              </div>
-              <span class="progress-text">100% Complete</span>
-            </div>
-          </div>
-          <table class="roadmap-table">
-            <thead>
-              <tr>
-                <th style="width: 20%;">Topic</th>
-                <th style="width: 30%;">Sub-Topics</th>
-                <th style="width: 30%;">Projects</th>
-                <th style="width: 20%;">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-
-              <tr>
-                <td>Introduction to Tailwind CSS</td>
-                <td>
-                  
-                  <ul>
-                    <li>Utility classes</li><li>Setting Up Tailwind CSS</li><li>Building an Application Using Tailwind CSS</li><li>Tailwind CSS Grid Utility Classes</li><li>Tailwind Responsive Utility Classes</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Global News Network
-Restaurant Dine Application
-Landing Page</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-success">Completed</span>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div>
 
         <div class="tech-stack-section">
           <div class="tech-stack-header">
@@ -876,10 +295,10 @@ Landing Page</li>
           <table class="roadmap-table">
             <thead>
               <tr>
-                <th style="width: 20%;">Topic</th>
-                <th style="width: 30%;">Sub-Topics</th>
-                <th style="width: 30%;">Projects</th>
-                <th style="width: 20%;">Status</th>
+                <th style="width: 20%;">TOPIC</th>
+                <th style="width: 30%;">SUB-TOPIC</th>
+                <th style="width: 30%;">PROJECT</th>
+                <th style="width: 10%;">STATUS</th>
               </tr>
             </thead>
             <tbody>
@@ -1058,7 +477,7 @@ Landing Page</li>
 
         <div class="tech-stack-section">
           <div class="tech-stack-header">
-            <h2 class="tech-stack-title">.NET</h2>
+            <h2 class="tech-stack-title">Jetpack</h2>
             <div class="progress-container">
               <div class="progress-bar">
                 <div class="progress-bar-fill" style="width: 0%;"></div>
@@ -1069,48 +488,27 @@ Landing Page</li>
           <table class="roadmap-table">
             <thead>
               <tr>
-                <th style="width: 20%;">Topic</th>
-                <th style="width: 30%;">Sub-Topics</th>
-                <th style="width: 30%;">Projects</th>
-                <th style="width: 20%;">Status</th>
+                <th style="width: 20%;">TOPIC</th>
+                <th style="width: 30%;">SUB-TOPIC</th>
+                <th style="width: 30%;">PROJECT</th>
+                <th style="width: 10%;">STATUS</th>
               </tr>
             </thead>
             <tbody>
 
               <tr>
-                <td>C# & .NET Fundamentals</td>
+                <td>Introduction to Jetpack</td>
                 <td>
                   
                   <ul>
-                    <li>C# syntax</li><li>OOP principles</li><li>.NET CLI</li><li>NuGet packages</li><li>debugging in VS/VS Code</li>
+                    <li>What is Jetpack, Setting up Jetpack with WordPress, Overview of Jetpack Features, Security Basics, Performance Features</li>
                   </ul>
                   
                 </td>
                 <td>
                   
                   <ul>
-                    <li>Build a Console-Based Inventory System (CRUD operations)</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-danger">Yet to Start</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>ASP.NET Core Basics</td>
-                <td>
-                  
-                  <ul>
-                    <li>MVC pattern</li><li>Razor Pages</li><li>middleware</li><li>dependency injection</li><li>app configuration</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Create a Todo List Web App (Razor Pages + Bootstrap)</li>
+                    <li>Install and configure Jetpack on a WordPress test site, enable security and backup features</li>
                   </ul>
                   
                 </td>
@@ -1120,39 +518,18 @@ Landing Page</li>
               </tr>
 
               <tr>
-                <td>Database Integration (EF Core)</td>
+                <td>Site Security & Backups</td>
                 <td>
                   
                   <ul>
-                    <li>Entity Framework Core</li><li>migrations</li><li>LINQ</li><li>SQL Server/PostgreSQL setup</li>
+                    <li>Protecting Login Pages, Enabling Two-Factor Authentication, Managing Site Backups, Restoring Backups, Monitoring Downtime</li>
                   </ul>
                   
                 </td>
                 <td>
                   
                   <ul>
-                    <li>Develop a Library Management System (Books, Members, Borrowing)</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-danger">Yet to Start</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>REST APIs with .NET Web API</td>
-                <td>
-                  
-                  <ul>
-                    <li>API controllers</li><li>DTOs</li><li>Swagger/OpenAPI</li><li>routing</li><li>HTTP methods</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Design a Weather Forecast API (Integrate with OpenWeatherMap)</li>
+                    <li>Set up backup plans and simulate a site restoration</li>
                   </ul>
                   
                 </td>
@@ -1162,39 +539,18 @@ Landing Page</li>
               </tr>
 
               <tr>
-                <td>Authentication & Authorization</td>
+                <td>Performance & Optimization</td>
                 <td>
                   
                   <ul>
-                    <li>Identity Framework</li><li>JWT</li><li>role-based access</li><li>OAuth2 (Azure AD/Google)</li>
+                    <li>Image CDN, Lazy Loading Images, Site Accelerator, SEO Tools Integration, Reducing Page Load Times</li>
                   </ul>
                   
                 </td>
                 <td>
                   
                   <ul>
-                    <li>Secure the Library System with User Roles (Admin/Member)</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-danger">Yet to Start</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Cloud Integration (Azure)</td>
-                <td>
-                  
-                  <ul>
-                    <li>Azure App Service</li><li>Azure SQL</li><li>Blob Storage</li><li>Key Vault</li><li>Managed Identity</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Deploy the Weather API to Azure with Blob Storage for logs</li>
+                    <li>Optimize a WordPress site with Jetpack tools, run before/after performance tests</li>
                   </ul>
                   
                 </td>
@@ -1204,39 +560,18 @@ Landing Page</li>
               </tr>
 
               <tr>
-                <td>Testing & DevOps</td>
+                <td>Content Tools & Engagement</td>
                 <td>
                   
                   <ul>
-                    <li>xUnit/NUnit</li><li>Moq</li><li>GitHub Actions</li><li>Docker containers</li><li>logging (Serilog)</li>
+                    <li>Related Posts, Sharing Tools, Comment Enhancements, Subscription Forms, Site Stats and Analytics</li>
                   </ul>
                   
                 </td>
                 <td>
                   
                   <ul>
-                    <li>Add Unit Tests to Todo List + Dockerize & Deploy via CI/CD</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  <span class="badge badge-danger">Yet to Start</span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Microservices & Advanced APIs</td>
-                <td>
-                  
-                  <ul>
-                    <li>gRPC</li><li>Ocelot API Gateway</li><li>RabbitMQ</li><li>distributed caching (Redis)</li>
-                  </ul>
-                  
-                </td>
-                <td>
-                  
-                  <ul>
-                    <li>Build a Payment Processing Microservice (Integrate with Stripe API)</li>
+                    <li>Add related posts, social sharing, and subscription features to a blog</li>
                   </ul>
                   
                 </td>
@@ -1246,18 +581,727 @@ Landing Page</li>
               </tr>
 
               <tr>
-                <td>Real-Time Apps (SignalR)</td>
+                <td>Advanced Customization</td>
                 <td>
                   
                   <ul>
-                    <li>WebSocket basics</li><li>SignalR hubs</li><li>client-server communication</li><li>scaling</li>
+                    <li>Custom CSS Editing, Widgets Visibility Control, Jetpack CRM Overview, Using Jetpack Boost, Integration with WooCommerce</li>
                   </ul>
                   
                 </td>
                 <td>
                   
                   <ul>
-                    <li>Create a Live Chat App with real-time messaging</li>
+                    <li>Customize a WordPress e-commerce homepage with CRM integration and performance boost</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tech-stack-section">
+          <div class="tech-stack-header">
+            <h2 class="tech-stack-title">Project Management</h2>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 0%;"></div>
+              </div>
+              <span class="progress-text">0% Complete</span>
+            </div>
+          </div>
+          <table class="roadmap-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">TOPIC</th>
+                <th style="width: 30%;">SUB-TOPIC</th>
+                <th style="width: 30%;">PROJECT</th>
+                <th style="width: 10%;">STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>Fundamentals of Project Management</td>
+                <td>
+                  
+                  <ul>
+                    <li>What is Project Management, Project Life Cycle, Key Roles and Responsibilities, Project Constraints (Scope, Time, Cost), Introduction to PM Tools</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Create a project charter and a simple project plan for an internal website launch</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Project Planning & Scheduling</td>
+                <td>
+                  
+                  <ul>
+                    <li>Work Breakdown Structure (WBS), Task Dependencies, Gantt Charts, Critical Path Method (CPM), Setting Milestones, Resource Allocation</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Develop a WBS and Gantt Chart using Microsoft Project or Trello for a marketing campaign</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Risk Management & Communication</td>
+                <td>
+                  
+                  <ul>
+                    <li>Identifying Risks, Risk Mitigation Strategies, Stakeholder Communication Plans, Status Reporting, Escalation Pathways</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Create a risk register and a communication plan for a product launch</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Agile Methodologies</td>
+                <td>
+                  
+                  <ul>
+                    <li>Scrum Framework Basics, Kanban Boards, Sprint Planning and Retrospectives, Agile vs Waterfall, User Stories and Acceptance Criteria</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Manage a mock sprint using Jira/Trello and run a simulated retrospective meeting</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Budgeting, Procurement & Quality</td>
+                <td>
+                  
+                  <ul>
+                    <li>Cost Estimation Techniques, Budget Baselines, Vendor Selection and Contracts, Quality Management Principles, Continuous Improvement</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a basic project budget sheet and quality checklist for a small software development project</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Project Execution & Closure</td>
+                <td>
+                  
+                  <ul>
+                    <li>Managing Team Performance, Change Management, Issue Tracking, Final Deliverables, Lessons Learned, Project Closure Checklist</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Execute and close a mini project, including final report and lessons learned document</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tech-stack-section">
+          <div class="tech-stack-header">
+            <h2 class="tech-stack-title">Angular</h2>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 0%;"></div>
+              </div>
+              <span class="progress-text">0% Complete</span>
+            </div>
+          </div>
+          <table class="roadmap-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">TOPIC</th>
+                <th style="width: 30%;">SUB-TOPIC</th>
+                <th style="width: 30%;">PROJECT</th>
+                <th style="width: 10%;">STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>Angular Overview & Setup</td>
+                <td>
+                  
+                  <ul>
+                    <li>Angular CLI</li><li>Project Structure</li><li>TypeScript in Angular</li><li>Module System</li><li>Components Overview</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Setup your first Angular project and render a "Hello Angular" page with components</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Components Deep Dive</td>
+                <td>
+                  
+                  <ul>
+                    <li>Component Lifecycle</li><li>Decorators (@Component</li><li>@Input</li><li>@Output)</li><li>Template Syntax</li><li>Styling Components</li><li>ViewEncapsulation</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a User Card component with @Input() props and toggleable details</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>State Management Basics</td>
+                <td>
+                  
+                  <ul>
+                    <li>Local State</li><li>BehaviorSubject</li><li>Service-level State Management</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a shopping cart service with state management using RxJS</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Data Binding & Event Handling</td>
+                <td>
+                  
+                  <ul>
+                    <li>One-way & Two-way Binding</li><li>Event Binding</li><li>ngModel</li><li>Template Reference Variables</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a simple Counter App using two-way binding and event triggers</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Directives (Built-in)</td>
+                <td>
+                  
+                  <ul>
+                    <li>ngIf</li><li>ngFor</li><li>ngSwitch</li><li>ngClass</li><li>ngStyle</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a Dynamic List Manager with conditional rendering and styles</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Custom Directives</td>
+                <td>
+                  
+                  <ul>
+                    <li>Creating Custom Attribute Directive</li><li>Structural Directive Basics</li><li>HostListener</li><li>HostBinding</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Create a custom hover-highlight directive and apply it to various components</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Services & Dependency Injection</td>
+                <td>
+                  
+                  <ul>
+                    <li>Creating Services</li><li>Injectable Decorator</li><li>Hierarchical Injectors</li><li>Singleton Services</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a Notification Service and inject it across multiple components</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Routing & Navigation</td>
+                <td>
+                  
+                  <ul>
+                    <li>RouterModule</li><li>Routes Configuration</li><li>RouterLink</li><li>Route Parameters</li><li>Nested Routes</li><li>Guards Overview</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Create a multi-page app with Home, About, and Contact routes and route parameters</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Forms - Template Driven</td>
+                <td>
+                  
+                  <ul>
+                    <li>FormsModule</li><li>ngForm</li><li>Form Validation (required</li><li>minlength</li><li>etc.)</li><li>Handling Submissions</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a Contact Us form with validations using template-driven forms</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Forms - Reactive Forms</td>
+                <td>
+                  
+                  <ul>
+                    <li>ReactiveFormsModule</li><li>FormBuilder</li><li>FormGroup</li><li>FormControl</li><li>Validators</li><li>Custom Validators</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a Registration Form with dynamic controls and custom email validation</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Pipes in Angular</td>
+                <td>
+                  
+                  <ul>
+                    <li>Built-in Pipes (date</li><li>currency</li><li>slice</li><li>etc.)</li><li>Custom Pipes</li><li>Pure vs Impure Pipes</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a Product List with filtering, sorting, and currency/date formatting</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>HTTPClient & APIs</td>
+                <td>
+                  
+                  <ul>
+                    <li>HttpClientModule</li><li>GET/POST Requests</li><li>Observables</li><li>Error Handling</li><li>async pipe</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Consume a mock REST API to fetch and display a list of products</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Component Communication</td>
+                <td>
+                  
+                  <ul>
+                    <li>Parent-Child via @Input/@Output</li><li>ViewChild</li><li>Service-based communication</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a Task Manager with nested components and shared state</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Lazy Loading & Module Architecture</td>
+                <td>
+                  
+                  <ul>
+                    <li>NgModules</li><li>Lazy Loaded Modules</li><li>Feature Modules</li><li>Shared Modules</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Refactor existing app into modules and lazy load sections</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Animations in Angular</td>
+                <td>
+                  
+                  <ul>
+                    <li>Angular Animations API</li><li>States & Transitions</li><li>Triggers</li><li>Animation Callbacks</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a collapsible FAQ section with animations</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Error Handling & Debugging</td>
+                <td>
+                  
+                  <ul>
+                    <li>Global Error Handling</li><li>try/catch</li><li>Logging Services</li><li>Angular DevTools</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Add error boundaries to API calls and setup logging service</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Unit Testing</td>
+                <td>
+                  
+                  <ul>
+                    <li>Testing Components</li><li>Services</li><li>Forms using Jasmine & Karma</li><li>TestBed Setup</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Write tests for a service and component with Jasmine/Karma</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>E2E Testing with Cypress</td>
+                <td>
+                  
+                  <ul>
+                    <li>Setup Cypress</li><li>Write Tests for Navigation</li><li>Form Submission</li><li>HTTP Mocks</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Write E2E tests for Login and Registration workflow</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Deployment</td>
+                <td>
+                  
+                  <ul>
+                    <li>Angular Build Optimization</li><li>Environment Configs</li><li>Hosting on Firebase/Vercel</li><li>Versioning</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Deploy your Angular app with environment-specific configs</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Capstone Integration Day</td>
+                <td>
+                  
+                  <ul>
+                    <li>Performance Check</li><li>Code Clean-up</li><li>Folder Restructure</li><li>Final Review</li><li>Resume Ready Project Packaging</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Finalize and package a Capstone: "E-Commerce Web App"</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <div class="role-section" id="role-1" style="display: none;">
+
+        <div class="tech-stack-section">
+          <div class="tech-stack-header">
+            <h2 class="tech-stack-title">Java</h2>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: 0%;"></div>
+              </div>
+              <span class="progress-text">0% Complete</span>
+            </div>
+          </div>
+          <table class="roadmap-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">TOPIC</th>
+                <th style="width: 30%;">SUB-TOPIC</th>
+                <th style="width: 30%;">PROJECT</th>
+                <th style="width: 10%;">STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>Java Fundamentals</td>
+                <td>
+                  
+                  <ul>
+                    <li>Introduction to Java, Data Types, Variables & Operators, Reading Input & Formatting Output, Conditions & Loops, Arrays</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a command-line Grade Calculator that takes user input and calculates grade based on score ranges</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Collections & Basic Algorithms</td>
+                <td>
+                  
+                  <ul>
+                    <li>Java Collections (List, Set, Map), Iterators, Enhanced For Loop, Sorting & Searching, Working with Wrapper Classes</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Create a Student Records Manager using Java Collections (store, sort, and search student data)</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Object-Oriented Programming with Java</td>
+                <td>
+                  
+                  <ul>
+                    <li>Classes & Objects, Attributes & Methods (Instance, Static, Class), Abstraction, Inheritance, Access Specifiers (Public, Private, Protected), Encapsulation</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Build a simple Library Management System that models books, users, and borrowing behavior using OOP principles</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  <span class="badge badge-danger">Yet to Start</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Advanced OOP & Exception Handling</td>
+                <td>
+                  
+                  <ul>
+                    <li>Method Overloading & Overriding, Interfaces, Polymorphism, Generics, Exception Types, Try-Catch-Finally Blocks, Custom Exceptions</li>
+                  </ul>
+                  
+                </td>
+                <td>
+                  
+                  <ul>
+                    <li>Extend the Library System to support generic media types (books, videos) with proper exception handling for late returns</li>
                   </ul>
                   
                 </td>
