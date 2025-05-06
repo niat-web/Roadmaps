@@ -86,10 +86,6 @@
       
       --transition-fast: all 0.2s ease;
       --transition: all 0.3s ease;
-      
-      /* Animation Properties */
-      --animation-duration: 0.5s;
-      --animation-timing: cubic-bezier(0.16, 1, 0.3, 1);
     }
     
     * {
@@ -112,8 +108,6 @@
       color: var(--text-light);
       box-shadow: var(--shadow-md);
       position: relative;
-      padding: 24px 0;
-      animation: slideDown var(--animation-duration) var(--animation-timing);
     }
     
     .header::after {
@@ -124,8 +118,6 @@
       width: 100%;
       height: 4px;
       background: var(--primary-light);
-      animation: expandWidth calc(var(--animation-duration) * 1.2) var(--animation-timing) forwards;
-      transform-origin: left;
     }
     
     .header-container {
@@ -133,39 +125,14 @@
       margin: 0 auto;
       padding: 0 20px;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
     
     .header h1 {
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: 700;
       color: var(--text-light);
       margin: 0;
       letter-spacing: 0.5px;
-      position: relative;
-      display: inline-block;
-    }
-    
-    .header h1::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 50%;
-      width: 60%;
-      height: 3px;
-      background-color: var(--accent-2);
-      transform: translateX(-50%);
-      border-radius: var(--border-radius-full);
-    }
-    
-    .header-subtitle {
-      margin-top: 10px;
-      font-size: 1.1rem;
-      color: var(--neutral-200);
-      font-weight: 400;
-      opacity: 0.9;
     }
     
     /* Tabs */
@@ -176,11 +143,6 @@
       z-index: 1000;
       background-color: var(--bg-secondary);
       box-shadow: var(--shadow-sm);
-      transition: box-shadow 0.3s ease;
-    }
-    
-    .tabs-container.sticky {
-      box-shadow: var(--shadow-md);
     }
     
     .tabs-wrapper {
@@ -210,16 +172,11 @@
       min-width: auto;
       position: relative;
       top: 1px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
     }
     
     .role-tab:hover {
       background-color: var(--neutral-100);
       color: var(--secondary);
-      transform: translateY(-2px);
     }
     
     .role-tab.active {
@@ -228,11 +185,6 @@
       font-weight: 600;
       border-color: var(--secondary-dark);
       box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-      transform: translateY(0);
-    }
-    
-    .role-tab i {
-      font-size: 0.9rem;
     }
     
     /* Content */
@@ -240,11 +192,6 @@
       max-width: 1280px;
       margin: 0 auto;
       padding: 28px 20px;
-      animation: fadeIn var(--animation-duration) var(--animation-timing);
-    }
-    
-    .role-section {
-      animation: fadeIn var(--animation-duration) var(--animation-timing);
     }
     
     /* Tech Stack Section */
@@ -256,7 +203,6 @@
       overflow: hidden;
       border: 1px solid var(--border-light);
       transition: var(--transition);
-      position: relative;
     }
     
     .tech-stack-section:hover {
@@ -264,25 +210,13 @@
       transform: translateY(-2px);
     }
     
-    .tech-stack-section:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      bottom: -24px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80%;
-      height: 1px;
-      background-color: var(--border-medium);
-    }
-    
     .tech-stack-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 24px;
+      padding: 8px 24px;
       background-color: var(--neutral-100);
       border-bottom: 1px solid var(--border-light);
-      position: relative;
     }
     
     .tech-stack-title {
@@ -295,19 +229,9 @@
     }
     
     .tech-stack-icon {
-      width: 32px;
-      height: 32px;
+      width: 24px;
+      height: 24px;
       color: var(--primary-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: rgba(29, 91, 121, 0.1);
-      border-radius: var(--border-radius);
-      padding: 6px;
-    }
-    
-    .tech-stack-icon i {
-      font-size: 1.2rem;
     }
     
     .progress-container {
@@ -317,7 +241,7 @@
     }
     
     .progress-bar-container {
-      width: 180px;
+      width: 160px;
       height: 10px;
       background-color: var(--neutral-200);
       border-radius: var(--border-radius-full);
@@ -329,50 +253,19 @@
       height: 100%;
       background: var(--progress-gradient);
       border-radius: var(--border-radius-full);
-      transition: width 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-      position: relative;
-    }
-    
-    .progress-bar-fill::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 20px;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
-      transform: skewX(-20deg);
-      animation: shimmer 2s infinite;
+      transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     
     .progress-text {
       font-size: 0.9rem;
       font-weight: 600;
       color: var(--text-secondary);
-      min-width: 80px;
-      text-align: right;
     }
     
     /* Table */
     .table-container {
       overflow-x: auto;
       border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
-      scrollbar-width: thin;
-      scrollbar-color: var(--primary-light) var(--neutral-200);
-    }
-    
-    .table-container::-webkit-scrollbar {
-      height: 8px;
-    }
-    
-    .table-container::-webkit-scrollbar-track {
-      background: var(--neutral-200);
-      border-radius: var(--border-radius-full);
-    }
-    
-    .table-container::-webkit-scrollbar-thumb {
-      background: var(--primary-light);
-      border-radius: var(--border-radius-full);
     }
     
     .roadmap-table {
@@ -413,7 +306,6 @@
     
     .roadmap-table tr:hover {
       background-color: rgba(109, 40, 217, 0.05);
-      transform: translateX(4px);
     }
     
     .roadmap-table td {
@@ -429,26 +321,6 @@
     .topic-cell {
       font-weight: 600;
       color: var(--text-primary);
-      position: relative;
-    }
-    
-    .topic-cell::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: -12px;
-      width: 4px;
-      height: 50%;
-      background-color: var(--primary-light);
-      border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
-      transform: translateY(-50%);
-      opacity: 0;
-      transition: var(--transition-fast);
-    }
-    
-    .roadmap-table tr:hover .topic-cell::before {
-      opacity: 1;
-      left: -6px;
     }
     
     /* Status Badges */
@@ -502,7 +374,6 @@
       margin-bottom: 10px;
       font-size: 0.95rem;
       color: var(--text-secondary);
-      transition: var(--transition-fast);
     }
     
     ul.item-list li:last-child {
@@ -510,25 +381,12 @@
     }
     
     ul.item-list li:before {
-      content: "";
+      content: "•";
       position: absolute;
       left: 0;
-      top: 10px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: var(--primary-light);
-      transition: var(--transition-fast);
-    }
-    
-    ul.item-list li:hover {
-      color: var(--primary);
-      transform: translateX(3px);
-    }
-    
-    ul.item-list li:hover:before {
-      transform: scale(1.3);
-      background-color: var(--secondary);
+      color: var(--primary-light);
+      font-weight: bold;
+      font-size: 1.2rem;
     }
     
     /* Empty State */
@@ -551,114 +409,10 @@
       margin: 0 auto;
     }
     
-    /* Footer */
-    .footer {
-      max-width: 1280px;
-      margin: 40px auto 20px;
-      padding: 20px;
-      text-align: center;
-      border-top: 1px solid var(--border-light);
-      color: var(--text-tertiary);
-      font-size: 0.9rem;
-    }
-    
-    .footer-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
-    
-    .footer-links {
-      display: flex;
-      gap: 20px;
-    }
-    
-    .footer-link {
-      color: var(--primary);
-      text-decoration: none;
-      transition: var(--transition-fast);
-    }
-    
-    .footer-link:hover {
-      color: var(--secondary);
-      text-decoration: underline;
-    }
-    
-    /* Animations */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    @keyframes slideDown {
-      from {
-        transform: translateY(-20px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-    
-    @keyframes expandWidth {
-      from {
-        transform: scaleX(0);
-      }
-      to {
-        transform: scaleX(1);
-      }
-    }
-    
-    @keyframes shimmer {
-      100% {
-        transform: translateX(200%) skewX(-20deg);
-      }
-    }
-    
-    /* Print Styles */
-    @media print {
-      .tabs-container {
-        position: static;
-        box-shadow: none;
-      }
-      
-      .role-tab:not(.active) {
-        display: none;
-      }
-      
-      .tech-stack-section {
-        break-inside: avoid;
-        page-break-inside: avoid;
-        margin-bottom: 20px;
-        box-shadow: none;
-        border: 1px solid #ccc;
-      }
-      
-      .status-badge {
-        box-shadow: none;
-      }
-      
-      .footer {
-        display: none;
-      }
-    }
-    
     /* Responsive Adjustments */
     @media (max-width: 768px) {
       .header h1 {
         font-size: 1.6rem;
-      }
-      
-      .header-subtitle {
-        font-size: 0.95rem;
       }
       
       .tech-stack-header {
@@ -726,7 +480,6 @@
   <header class="header">
     <div class="header-container">
       <h1>NIAT_X_Nxtwave1</h1>
-      <p class="header-subtitle">Technology Roadmap & Implementation Plan</p>
     </div>
   </header>
   
@@ -734,17 +487,14 @@
     <div class="tabs-wrapper">
       
         <div class="role-tab active" onclick="showRole(0)">
-          <i class="fa-solid fa-user-gear"></i>
           MERN
         </div>
       
         <div class="role-tab " onclick="showRole(1)">
-          <i class="fa-solid fa-user-gear"></i>
           JAVA
         </div>
       
         <div class="role-tab " onclick="showRole(2)">
-          <i class="fa-solid fa-user-gear"></i>
           PYTHON
         </div>
       
@@ -758,13 +508,10 @@
           <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-brands fa-html5"></i>
-                </div>
+                <i class="fa-brands fa-html5 tech-stack-icon"></i>
                 HTML,CSS,BootStrap
               </div>
               <div class="progress-container">
-                <div class="progress-bar-container">
                 <div class="progress-bar-container">
                   <div class="progress-bar-fill" style="width: 100%;"></div>
                 </div>
@@ -866,13 +613,10 @@ Weather Information Page</li>
           <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-solid fa-code"></i>
-                </div>
+                <i class="fa-solid fa-code tech-stack-icon"></i>
                 Technical Business Analyst
               </div>
               <div class="progress-container">
-                <div class="progress-bar-container">
                 <div class="progress-bar-container">
                   <div class="progress-bar-fill" style="width: 0%;"></div>
                 </div>
@@ -1019,13 +763,10 @@ Weather Information Page</li>
           <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-solid fa-code"></i>
-                </div>
+                <i class="fa-solid fa-code tech-stack-icon"></i>
                 lovable
               </div>
               <div class="progress-container">
-                <div class="progress-bar-container">
                 <div class="progress-bar-container">
                   <div class="progress-bar-fill" style="width: 0%;"></div>
                 </div>
@@ -1148,13 +889,10 @@ Weather Information Page</li>
           <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-brands fa-angular"></i>
-                </div>
+                <i class="fa-brands fa-angular tech-stack-icon"></i>
                 Angular
               </div>
               <div class="progress-container">
-                <div class="progress-bar-container">
                 <div class="progress-bar-container">
                   <div class="progress-bar-fill" style="width: 0%;"></div>
                 </div>
@@ -1661,13 +1399,10 @@ Weather Information Page</li>
           <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-solid fa-code"></i>
-                </div>
+                <i class="fa-solid fa-code tech-stack-icon"></i>
                 Copilot
               </div>
               <div class="progress-container">
-                <div class="progress-bar-container">
                 <div class="progress-bar-container">
                   <div class="progress-bar-fill" style="width: 0%;"></div>
                 </div>
@@ -1772,13 +1507,10 @@ Weather Information Page</li>
           <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-solid fa-paint-brush"></i>
-                </div>
+                <i class="fa-solid fa-code tech-stack-icon"></i>
                 Embedded Linux
               </div>
               <div class="progress-container">
-                <div class="progress-bar-container">
                 <div class="progress-bar-container">
                   <div class="progress-bar-fill" style="width: 0%;"></div>
                 </div>
@@ -1901,13 +1633,10 @@ Weather Information Page</li>
           <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-solid fa-code"></i>
-                </div>
+                <i class="fa-solid fa-code tech-stack-icon"></i>
                 C++
               </div>
               <div class="progress-container">
-                <div class="progress-bar-container">
                 <div class="progress-bar-container">
                   <div class="progress-bar-fill" style="width: 0%;"></div>
                 </div>
@@ -2126,13 +1855,10 @@ Weather Information Page</li>
           <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-solid fa-code"></i>
-                </div>
+                <i class="fa-solid fa-code tech-stack-icon"></i>
                 K6
               </div>
               <div class="progress-container">
-                <div class="progress-bar-container">
                 <div class="progress-bar-container">
                   <div class="progress-bar-fill" style="width: 0%;"></div>
                 </div>
@@ -2399,13 +2125,10 @@ Weather Information Page</li>
           <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-solid fa-code"></i>
-                </div>
+                <i class="fa-solid fa-code tech-stack-icon"></i>
                 Manual Testing
               </div>
               <div class="progress-container">
-                <div class="progress-bar-container">
                 <div class="progress-bar-container">
                   <div class="progress-bar-fill" style="width: 0%;"></div>
                 </div>
@@ -2531,13 +2254,10 @@ Weather Information Page</li>
           <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-brands fa-js"></i>
-                </div>
+                <i class="fa-brands fa-js tech-stack-icon"></i>
                 ExpressJS
               </div>
               <div class="progress-container">
-                <div class="progress-bar-container">
                 <div class="progress-bar-container">
                   <div class="progress-bar-fill" style="width: 0%;"></div>
                 </div>
@@ -2612,13 +2332,10 @@ Weather Information Page</li>
           <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-solid fa-code"></i>
-                </div>
+                <i class="fa-solid fa-code tech-stack-icon"></i>
                 MongoDB
               </div>
               <div class="progress-container">
-                <div class="progress-bar-container">
                 <div class="progress-bar-container">
                   <div class="progress-bar-fill" style="width: 0%;"></div>
                 </div>
@@ -2699,13 +2416,10 @@ Weather Information Page</li>
           <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-solid fa-code"></i>
-                </div>
+                <i class="fa-solid fa-code tech-stack-icon"></i>
                 TensorFlow
               </div>
               <div class="progress-container">
-                <div class="progress-bar-container">
                 <div class="progress-bar-container">
                   <div class="progress-bar-fill" style="width: 0%;"></div>
                 </div>
@@ -2876,13 +2590,10 @@ Weather Information Page</li>
           <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-solid fa-code"></i>
-                </div>
+                <i class="fa-solid fa-code tech-stack-icon"></i>
                 Deep Learning
               </div>
               <div class="progress-container">
-                <div class="progress-bar-container">
                 <div class="progress-bar-container">
                   <div class="progress-bar-fill" style="width: 0%;"></div>
                 </div>
@@ -3149,13 +2860,10 @@ Weather Information Page</li>
           <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-brands fa-js"></i>
-                </div>
+                <i class="fa-brands fa-js tech-stack-icon"></i>
                 Chart JS
               </div>
               <div class="progress-container">
-                <div class="progress-bar-container">
                 <div class="progress-bar-container">
                   <div class="progress-bar-fill" style="width: 0%;"></div>
                 </div>
@@ -3326,13 +3034,10 @@ Weather Information Page</li>
           <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-solid fa-code"></i>
-                </div>
+                <i class="fa-solid fa-code tech-stack-icon"></i>
                 JQuery
               </div>
               <div class="progress-container">
-                <div class="progress-bar-container">
                 <div class="progress-bar-container">
                   <div class="progress-bar-fill" style="width: 0%;"></div>
                 </div>
@@ -3503,13 +3208,10 @@ Weather Information Page</li>
           <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-solid fa-database"></i>
-                </div>
+                <i class="fa-solid fa-database tech-stack-icon"></i>
                 SQL
               </div>
               <div class="progress-container">
-                <div class="progress-bar-container">
                 <div class="progress-bar-container">
                   <div class="progress-bar-fill" style="width: 0%;"></div>
                 </div>
@@ -3680,13 +3382,10 @@ Weather Information Page</li>
           <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-brands fa-js"></i>
-                </div>
+                <i class="fa-brands fa-js tech-stack-icon"></i>
                 Javascript
               </div>
               <div class="progress-container">
-                <div class="progress-bar-container">
                 <div class="progress-bar-container">
                   <div class="progress-bar-fill" style="width: 0%;"></div>
                 </div>
@@ -3857,13 +3556,10 @@ Weather Information Page</li>
           <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-brands fa-js"></i>
-                </div>
+                <i class="fa-brands fa-js tech-stack-icon"></i>
                 React JS
               </div>
               <div class="progress-container">
-                <div class="progress-bar-container">
                 <div class="progress-bar-container">
                   <div class="progress-bar-fill" style="width: 0%;"></div>
                 </div>
@@ -4035,17 +3731,6 @@ Weather Information Page</li>
     </div>
   
   
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-links">
-        <a href="#" class="footer-link">Documentation</a>
-        <a href="#" class="footer-link">Support</a>
-        <a href="#" class="footer-link">Feedback</a>
-      </div>
-      <p>© 2025 Nxtwave1 - All Rights Reserved</p>
-    </div>
-  </footer>
-  
   <script>
     function showRole(roleIndex) {
       // Hide all role sections
@@ -4065,31 +3750,6 @@ Weather Information Page</li>
         }
       });
     }
-    
-    // Make tabs sticky on scroll
-    window.addEventListener('scroll', function() {
-      const tabsContainer = document.querySelector('.tabs-container');
-      if (window.scrollY > 100) {
-        tabsContainer.classList.add('sticky');
-      } else {
-        tabsContainer.classList.remove('sticky');
-      }
-    });
-    
-    // Initialize animations for progress bars
-    document.addEventListener('DOMContentLoaded', function() {
-      // Add a small delay to allow for smooth transition
-      setTimeout(() => {
-        document.querySelectorAll('.progress-bar-fill').forEach(bar => {
-          const width = bar.style.width;
-          bar.style.width = '0%';
-          
-          setTimeout(() => {
-            bar.style.width = width;
-          }, 300);
-        });
-      }, 500);
-    });
   </script>
 </body>
 </html>
