@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NIAT_X_Sample</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      font-size: 16px;
+    }
+    
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+      color: #fff;
+      padding: 2rem 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+    
+    /* Tabs */
+    .tabs-container {
+      padding: 1rem 0;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .tabs-wrapper {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 0 20px;
+    }
+    
+    .role-tab {
+      padding: 0.5rem 1rem;
+      background-color: #f1f5f9;
+      color: #4b5563;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .role-tab:hover {
+      background-color: #e2e8f0;
+    }
+    
+    .role-tab.active {
+      background-color: #4b6cb7;
+      color: #fff;
+      border-color: #4b6cb7;
+    }
+    
+    /* Content */
+    .content-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 20px;
+    }
+    
+    /* Tech Stack Section */
+    .tech-stack-section {
+      margin-bottom: 2rem;
+      background-color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .tech-stack-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background-color: #f8fafc;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .tech-stack-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1e293b;
+    }
+    
+    .progress-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .progress-bar-container {
+      width: 150px;
+      height: 8px;
+      background-color: #e2e8f0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #4b6cb7, #182848);
+      border-radius: 4px;
+    }
+    
+    .progress-text {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #4b5563;
+    }
+    
+    /* Table */
+    .table-container {
+      overflow-x: auto;
+    }
+    
+    .roadmap-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .roadmap-table th {
+      background-color: #f1f5f9;
+      color: #4b5563;
+      font-weight: 600;
+      text-align: left;
+      padding: 1rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .roadmap-table tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+    
+    .roadmap-table td {
+      padding: 1rem;
+      border: 1px solid #e5e7eb;
+      vertical-align: top;
+    }
+    
+    .topic-cell {
+      font-weight: 600;
+      color: #1e293b;
+    }
+    
+    /* Status Badges */
+    .status-badge {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-align: center;
+    }
+    
+    .status-completed {
+      background-color: #dcfce7;
+      color: #16a34a;
+    }
+    
+    .status-in-progress {
+      background-color: #fef9c3;
+      color: #ca8a04;
+    }
+    
+    .status-not-started {
+      background-color: #fee2e2;
+      color: #dc2626;
+    }
+    
+    /* Lists */
+    ul.item-list {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    
+    ul.item-list li {
+      position: relative;
+      padding-left: 1rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    
+    ul.item-list li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #4b6cb7;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .tech-stack-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .progress-container {
+        margin-top: 0.5rem;
+      }
+      
+      .roadmap-table th,
+      .roadmap-table td {
+        padding: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="top">
+    <div class="header-container">
+      <h1>NIAT_X_Sample</h1>
+    </div>
+  </header>
+  
+  <div class="tabs-container">
+    <div class="tabs-wrapper">
+      
+        <div class="role-tab active" onclick="showRole(0)">
+          MERN
+        </div>
+      
+        <div class="role-tab " onclick="showRole(1)">
+          JAVA
+        </div>
+      
+    </div>
+  </div>
+  
+  
+    <div class="role-section" id="role-0" style="display: block;">
+      <div class="content-container">
+        
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                Python
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <span class="progress-text">0% Complete</span>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPICS</th>
+                    <th width="30%">PROJECTS</th>
+                    <th width="20%">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="4" style="text-align: center; padding: 2rem;">
+                      No data available for this tech stack
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                lovable
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <span class="progress-text">0% Complete</span>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPICS</th>
+                    <th width="30%">PROJECTS</th>
+                    <th width="20%">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="4" style="text-align: center; padding: 2rem;">
+                      No data available for this tech stack
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                Jetpack
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <span class="progress-text">0% Complete</span>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPICS</th>
+                    <th width="30%">PROJECTS</th>
+                    <th width="20%">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="4" style="text-align: center; padding: 2rem;">
+                      No data available for this tech stack
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                HTML,CSS,BootStrap
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <span class="progress-text">0% Complete</span>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPICS</th>
+                    <th width="30%">PROJECTS</th>
+                    <th width="20%">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="4" style="text-align: center; padding: 2rem;">
+                      No data available for this tech stack
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  
+    <div class="role-section" id="role-1" style="display: none;">
+      <div class="content-container">
+        
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                Java
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <span class="progress-text">0% Complete</span>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPICS</th>
+                    <th width="30%">PROJECTS</th>
+                    <th width="20%">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="4" style="text-align: center; padding: 2rem;">
+                      No data available for this tech stack
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  
+  
+  <script>
+    // Tab switching function
+    function showRole(roleIndex) {
+      // Hide all role sections
+      document.querySelectorAll('.role-section').forEach(section => {
+        section.style.display = 'none';
+      });
+      
+      // Show the selected role section
+      document.getElementById('role-' + roleIndex).style.display = 'block';
+      
+      // Update active tab
+      document.querySelectorAll('.role-tab').forEach((tab, index) => {
+        if (index === roleIndex) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
