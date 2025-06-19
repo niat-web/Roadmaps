@@ -1,0 +1,1252 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NIAT_X_Nxtwave</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
+    :root {
+      /* Design System: Colors, Fonts, Spacing */
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      
+      --color-primary: #4f46e5;      /* Indigo-600 */
+      --color-primary-dark: #3730a3;   /* Indigo-800 */
+      --color-primary-light: #e0e7ff;  /* Indigo-100 */
+      
+      --color-secondary: #0d9488;    /* Teal-600 */
+      --color-secondary-light: #ccfbf1;/* Teal-50 */
+      
+      --color-text-primary: #111827;    /* Gray-900 */
+      --color-text-secondary: #4b5563; /* Gray-600 */
+      --color-text-muted: #9ca3af;     /* Gray-400 */
+      --color-text-on-dark: #f9fafb;     /* Gray-50 */
+      
+      --color-background: #f4f7f9;    /* Lighter Gray for body background */
+      --color-surface: #ffffff;       /* White for cards/surfaces */
+      --color-border: #e5e7eb;        /* Gray-200 for borders */
+      
+      --status-completed: #16a34a;       /* Green-600 */
+      --status-completed-bg: #f0fdf4;   /* Green-50 */
+      
+      --status-in-progress: #f59e0b;      /* Amber-500 */
+      --status-in-progress-bg: #fefce8; /* Yellow-50 */
+      
+      --status-not-started: #dc2626;     /* Red-600 */
+      --status-not-started-bg: #fee2e2; /* Red-100 */
+
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      
+      --radius: 0.75rem; /* 12px */
+    }
+    
+    *, *::before, *::after { box-sizing: border-box; }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text-secondary);
+      background-color: var(--color-background);
+      margin: 0;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* --- Main Layout --- */
+    .main-header {
+      background-color: var(--color-primary-dark);
+      color: var(--color-text-on-dark);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border-bottom: 4px solid var(--color-primary);
+    }
+
+    .main-header h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    
+    .main-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+    
+    /* --- Tabs for Consolidated View --- */
+    .tabs-container {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background-color: var(--color-surface);
+      box-shadow: var(--shadow-sm);
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    .tabs-wrapper {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 0.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .role-tab {
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    
+    .role-tab:hover {
+      color: var(--color-primary);
+      border-bottom-color: var(--color-primary-light);
+    }
+    
+    .role-tab.active {
+      color: var(--color-primary);
+      border-bottom-color: var(--color-primary);
+    }
+    
+    .role-section { display: none; }
+    .role-section.active { display: block; }
+    
+    /* --- Tech Stack Card --- */
+    .tech-stack-card {
+      background-color: var(--color-surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+    }
+
+    .tech-stack-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1.5rem;
+      background-color: var(--color-background);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .tech-stack-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+
+    .tech-stack-icon {
+      color: var(--color-primary);
+      font-size: 1.75rem;
+    }
+    
+    .progress-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .progress-text {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      white-space: nowrap;
+    }
+    
+    .progress-bar {
+      width: 150px;
+      height: 10px;
+      background-color: #e2e8f0;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    
+    .progress-bar-fill {
+      height: 100%;
+      background-color: var(--color-secondary);
+      border-radius: 99px;
+    }
+    
+    /* --- Roadmap Table --- */
+    .table-container {
+      overflow-x: auto;
+    }
+
+    .roadmap-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .roadmap-table th, .roadmap-table td {
+      padding: 1rem 1.5rem;
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .roadmap-table th {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      background-color: #f9fafb;
+      color: var(--color-text-secondary);
+    }
+    
+    .roadmap-table tr:last-child td { border-bottom: none; }
+    .roadmap-table tr:hover { background-color: var(--color-background); }
+
+    .topic-cell { font-weight: 600; color: var(--color-text-primary); }
+    
+    .list-container { padding: 0; margin: 0; list-style-type: none; }
+    .list-container li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .list-container li::before {
+      content: '✓';
+      font-weight: 600;
+      color: var(--color-secondary);
+      flex-shrink: 0;
+    }
+    .list-container li:last-child { margin-bottom: 0; }
+    .list-container.projects li::before { content: '🚀'; }
+    
+    /* --- Status Badge --- */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    
+    .status-badge .fa-solid { font-size: 0.8em; }
+
+    .status-completed { background-color: var(--status-completed-bg); color: var(--status-completed); }
+    .status-in-progress { background-color: var(--status-in-progress-bg); color: var(--status-in-progress); }
+    .status-not-started { background-color: var(--status-not-started-bg); color: var(--status-not-started); }
+    
+    /* --- Empty State --- */
+    .empty-state {
+      padding: 3rem 1.5rem;
+      text-align: center;
+      color: var(--color-text-muted);
+    }
+    .empty-state i {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .empty-state p { font-size: 1rem; font-weight: 500; }
+    
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      .main-content { padding: 1.5rem 1rem; }
+      .tech-stack-header { padding: 1rem; }
+      .tech-stack-title { font-size: 1.25rem; }
+      .roadmap-table th, .roadmap-table td { padding: 0.75rem 1rem; font-size: 0.875rem;}
+      .list-container li { font-size: 0.875rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <h1>NIAT_X_Nxtwave</h1>
+  </header>
+  
+  
+  <div class="tabs-container">
+    <div class="tabs-wrapper">
+      <div class="role-tab active" onclick="showRole(0)">MERN</div><div class="role-tab " onclick="showRole(1)">JAVA</div>
+    </div>
+  </div>
+      
+
+  <main class="main-content">
+    
+    <div class="role-section active" id="role-0">
+      
+      
+          <div class="tech-stack-card">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                <i class="fa-brands fa-python tech-stack-icon"></i>
+                <span>Python</span>
+              </div>
+              <div class="progress-container">
+                <span class="progress-text">100% Complete</span>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th style="width: 25%;">Topic</th>
+                    <th style="width: 35%;">Sub-Topic</th>
+                    <th style="width: 25%;">Project</th>
+                    <th style="width: 15%;">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      <tr>
+                        <td class="topic-cell">Data Structures – Lists, Tuples, and Dictionaries</td>
+                        <td><ul class="list-container"><li>Lists Tuples Dictionaries List comprehensions Iterating over data structures</li></ul></td>
+                        <td><ul class="list-container projects"><li>Build a contact book application using dictionaries and lists</li></ul></td>
+                        <td>
+                          <div class="status-badge status-completed">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Completed</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Advanced Data Structures – Sets & File I/O</td>
+                        <td><ul class="list-container"><li>Sets File input/output (reading and writing files) CSV and JSON handling Context managers</li></ul></td>
+                        <td><ul class="list-container projects"><li>Create a student grades management system that reads and writes data to a CSV file</li></ul></td>
+                        <td>
+                          <div class="status-badge status-completed">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Completed</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Object-Oriented Programming (OOP) – Part 1</td>
+                        <td><ul class="list-container"><li>Classes and objects Attributes and methods Encapsulation Creating simple classes</li></ul></td>
+                        <td><ul class="list-container projects"><li>Create a class-based employee management system</li></ul></td>
+                        <td>
+                          <div class="status-badge status-completed">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Completed</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Object-Oriented Programming (OOP) – Part 2</td>
+                        <td><ul class="list-container"><li>Inheritance Method overriding Polymorphism Abstraction and interfaces</li></ul></td>
+                        <td><ul class="list-container projects"><li>Build a multi-level inheritance system for a school management system</li></ul></td>
+                        <td>
+                          <div class="status-badge status-completed">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Completed</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Error Handling and Debugging</td>
+                        <td><ul class="list-container"><li>Exception handling Raising exceptions Debugging tools (pdb) Unit testing with unittest</li></ul></td>
+                        <td><ul class="list-container projects"><li>Write a calculator app with error handling and input validation</li></ul></td>
+                        <td>
+                          <div class="status-badge status-completed">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Completed</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Final Project and Best Practices</td>
+                        <td><ul class="list-container"><li>Python best practices (PEP 8) Code optimization Version control with Git Deploying Python apps</li></ul></td>
+                        <td><ul class="list-container projects"><li>Complete a task management web application using Flask or Django</li></ul></td>
+                        <td>
+                          <div class="status-badge status-completed">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Completed</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                </tbody>
+              </table>
+            </div>
+          </div>
+                
+          <div class="tech-stack-card">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                <i class="fa-solid fa-code tech-stack-icon"></i>
+                <span>Jetpack</span>
+              </div>
+              <div class="progress-container">
+                <span class="progress-text">0% Complete</span>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th style="width: 25%;">Topic</th>
+                    <th style="width: 35%;">Sub-Topic</th>
+                    <th style="width: 25%;">Project</th>
+                    <th style="width: 15%;">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      <tr>
+                        <td class="topic-cell">Introduction to Jetpack</td>
+                        <td><ul class="list-container"><li>What is Jetpack, Setting up Jetpack with WordPress, Overview of Jetpack Features, Security Basics, Performance Features</li></ul></td>
+                        <td><ul class="list-container projects"><li>Install and configure Jetpack on a WordPress test site, enable security and backup features</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Site Security & Backups</td>
+                        <td><ul class="list-container"><li>Protecting Login Pages, Enabling Two-Factor Authentication, Managing Site Backups, Restoring Backups, Monitoring Downtime</li></ul></td>
+                        <td><ul class="list-container projects"><li>Set up backup plans and simulate a site restoration</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Performance & Optimization</td>
+                        <td><ul class="list-container"><li>Image CDN, Lazy Loading Images, Site Accelerator, SEO Tools Integration, Reducing Page Load Times</li></ul></td>
+                        <td><ul class="list-container projects"><li>Optimize a WordPress site with Jetpack tools, run before/after performance tests</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Content Tools & Engagement</td>
+                        <td><ul class="list-container"><li>Related Posts, Sharing Tools, Comment Enhancements, Subscription Forms, Site Stats and Analytics</li></ul></td>
+                        <td><ul class="list-container projects"><li>Add related posts, social sharing, and subscription features to a blog</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Advanced Customization</td>
+                        <td><ul class="list-container"><li>Custom CSS Editing, Widgets Visibility Control, Jetpack CRM Overview, Using Jetpack Boost, Integration with WooCommerce</li></ul></td>
+                        <td><ul class="list-container projects"><li>Customize a WordPress e-commerce homepage with CRM integration and performance boost</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                </tbody>
+              </table>
+            </div>
+          </div>
+                
+    </div>
+        
+    <div class="role-section " id="role-1">
+      
+      
+          <div class="tech-stack-card">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                <i class="fa-brands fa-js tech-stack-icon"></i>
+                <span>Vue.js</span>
+              </div>
+              <div class="progress-container">
+                <span class="progress-text">0% Complete</span>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th style="width: 25%;">Topic</th>
+                    <th style="width: 35%;">Sub-Topic</th>
+                    <th style="width: 25%;">Project</th>
+                    <th style="width: 15%;">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      <tr>
+                        <td class="topic-cell">Intro to Vue JS, Vite & First Components</td>
+                        <td><ul class="list-container"><li>What is Vue?</li><li>Vue.js vs React: Key Differences</li><li>Vue 3 vs Vue 2</li><li>Vite Setup, Project structure</li><li>First component</li><li>Vue DevTools</li></ul></td>
+                        <td><ul class="list-container projects"><li>Setup & Build a Welcome Page with Dynamic Title Binding</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Vue Template Syntax + Directives</td>
+                        <td><ul class="list-container"><li>Text interpolation</li><li>v-bind</li><li>v-if / v-else</li><li>v-for</li><li>v-show</li><li>Class/style bindings</li></ul></td>
+                        <td><ul class="list-container projects"><li>Build a Dynamic FAQ Viewer</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Component System</td>
+                        <td><ul class="list-container"><li>Global & Local Components</li><li>Props</li><li>Custom Events ($emit)</li><li>Slots Basics</li><li>Single File Components (.vue)</li></ul></td>
+                        <td><ul class="list-container projects"><li>Weather Info Card with Props & Slots</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Forms & Event Handling</td>
+                        <td><ul class="list-container"><li>v-model</li><li>Form Inputs</li><li>Computed Properties</li><li>Watchers</li><li>Handling Form Events</li></ul></td>
+                        <td><ul class="list-container projects"><li>Build a Live Form with Auto Suggestions</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Component Communication & Lifecycle</td>
+                        <td><ul class="list-container"><li>Parent-Child Communication</li><li>Props Down, Events Up</li><li>Lifecycle Hooks</li><li>Dynamic & Async Components</li></ul></td>
+                        <td><ul class="list-container projects"><li>Messaging Interface with Chat Threads</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Routing with Vue Router</td>
+                        <td><ul class="list-container"><li>Vue Router Setup</li><li>Route Configuration</li><li>Dynamic Params</li><li>Route Guards</li><li>Nested Routes</li></ul></td>
+                        <td><ul class="list-container projects"><li>Multi-page App with Protected Routes</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">State Management with Vuex</td>
+                        <td><ul class="list-container"><li>Vuex vs Redux</li><li>State, Getters</li><li>Mutations & Actions</li><li>Connecting Store to Components</li></ul></td>
+                        <td><ul class="list-container projects"><li>Shopping Cart with Global State</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Advanced Vuex & API Integration</td>
+                        <td><ul class="list-container"><li>Structuring Vuex for Large Apps</li><li>API Integration in Actions</li><li>Handling Loading & Errors</li><li>Axios Setup</li></ul></td>
+                        <td><ul class="list-container projects"><li>Product Catalog with Backend Integration</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Vue Composition API</td>
+                        <td><ul class="list-container"><li>Options API vs Composition API</li><li>ref & reactive</li><li>computed & watch</li><li>Lifecycle Hooks</li><li>Comparison with React Hooks</li></ul></td>
+                        <td><ul class="list-container projects"><li>Task Manager using Composition API</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Advanced Component Patterns</td>
+                        <td><ul class="list-container"><li>Scoped Slots</li><li>Provide/Inject</li><li>Mixins vs Composables</li><li>Teleport</li><li>Render Functions</li></ul></td>
+                        <td><ul class="list-container projects"><li>Build a Mini Component Library</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Transitions & Animations</td>
+                        <td><ul class="list-container"><li>Vue <transition> and <transition-group></li><li>CSS & JS Animations</li><li>List Transitions</li><li>Hooks for Animations</li></ul></td>
+                        <td><ul class="list-container projects"><li>Animated Dashboard Widgets</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Testing Vue Apps</td>
+                        <td><ul class="list-container"><li>Vue Test Utils Basics</li><li>Unit Testing Components</li><li>Mocking APIs</li><li>E2E Testing with Cypress</li></ul></td>
+                        <td><ul class="list-container projects"><li>Test-Driven Signup/Login Flow</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Performance Optimization</td>
+                        <td><ul class="list-container"><li>Lazy Loading Components</li><li>Code Splitting</li><li>Virtual Scrolling</li><li>Optimizing Re-renders</li><li>Memory Leak Prevention</li><li>Vue DevTools</li></ul></td>
+                        <td><ul class="list-container projects"><li>Performance Optimized Gallery</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Reusable Patterns & Plugins</td>
+                        <td><ul class="list-container"><li>Mixins (vs HOCs)</li><li>Custom Directives</li><li>Creating Plugins</li><li>Composables (vs Custom Hooks)</li><li>Provide/Inject (vs React Context)</li></ul></td>
+                        <td><ul class="list-container projects"><li>Widget Dashboard with Reusable Components</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Nuxt.js Introduction</td>
+                        <td><ul class="list-container"><li>Nuxt Overview</li><li>SSR & SSG</li><li>Pages & Layouts</li><li>Routing in Nuxt</li><li>Fetching Strategies</li><li>SEO Optimization</li></ul></td>
+                        <td><ul class="list-container projects"><li>Blog Platform with Nuxt.js</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Vue 3 Advanced Features</td>
+                        <td><ul class="list-container"><li>Fragments</li><li>Teleport (vs Portals)</li><li>Suspense</li><li>Multiple v-models</li><li>script setup syntax</li><li>Global Mounting Changes</li></ul></td>
+                        <td><ul class="list-container projects"><li>Advanced UI Components</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Internationalization & A11y</td>
+                        <td><ul class="list-container"><li>Vue I18n Setup</li><li>Translation Files</li><li>Dynamic Locale Switching</li><li>Number & Date Formatting</li><li>Pluralization</li><li>ARIA Tags</li></ul></td>
+                        <td><ul class="list-container projects"><li>Multilingual Application</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Vue + TypeScript</td>
+                        <td><ul class="list-container"><li>TypeScript Setup</li><li>Type Definitions</li><li>Typed Props, Events, Emits</li><li>Type-safe Stores</li><li>Class-based Components (optional)</li></ul></td>
+                        <td><ul class="list-container projects"><li>TypeScript Todo App</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Mobile & PWA Development</td>
+                        <td><ul class="list-container"><li>PWA Basics</li><li>Service Workers</li><li>Offline Access</li><li>Touch Events</li><li>Capacitor Overview</li><li>Responsive Design Patterns</li></ul></td>
+                        <td><ul class="list-container projects"><li>Mobile-friendly Offline PWA</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Final Capstone & Deployment</td>
+                        <td><ul class="list-container"><li>Project Planning</li><li>State + API Integration</li><li>Routing & Auth</li><li>CI/CD Pipeline</li><li>Testing Strategy</li><li>Deployment Best Practices</li></ul></td>
+                        <td><ul class="list-container projects"><li>Full E-commerce Single Page Application</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                </tbody>
+              </table>
+            </div>
+          </div>
+                
+          <div class="tech-stack-card">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                <i class="fa-solid fa-code tech-stack-icon"></i>
+                <span>api testing</span>
+              </div>
+              <div class="progress-container">
+                <span class="progress-text">0% Complete</span>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th style="width: 25%;">Topic</th>
+                    <th style="width: 35%;">Sub-Topics</th>
+                    <th style="width: 25%;">Project</th>
+                    <th style="width: 15%;">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      <tr>
+                        <td class="topic-cell">Introduction to API & API Testing</td>
+                        <td><ul class="list-container"><li>- What is an API?</li><li>- Types of APIs (REST, SOAP, GraphQL)</li><li>- Basics of HTTP (Methods, Status Codes, Headers)</li><li>- API Testing Basics (Why and When to Test)</li></ul></td>
+                        <td><ul class="list-container projects"><li>Create a simple REST API using Node.js and Express, and manually test it using Postman.</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">API Testing using Postman</td>
+                        <td><ul class="list-container"><li>- Setting up Postman</li><li>- Creating and sending API requests</li><li>- Query Parameters & Headers</li><li>- Postman Collections and Environment Variables</li><li>- Testing Authentication (API Keys, OAuth)</li></ul></td>
+                        <td><ul class="list-container projects"><li>Automate API requests in Postman for a public API (e.g., OpenWeather, GitHub API).</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Automated API Testing with Postman</td>
+                        <td><ul class="list-container"><li>- Writing Tests in Postman (Assertions with JavaScript)</li><li>- Using Pre-request & Test Scripts</li><li>- Running Tests in Collection Runner</li><li>- Generating API Test Reports</li></ul></td>
+                        <td><ul class="list-container projects"><li>Automate test cases for a sample e-commerce API and generate a report of passed/failed tests.</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">API Automation using REST Assured (Java)</td>
+                        <td><ul class="list-container"><li>- Introduction to REST Assured</li><li>- Setting up REST Assured with Maven</li><li>- Writing Basic API Tests in Java</li><li>- Validating Response Codes & JSON Data</li></ul></td>
+                        <td><ul class="list-container projects"><li>Write test cases for CRUD operations using REST Assured and validate API responses.</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">API Automation with Python (Requests & Pytest)</td>
+                        <td><ul class="list-container"><li>- Introduction to Python Requests Library</li><li>- Writing API Tests with Pytest</li><li>- Parameterizing Tests</li><li>- Mocking API Responses</li></ul></td>
+                        <td><ul class="list-container projects"><li>Automate API tests for a dummy API and integrate them with pytest for structured test execution.</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Performance & Security Testing for APIs</td>
+                        <td><ul class="list-container"><li>- Introduction to Load Testing (JMeter, K6)</li><li>- Writing API Load Tests</li><li>- Security Testing Basics (SQL Injection, XSS, Token Validation)</li><li>- API Rate Limiting & Error Handling</li></ul></td>
+                        <td><ul class="list-container projects"><li>Simulate a stress test on an API using JMeter and analyze response times.</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">CI/CD Integration & API Mocking</td>
+                        <td><ul class="list-container"><li>- Mocking APIs for Testing (WireMock, Mockoon)</li><li>- Continuous Integration for API Tests (Jenkins/GitHub Actions)</li><li>- Running API Tests in a CI/CD Pipeline</li></ul></td>
+                        <td><ul class="list-container projects"><li>Set up a CI/CD pipeline that runs API tests automatically after every commit.</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Capstone Project: End-to-End API Testing</td>
+                        <td><ul class="list-container"><li>- Designing a Full API Testing Strategy</li><li>- Implementing Functional, Performance, and Security Tests</li><li>- Generating Reports</li><li>- Documenting API Testing Approach</li></ul></td>
+                        <td><ul class="list-container projects"><li>Perform comprehensive API testing on a real-world API (e.g., Stripe, Twilio) and generate a final test report.</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                </tbody>
+              </table>
+            </div>
+          </div>
+                
+          <div class="tech-stack-card">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                <i class="fa-solid fa-code tech-stack-icon"></i>
+                <span>DSA</span>
+              </div>
+              <div class="progress-container">
+                <span class="progress-text">0% Complete</span>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th style="width: 25%;">Topics</th>
+                    <th style="width: 35%;">Subtopics</th>
+                    <th style="width: 25%;">Hands-on Tasks</th>
+                    <th style="width: 15%;">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      <tr>
+                        <td class="topic-cell">Intro to DSA & Time Complexity</td>
+                        <td><ul class="list-container"><li>Big O, Time vs Space trade-off, Best-Worst-Average</li></ul></td>
+                        <td><ul class="list-container projects"><li>Dry-run basic loops, analyze time complexities, solve 3 time complexity classification problems</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Arrays</td>
+                        <td><ul class="list-container"><li>Traversals, Modifications, Prefix Sum, Sliding Window</li></ul></td>
+                        <td><ul class="list-container projects"><li>Reverse Array, Max Subarray Sum (Kadane), Sliding window maximum</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">2D Arrays & Matrix Problems</td>
+                        <td><ul class="list-container"><li>Row-wise/Col-wise Traversals, Diagonal, Spiral</li></ul></td>
+                        <td><ul class="list-container projects"><li>Spiral matrix, Transpose, Search in 2D sorted matrix</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Strings</td>
+                        <td><ul class="list-container"><li>String Manipulation, Frequency Maps, Palindromes</li></ul></td>
+                        <td><ul class="list-container projects"><li>Longest Palindromic Substring, Anagram check, Reverse words</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Recursion - Part 1</td>
+                        <td><ul class="list-container"><li>Basics, Stack Memory, Recursion Tree</li></ul></td>
+                        <td><ul class="list-container projects"><li>Factorial, Fibonacci, Print all subsequences</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Recursion - Part 2</td>
+                        <td><ul class="list-container"><li>Backtracking Intro, Subset, Permutations</li></ul></td>
+                        <td><ul class="list-container projects"><li>N-Queens (4x4), Rat in Maze, Permutations of a string</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Sorting</td>
+                        <td><ul class="list-container"><li>Bubble, Selection, Insertion, Merge, Quick</li></ul></td>
+                        <td><ul class="list-container projects"><li>Implement each, Compare time taken, Count Inversions using Merge Sort</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Searching</td>
+                        <td><ul class="list-container"><li>Linear, Binary, Lower Bound, Upper Bound</li></ul></td>
+                        <td><ul class="list-container projects"><li>Binary Search on Sorted Array, Search in Rotated Array</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Bit Manipulation</td>
+                        <td><ul class="list-container"><li>AND, OR, XOR, Set/Clear/Toggle bits</li></ul></td>
+                        <td><ul class="list-container projects"><li>Single Number, Count Set Bits, Subsets using bits</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Stack</td>
+                        <td><ul class="list-container"><li>LIFO, Implementation, Infix to Postfix, Histograms</li></ul></td>
+                        <td><ul class="list-container projects"><li>Balanced Parentheses, Next Greater Element, Largest Histogram</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Queue & Deque</td>
+                        <td><ul class="list-container"><li>FIFO, Circular Queue, Monotonic Queue</li></ul></td>
+                        <td><ul class="list-container projects"><li>Implement Queue using Stack, Sliding Window Max using Deque</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Linked List - Part 1</td>
+                        <td><ul class="list-container"><li>Singly LL, Reversing, Cycle Detection</li></ul></td>
+                        <td><ul class="list-container projects"><li>Reverse LL, Detect & Remove Cycle (Floyd's algo)</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Linked List - Part 2</td>
+                        <td><ul class="list-container"><li>DLL, Merge K Lists, Intersection Point</li></ul></td>
+                        <td><ul class="list-container projects"><li>Merge Sort LL, K-group reverse, Intersection of two LLs</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Hashing & Maps</td>
+                        <td><ul class="list-container"><li>HashMap, HashSet, Count Frequency, Custom Key</li></ul></td>
+                        <td><ul class="list-container projects"><li>2 Sum, Longest Subarray with 0 sum, Group Anagrams</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Trees - Part 1</td>
+                        <td><ul class="list-container"><li>Binary Tree, Traversals (DFS, BFS)</li></ul></td>
+                        <td><ul class="list-container projects"><li>Inorder, Postorder, Level Order traversal</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Trees - Part 2</td>
+                        <td><ul class="list-container"><li>BST, LCA, Diameter, Height Balance</li></ul></td>
+                        <td><ul class="list-container projects"><li>Validate BST, Lowest Common Ancestor, Diameter of Tree</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Heap & Priority Queue</td>
+                        <td><ul class="list-container"><li>Min-Heap, Max-Heap, K-Largest/Smallest</li></ul></td>
+                        <td><ul class="list-container projects"><li>Kth largest element, Merge K sorted arrays</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Graphs - Part 1</td>
+                        <td><ul class="list-container"><li>Representations, BFS, DFS, Cycle Detection</li></ul></td>
+                        <td><ul class="list-container projects"><li>BFS traversal, DFS traversal, Cycle in Undirected Graph</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Graphs - Part 2</td>
+                        <td><ul class="list-container"><li>Topo Sort, Union Find, MST, Dijkstra</li></ul></td>
+                        <td><ul class="list-container projects"><li>Topo Sort (Kahn’s Algo), Kruskal’s MST, Dijkstra's shortest path</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Dynamic Programming (DP)</td>
+                        <td><ul class="list-container"><li>Memoization, Tabulation, 0/1 Knapsack, LCS</li></ul></td>
+                        <td><ul class="list-container projects"><li>Climbing Stairs, LCS, 0/1 Knapsack, DP on Subsets</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                </tbody>
+              </table>
+            </div>
+          </div>
+                
+          <div class="tech-stack-card">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                <i class="fa-solid fa-code tech-stack-icon"></i>
+                <span>IAM</span>
+              </div>
+              <div class="progress-container">
+                <span class="progress-text">0% Complete</span>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th style="width: 25%;">Topic</th>
+                    <th style="width: 35%;">Sub-Topics</th>
+                    <th style="width: 25%;">Project / Task</th>
+                    <th style="width: 15%;">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      <tr>
+                        <td class="topic-cell">Introduction to IAM & Core Concepts</td>
+                        <td><ul class="list-container"><li>- What is IAM?</li><li>- Role of IAM in security & compliance</li><li>- Core components: users, groups, roles, policies</li><li>- Authentication vs Authorization</li></ul></td>
+                        <td><ul class="list-container projects"><li>Set up a basic IAM model with users, groups, and policies in AWS Identity Center or simulate using open-source IAM tools</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">IAM Policies & Role-Based Access Control</td>
+                        <td><ul class="list-container"><li>- Policy structure and syntax (JSON-based)</li><li>- IAM vs RBAC vs ABAC</li><li>- Least privilege principle</li><li>- Creating and attaching custom policies</li></ul></td>
+                        <td><ul class="list-container projects"><li>Implement a resource-based access control system using RBAC (e.g., file access permissions simulation)</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Cloud IAM Implementations (AWS/Azure/GCP)</td>
+                        <td><ul class="list-container"><li>- AWS IAM: Roles, STS, Identity Center</li><li>- Azure Active Directory basics</li><li>- GCP IAM: Members, roles, bindings</li><li>- Multi-cloud IAM comparison</li></ul></td>
+                        <td><ul class="list-container projects"><li>Configure IAM for an S3 bucket, set up a temporary token system (STS), and test cross-account role access</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                      <tr>
+                        <td class="topic-cell">Federation, SSO, and IAM Best Practices</td>
+                        <td><ul class="list-container"><li>- SAML, OAuth 2.0, OpenID Connect basics</li><li>- Integrating IAM with enterprise SSO (Google, Okta)</li><li>- Audit, logging, and IAM misconfiguration risks</li><li>- IAM lifecycle management</li></ul></td>
+                        <td><ul class="list-container projects"><li>Connect an app to SSO using OAuth 2.0, simulate access logs and generate an IAM audit report</li></ul></td>
+                        <td>
+                          <div class="status-badge status-not-started">
+                            <i class="fa-regular fa-circle"></i>
+                            <span>Yet to Start</span>
+                          </div>
+                        </td>
+                      </tr>
+                            
+                </tbody>
+              </table>
+            </div>
+          </div>
+                
+    </div>
+        
+  </main>
+  
+  <script>
+    function showRole(roleIndex) {
+      document.querySelectorAll('.role-section').forEach(section => section.classList.remove('active'));
+      document.getElementById('role-' + roleIndex).classList.add('active');
+      document.querySelectorAll('.role-tab').forEach((tab, index) => {
+        if (index === roleIndex) tab.classList.add('active');
+        else tab.classList.remove('active');
+      });
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const firstTab = document.querySelector('.role-tab');
+        if (firstTab) firstTab.click();
+    });
+  </script>
+</body>
+</html>
