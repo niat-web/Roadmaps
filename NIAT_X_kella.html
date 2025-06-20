@@ -7,86 +7,56 @@
   <title>NIAT_X_kella</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
     
     :root {
-      /* Modern Color Palette - Vibrant & Bold */
-      --primary-950: #1a0b2e;
-      --primary-900: #2d1b4e;
-      --primary-800: #4c2c85;
-      --primary-700: #6b46c1;
-      --primary-600: #8b5cf6;
-      --primary-500: #a78bfa;
-      --primary-400: #c4b5fd;
-      --primary-300: #ddd6fe;
-      --primary-200: #ede9fe;
-      --primary-100: #f3f4f6;
+      /* Professional Designer Color Palette - More Diverse & Visually Distinct */
       
-      /* Accent Colors - Electric & Dynamic */
-      --accent-cyan: #06b6d4;
-      --accent-cyan-glow: rgba(6, 182, 212, 0.3);
-      --accent-pink: #ec4899;
-      --accent-pink-glow: rgba(236, 72, 153, 0.3);
-      --accent-yellow: #fbbf24;
-      --accent-yellow-glow: rgba(251, 191, 36, 0.3);
-      --accent-green: #10b981;
-      --accent-green-glow: rgba(16, 185, 129, 0.3);
-      --accent-orange: #f97316;
-      --accent-orange-glow: rgba(249, 115, 22, 0.3);
+      /* Primary Brand Colors */
+      --primary-dark: #0F2C59;      /* Dark navy blue */
+      --primary: #1D5B79;           /* Teal blue for accents & active states */
       
-      /* Status Colors - Enhanced with Glow */
-      --status-completed: #10b981;
-      --status-completed-bg: rgba(16, 185, 129, 0.1);
-      --status-completed-glow: rgba(16, 185, 129, 0.4);
+      /* Status Colors - Calibrated for Accessibility */
+      --completed: #10b981;         /* Emerald green */
+      --completed-bg: rgba(16, 185, 129, 0.1);
+      --completed-border: rgba(16, 185, 129, 0.2);
       
-      --status-progress: #f59e0b;
-      --status-progress-bg: rgba(245, 158, 11, 0.1);
-      --status-progress-glow: rgba(245, 158, 11, 0.4);
+      --in-progress: #f59e0b;       /* Amber */
+      --in-progress-bg: rgba(245, 158, 11, 0.1);
+      --in-progress-border: rgba(245, 158, 11, 0.2);
       
-      --status-pending: #ef4444;
-      --status-pending-bg: rgba(239, 68, 68, 0.1);
-      --status-pending-glow: rgba(239, 68, 68, 0.4);
+      --not-started: #ef4444;       /* Red */
+      --not-started-bg: rgba(239, 68, 68, 0.1);
+      --not-started-border: rgba(239, 68, 68, 0.2);
       
-      /* Dark Theme Colors */
-      --bg-dark: #0a0a0a;
-      --bg-dark-secondary: #111111;
-      --bg-dark-tertiary: #1a1a1a;
-      --bg-glass: rgba(255, 255, 255, 0.05);
-      --bg-glass-hover: rgba(255, 255, 255, 0.1);
+      /* Neutrals - For Balance and Readability */
+      --neutral-50: #f8fafc;        /* Lightest gray for hover */
+      --neutral-100: #f1f5f9;       /* Light gray for table header */
+      --neutral-200: #e2e8f0;       /* Light gray */
+      --neutral-300: #cbd5e1;       /* Medium light gray for borders */
+      --neutral-800: #1e293b;       /* Almost black */
       
       /* Text Colors */
-      --text-white: #ffffff;
-      --text-gray-100: #f8fafc;
-      --text-gray-200: #e2e8f0;
-      --text-gray-300: #cbd5e1;
-      --text-gray-400: #94a3b8;
-      --text-gray-500: #64748b;
+      --text-primary: #1e293b;      /* Dark slate for main text and titles */
+      --text-secondary: #475569;    /* Slate for secondary text and icons */
+      --text-tertiary: #64748b;     /* Lighter slate for tertiary text */
+      --text-light: #f8fafc;        /* White text for dark backgrounds */
       
-      /* Gradients - Bold & Dynamic */
-      --grad-primary: linear-gradient(135deg, #6b46c1 0%, #ec4899 50%, #06b6d4 100%);
-      --grad-header: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 25%, #4c2c85 75%, #6b46c1 100%);
-      --grad-card: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
-      --grad-button: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
-      --grad-progress: linear-gradient(90deg, #06b6d4 0%, #8b5cf6 50%, #ec4899 100%);
-      --grad-glow: radial-gradient(circle at center, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+      /* Background Colors */
+      --bg-primary: #f8fafc;        /* Very light slate for main background */
+      --bg-secondary: #ffffff;      /* Pure white for containers */
       
-      /* Shadows & Effects */
-      --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
-      --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.9);
-      --shadow-glow: 0 0 50px rgba(139, 92, 246, 0.5);
-      --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+      /* UI Elements */
+      --border-light: #e2e8f0;
+      --border-medium: #cbd5e1;
       
-      /* Border Radius */
-      --radius-xl: 20px;
-      --radius-2xl: 24px;
-      --radius-3xl: 32px;
+      /* Effects - Keeping simple shadow for depth */
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
       
-      /* Animations */
-      --duration-fast: 200ms;
-      --duration-normal: 300ms;
-      --duration-slow: 500ms;
-      --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      --ease-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+      --border-radius-sm: 4px;
+      --border-radius: 8px;
+      --border-radius-lg: 12px;
+      --border-radius-full: 9999px;
     }
     
     * {
@@ -100,647 +70,278 @@
     }
     
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-white);
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: var(--text-primary);
       line-height: 1.6;
-      overflow-x: hidden;
-      position: relative;
+      background-color: var(--bg-primary);
+      font-size: 16px;
     }
     
-    /* Animated Background */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
-      animation: backgroundShift 20s ease-in-out infinite;
-      z-index: -1;
-    }
-    
-    @keyframes backgroundShift {
-      0%, 100% { transform: rotate(0deg) scale(1); }
-      33% { transform: rotate(1deg) scale(1.02); }
-      66% { transform: rotate(-1deg) scale(0.98); }
-    }
-    
-    /* Header - Ultra Modern */
+    /* --- REDESIGNED ROADMAP TITLE CONTAINER --- */
     .header {
-      position: relative;
-      background: var(--grad-header);
-      padding: 3rem 0;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: var(--grad-glow);
-      opacity: 0.5;
-      animation: pulseGlow 4s ease-in-out infinite;
-    }
-    
-    @keyframes pulseGlow {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 0.6; }
+      background-color: var(--bg-secondary); /* Clean white background */
+      color: var(--text-primary); /* Dark text for contrast */
+      border-bottom: 1px solid var(--border-light);
+      padding: 20px 0;
     }
     
     .header-container {
-      max-width: 1400px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 2rem;
-      text-align: center;
-      position: relative;
-      z-index: 2;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start; /* Left-aligned */
     }
     
     .header h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 900;
-      background: linear-gradient(135deg, #ffffff 0%, #a78bfa 50%, #06b6d4 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-shadow: 0 0 30px rgba(167, 139, 250, 0.5);
-      letter-spacing: -2px;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--text-primary);
       margin: 0;
-      animation: titleFloat 6s ease-in-out infinite;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Subtle branding element */
+    .header h1::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 28px;
+      background-color: var(--primary);
+      border-radius: var(--border-radius-sm);
     }
     
-    @keyframes titleFloat {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
-    
-    /* Tabs - Glassmorphism Design */
+    /* --- REDESIGNED ROLES TITLE CONTAINER (TABS) --- */
     .tabs-container {
       position: sticky;
       top: 0;
       z-index: 1000;
-      backdrop-filter: blur(20px);
-      background: rgba(0, 0, 0, 0.8);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 1rem 0;
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-light);
     }
     
     .tabs-wrapper {
-      max-width: 1400px;
+      max-width: 1280px;
       margin: 0 auto;
       display: flex;
-      gap: 0.5rem;
-      padding: 0 2rem;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-    
-    .tabs-wrapper::-webkit-scrollbar {
-      display: none;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding: 0 24px;
     }
     
     .role-tab {
-      padding: 1rem 2rem;
-      background: var(--bg-glass);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-xl);
-      color: var(--text-gray-300);
-      font-weight: 600;
-      font-size: 0.95rem;
-      white-space: nowrap;
+      padding: 16px 4px; /* Focus on vertical padding */
+      background-color: transparent;
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 1rem;
+      border: none;
+      border-bottom: 3px solid transparent; /* Placeholder for active state underline */
       cursor: pointer;
-      transition: all var(--duration-normal) var(--ease-smooth);
-      backdrop-filter: blur(10px);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .role-tab::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: var(--grad-button);
-      transition: left var(--duration-normal) var(--ease-smooth);
-      z-index: -1;
     }
     
     .role-tab:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: var(--shadow-glow);
-      color: var(--text-white);
-      border-color: rgba(139, 92, 246, 0.5);
-    }
-    
-    .role-tab:hover::before {
-      left: 0;
+      color: var(--primary-dark);
     }
     
     .role-tab.active {
-      background: var(--grad-button);
-      color: var(--text-white);
-      box-shadow: var(--shadow-glow);
-      transform: scale(1.05);
-      border-color: rgba(139, 92, 246, 0.8);
+      color: var(--primary);
+      font-weight: 600;
+      border-bottom-color: var(--primary); /* Underline indicates active tab */
     }
     
-    /* Content Container */
+    /* Content */
     .content-container {
-      max-width: 1400px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 3rem 2rem;
+      padding: 28px 24px;
     }
     
-    /* Tech Stack Section - Neumorphism + Glass */
+    /* --- REDESIGNED TECH STACK SECTION --- */
     .tech-stack-section {
-      margin-bottom: 3rem;
-      background: var(--bg-glass);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-2xl);
+      margin-bottom: 32px;
+      background-color: var(--bg-secondary);
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--border-medium); /* Simple border instead of shadow */
       overflow: hidden;
-      transition: all var(--duration-normal) var(--ease-smooth);
-      position: relative;
-    }
-    
-    .tech-stack-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--grad-progress);
-      opacity: 0;
-      transition: opacity var(--duration-normal);
-    }
-    
-    .tech-stack-section:hover {
-      transform: translateY(-8px) scale(1.01);
-      box-shadow: var(--shadow-2xl);
-      border-color: rgba(139, 92, 246, 0.3);
-    }
-    
-    .tech-stack-section:hover::before {
-      opacity: 1;
     }
     
     .tech-stack-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 2rem;
-      background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 16px 24px;
+      background-color: var(--bg-primary); /* Consistent with body background */
+      border-bottom: 1px solid var(--border-light);
     }
     
     .tech-stack-title {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text-white);
+      gap: 14px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
     }
     
     .tech-stack-icon {
-      width: 32px;
-      height: 32px;
-      padding: 8px;
-      background: var(--grad-button);
-      border-radius: var(--radius-xl);
-      color: var(--text-white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: iconPulse 3s ease-in-out infinite;
+      width: 24px;
+      height: 24px;
+      color: var(--primary);
     }
     
-    @keyframes iconPulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-    
-    /* Progress Container - Ultra Modern */
     .progress-container {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 16px;
     }
     
     .progress-bar-container {
-      width: 200px;
-      height: 12px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-xl);
+      width: 160px;
+      height: 8px;
+      background-color: var(--neutral-200);
+      border-radius: var(--border-radius-full);
       overflow: hidden;
-      position: relative;
-      box-shadow: var(--shadow-inner);
     }
-    
-    .progress-bar-container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
-      animation: shimmer 2s infinite;
-    }
-    
-    @keyframes shimmer {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
-    
+
     .progress-bar-fill {
       height: 100%;
-      background: var(--grad-progress);
-      border-radius: var(--radius-xl);
-      transition: all 1s var(--ease-bounce);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .progress-bar-fill::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
-      animation: progressShine 2s infinite;
-    }
-    
-    @keyframes progressShine {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
+      background: var(--primary);
+      border-radius: var(--border-radius-full);
     }
     
     .progress-text {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text-white);
-      font-family: 'JetBrains Mono', monospace;
-      text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-secondary);
     }
     
-    /* Table - Ultra Modern Design */
+    /* --- REDESIGNED TABLE UI --- */
     .table-container {
       overflow-x: auto;
-      border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
     }
     
     .roadmap-table {
       width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
+      border-collapse: collapse;
+      font-size: 0.95rem;
     }
     
     .roadmap-table th {
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.8) 0%, rgba(109, 40, 217, 0.8) 100%);
-      color: var(--text-white);
-      font-weight: 700;
+      background-color: var(--neutral-100); /* Flat, light gray background */
+      color: var(--text-secondary);
+      font-weight: 600;
       text-align: left;
-      padding: 1.5rem 2rem;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
+      padding: 12px 24px;
+      font-size: 0.8rem;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
-      position: sticky;
-      top: 80px;
-      z-index: 10;
-      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--border-medium);
     }
     
-    .roadmap-table tbody tr {
-      background: rgba(255, 255, 255, 0.02);
-      transition: all var(--duration-normal) var(--ease-smooth);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    
-    .roadmap-table tbody tr:nth-child(even) {
-      background: rgba(255, 255, 255, 0.04);
-    }
-    
-    .roadmap-table tbody tr:hover {
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
-      transform: scale(1.01);
-      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.2);
+    .roadmap-table tr:hover {
+      background-color: var(--neutral-50); /* Subtle hover for row affordance */
     }
     
     .roadmap-table td {
-      padding: 1.5rem 2rem;
-      vertical-align: top;
-      color: var(--text-gray-200);
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: middle; /* Key for clean alignment */
+      color: var(--text-secondary);
+    }
+    
+    .roadmap-table tr:last-child td {
+      border-bottom: none;
     }
     
     .topic-cell {
-      font-weight: 700;
-      color: var(--text-white);
-      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 1rem;
     }
     
-    /* Status Badges - Neon Glow Effect */
+    /* Status Badges (Static) */
     .status-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius-xl);
-      font-size: 0.85rem;
-      font-weight: 700;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: var(--border-radius-full);
+      font-size: 0.8rem;
+      font-weight: 600;
       white-space: nowrap;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      transition: all var(--duration-normal) var(--ease-smooth);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .status-badge::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.5s;
-    }
-    
-    .status-badge:hover::before {
-      left: 100%;
+      border: 1px solid transparent;
     }
     
     .status-completed {
-      background: var(--status-completed-bg);
-      color: var(--status-completed);
-      border: 1px solid var(--status-completed);
-      box-shadow: 0 0 20px var(--status-completed-glow);
-    }
-    
-    .status-completed:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px var(--status-completed-glow);
+      background-color: var(--completed-bg);
+      color: var(--completed);
+      border-color: var(--completed-border);
     }
     
     .status-in-progress {
-      background: var(--status-progress-bg);
-      color: var(--status-progress);
-      border: 1px solid var(--status-progress);
-      box-shadow: 0 0 20px var(--status-progress-glow);
-    }
-    
-    .status-in-progress:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px var(--status-progress-glow);
+      background-color: var(--in-progress-bg);
+      color: var(--in-progress);
+      border-color: var(--in-progress-border);
     }
     
     .status-not-started {
-      background: var(--status-pending-bg);
-      color: var(--status-pending);
-      border: 1px solid var(--status-pending);
-      box-shadow: 0 0 20px var(--status-pending-glow);
+      background-color: var(--not-started-bg);
+      color: var(--not-started);
+      border-color: var(--not-started-border);
     }
     
-    .status-not-started:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px var(--status-pending-glow);
-    }
-    
-    /* Lists - Modern Styling */
+    /* Lists inside table */
     ul.item-list {
-      list-style: none;
       margin: 0;
       padding: 0;
+      list-style-type: none;
     }
     
     ul.item-list li {
+      color: var(--text-secondary);
+      padding-left: 18px;
       position: relative;
-      padding: 0.5rem 0 0.5rem 2rem;
-      color: var(--text-gray-300);
-      transition: color var(--duration-fast);
+      font-size: 0.9rem;
     }
-    
-    ul.item-list li::before {
-      content: '';
+    ul.item-list li:not(:last-child) {
+      margin-bottom: 4px;
+    }
+    ul.item-list li:before {
+      content: "—";
       position: absolute;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 8px;
-      height: 8px;
-      background: var(--grad-button);
-      border-radius: 50%;
-      box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
-    }
-    
-    ul.item-list li:hover {
-      color: var(--text-white);
+      color: var(--neutral-300);
     }
     
     /* Empty State */
-    .empty-state {
-      padding: 4rem 2rem;
-      text-align: center;
-      color: var(--text-gray-400);
-    }
+    .empty-state { padding: 48px 24px; text-align: center; color: var(--text-tertiary); }
+    .empty-state i { font-size: 2.5rem; margin-bottom: 16px; color: var(--neutral-300); }
+    .empty-state p { font-size: 1rem; max-width: 400px; margin: 0 auto; }
     
-    .empty-state i {
-      font-size: 4rem;
-      margin-bottom: 2rem;
-      background: var(--grad-button);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      opacity: 0.6;
-    }
-    
-    .empty-state p {
-      font-size: 1.2rem;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    
-    /* Scroll to Top Button - Floating Neon */
+    /* Scroll to top button (Static) */
     .scroll-top-btn {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 60px;
-      height: 60px;
-      background: var(--grad-button);
-      border: none;
-      border-radius: 50%;
-      color: var(--text-white);
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transition: all var(--duration-normal) var(--ease-bounce);
-      box-shadow: var(--shadow-glow);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: fixed; bottom: 30px; right: 30px; width: 44px; height: 44px;
+      background-color: var(--primary); color: var(--text-light); border: none;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; opacity: 0; visibility: hidden; z-index: 100; box-shadow: var(--shadow-sm);
     }
+    .scroll-top-btn:hover { background-color: var(--primary-dark); }
+    .scroll-top-btn.visible { opacity: 1; visibility: visible; }
+    .scroll-top-btn i { font-size: 1.1rem; }
     
-    .scroll-top-btn:hover {
-      transform: translateY(-5px) scale(1.1);
-      box-shadow: 0 0 40px rgba(139, 92, 246, 0.8);
-    }
-    
-    .scroll-top-btn.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .scroll-top-btn i {
-      font-size: 1.5rem;
-      animation: bounceArrow 2s infinite;
-    }
-    
-    @keyframes bounceArrow {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-3px); }
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .header h1 {
-        font-size: 3rem;
-      }
-      
-      .tech-stack-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.5rem;
-      }
-      
-      .progress-container {
-        width: 100%;
-      }
-      
-      .progress-bar-container {
-        flex: 1;
-      }
-    }
-    
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
-      .content-container {
-        padding: 2rem 1rem;
-      }
-      
-      .tabs-wrapper {
-        padding: 0 1rem;
-      }
-      
-      .role-tab {
-        padding: 0.75rem 1.5rem;
-        font-size: 0.9rem;
-      }
-      
-      .tech-stack-header {
-        padding: 1.5rem;
-      }
-      
-      .roadmap-table th,
-      .roadmap-table td {
-        padding: 1rem 1.5rem;
-      }
-      
-      .tech-stack-title {
-        font-size: 1.3rem;
-      }
-      
-      .scroll-top-btn {
-        width: 50px;
-        height: 50px;
-        bottom: 1.5rem;
-        right: 1.5rem;
-      }
+      .header-container, .tabs-wrapper, .content-container { padding-left: 16px; padding-right: 16px; }
+      .header h1 { font-size: 1.5rem; }
+      .tech-stack-header { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .progress-container { width: 100%; }
+      .roadmap-table th, .roadmap-table td { padding: 12px 16px; }
+      .tabs-wrapper { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 0; }
     }
-    
-    @media (max-width: 480px) {
-      .header {
-        padding: 2rem 0;
-      }
-      
-      .header-container {
-        padding: 0 1rem;
-      }
-      
-      .tech-stack-header {
-        padding: 1rem;
-      }
-      
-      .roadmap-table th,
-      .roadmap-table td {
-        padding: 0.75rem 1rem;
-      }
-      
-      .status-badge {
-        padding: 0.5rem 1rem;
-        font-size: 0.8rem;
-      }
-    }
-    
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    
-    ::-webkit-scrollbar-track {
-      background: var(--bg-dark-secondary);
-    }
-    
-    ::-webkit-scrollbar-thumb {
-      background: var(--grad-button);
-      border-radius: 10px;
-    }
-    
-    ::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(135deg, #a78bfa 0%, #f472b6 100%);
-    }
-    
-    /* Loading Animation for Page */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .role-section {
-      animation: fadeInUp 0.6s ease-out;
-    }
-    
-    .tech-stack-section {
-      animation: fadeInUp 0.6s ease-out;
-      animation-fill-mode: both;
-    }
-    
-    .tech-stack-section:nth-child(1) { animation-delay: 0.1s; }
-    .tech-stack-section:nth-child(2) { animation-delay: 0.2s; }
-    .tech-stack-section:nth-child(3) { animation-delay: 0.3s; }
-    .tech-stack-section:nth-child(4) { animation-delay: 0.4s; }
   </style>
 </head>
 <body>
@@ -754,12 +355,10 @@
     <div class="tabs-wrapper">
       
         <div class="role-tab active" onclick="showRole(0)">
-          <i class="fas fa-code" style="margin-right: 0.5rem;"></i>
           MERN
         </div>
       
         <div class="role-tab " onclick="showRole(1)">
-          <i class="fas fa-code" style="margin-right: 0.5rem;"></i>
           JAVA
         </div>
       
@@ -770,452 +369,11 @@
     <div class="role-section" id="role-0" style="display: block;">
       <div class="content-container">
         
-          <div class="tech-stack-section" style="animation-delay: 0s;">
+          <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-solid fa-code"></i>
-                </div>
-                Encore ts
-              </div>
-              <div class="progress-container">
-                <div class="progress-bar-container">
-                  <div class="progress-bar-fill" style="width: 0%;"></div>
-                </div>
-                <span class="progress-text">0% Complete</span>
-              </div>
-            </div>
-            <div class="table-container">
-              <table class="roadmap-table">
-                <thead>
-                  <tr>
-                    <th width="20%">
-                      <i class="fas fa-bookmark" style="margin-right: 0.5rem;"></i>
-                      TOPIC
-                    </th>
-                    <th width="30%">
-                      <i class="fas fa-list-ul" style="margin-right: 0.5rem;"></i>
-                      SUB-TOPIC
-                    </th>
-                    <th width="30%">
-                      <i class="fas fa-project-diagram" style="margin-right: 0.5rem;"></i>
-                      PROJECT
-                    </th>
-                    <th width="20%">
-                      <i class="fas fa-chart-pie" style="margin-right: 0.5rem;"></i>
-                      STATUS
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  
-                      <tr style="animation-delay: 0.3s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Introduction to Encore.ts
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>What is Encore.ts, Setting up Development Environment, Overview of Encore Architecture, Key Concepts: Services, APIs, Databases</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Set up Encore.ts and deploy a simple "Hello World" service</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.35s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Services & APIs
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Creating Services, Defining Endpoints, Request and Response Types, HTTP Routing, Authorization Basics</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Build a simple service with GET and POST endpoints</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.4s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Data Modeling & Persistence
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Using Encore's Database Models, Defining Schemas, Performing CRUD Operations, Migrations in Encore.ts</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Create a service to manage a list of tasks (CRUD functionality)</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.45s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Authentication & Authorization
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Implementing Auth Middleware, Role-Based Access Control (RBAC), Protecting APIs, Managing Tokens</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Secure existing endpoints with authentication and role checks</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.5s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Advanced API Design
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Validation Techniques, Error Handling Best Practices, Pagination, Filtering, Sorting API Responses</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Upgrade the task management API to include validation, pagination, and filters</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.55s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Background Jobs & Event Systems
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Creating Background Tasks, Scheduled Jobs, Event-driven Architecture in Encore, Using Message Queues</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Add a notification system that sends emails for overdue tasks</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.6000000000000001s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          DevOps and Deployment
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Deploying with Encore CLI, Managing Environments (Dev, Staging, Production), Monitoring and Logs, Debugging Strategies</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Deploy a staging version of the project with monitoring enabled</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.65s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Final Project & Best Practices
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Encore.ts Design Patterns, Microservice Best Practices, API Documentation with Encore, Code Reviews and Refactoring</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Build a small microservice-based todo application with complete CRUD, auth, background jobs, and deploy to production environment</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                </tbody>
-              </table>
-            </div>
-          </div>
-          
-          <div class="tech-stack-section" style="animation-delay: 0.1s;">
-            <div class="tech-stack-header">
-              <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-solid fa-code"></i>
-                </div>
-                Jetpack
-              </div>
-              <div class="progress-container">
-                <div class="progress-bar-container">
-                  <div class="progress-bar-fill" style="width: 0%;"></div>
-                </div>
-                <span class="progress-text">0% Complete</span>
-              </div>
-            </div>
-            <div class="table-container">
-              <table class="roadmap-table">
-                <thead>
-                  <tr>
-                    <th width="20%">
-                      <i class="fas fa-bookmark" style="margin-right: 0.5rem;"></i>
-                      TOPIC
-                    </th>
-                    <th width="30%">
-                      <i class="fas fa-list-ul" style="margin-right: 0.5rem;"></i>
-                      SUB-TOPIC
-                    </th>
-                    <th width="30%">
-                      <i class="fas fa-project-diagram" style="margin-right: 0.5rem;"></i>
-                      PROJECT
-                    </th>
-                    <th width="20%">
-                      <i class="fas fa-chart-pie" style="margin-right: 0.5rem;"></i>
-                      STATUS
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  
-                      <tr style="animation-delay: 0.3s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Introduction to Jetpack
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>What is Jetpack, Setting up Jetpack with WordPress, Overview of Jetpack Features, Security Basics, Performance Features</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Install and configure Jetpack on a WordPress test site, enable security and backup features</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.35s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Site Security & Backups
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Protecting Login Pages, Enabling Two-Factor Authentication, Managing Site Backups, Restoring Backups, Monitoring Downtime</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Set up backup plans and simulate a site restoration</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.4s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Performance & Optimization
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Image CDN, Lazy Loading Images, Site Accelerator, SEO Tools Integration, Reducing Page Load Times</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Optimize a WordPress site with Jetpack tools, run before/after performance tests</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.45s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Content Tools & Engagement
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Related Posts, Sharing Tools, Comment Enhancements, Subscription Forms, Site Stats and Analytics</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Add related posts, social sharing, and subscription features to a blog</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.5s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Advanced Customization
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Custom CSS Editing, Widgets Visibility Control, Jetpack CRM Overview, Using Jetpack Boost, Integration with WooCommerce</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Customize a WordPress e-commerce homepage with CRM integration and performance boost</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                </tbody>
-              </table>
-            </div>
-          </div>
-          
-          <div class="tech-stack-section" style="animation-delay: 0.2s;">
-            <div class="tech-stack-header">
-              <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-brands fa-python"></i>
-                </div>
-                Python
+                <i class="fa-brands fa-python tech-stack-icon"></i>
+                <span>Python</span>
               </div>
               <div class="progress-container">
                 <div class="progress-bar-container">
@@ -1228,31 +386,16 @@
               <table class="roadmap-table">
                 <thead>
                   <tr>
-                    <th width="20%">
-                      <i class="fas fa-bookmark" style="margin-right: 0.5rem;"></i>
-                      TOPIC
-                    </th>
-                    <th width="30%">
-                      <i class="fas fa-list-ul" style="margin-right: 0.5rem;"></i>
-                      SUB-TOPIC
-                    </th>
-                    <th width="30%">
-                      <i class="fas fa-project-diagram" style="margin-right: 0.5rem;"></i>
-                      PROJECT
-                    </th>
-                    <th width="20%">
-                      <i class="fas fa-chart-pie" style="margin-right: 0.5rem;"></i>
-                      STATUS
-                    </th>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPIC</th>
+                    <th width="30%">PROJECT</th>
+                    <th width="20%">STATUS</th>
                   </tr>
                 </thead>
                 <tbody>
                   
-                      <tr style="animation-delay: 0.3s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Data Structures – Lists, Tuples, and Dictionaries
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Data Structures – Lists, Tuples, and Dictionaries</td>
                         <td>
                           
                           <ul class="item-list">
@@ -1270,16 +413,13 @@
                         <td>
                           <span class="status-badge status-completed">
                             <i class="fa-solid fa-check-circle"></i>
-                            Completed
+                            <span>Completed</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.35s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Advanced Data Structures – Sets & File I/O
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Advanced Data Structures – Sets & File I/O</td>
                         <td>
                           
                           <ul class="item-list">
@@ -1297,16 +437,13 @@
                         <td>
                           <span class="status-badge status-completed">
                             <i class="fa-solid fa-check-circle"></i>
-                            Completed
+                            <span>Completed</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.4s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Object-Oriented Programming (OOP) – Part 1
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Object-Oriented Programming (OOP) – Part 1</td>
                         <td>
                           
                           <ul class="item-list">
@@ -1324,16 +461,13 @@
                         <td>
                           <span class="status-badge status-completed">
                             <i class="fa-solid fa-check-circle"></i>
-                            Completed
+                            <span>Completed</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.45s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Object-Oriented Programming (OOP) – Part 2
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Object-Oriented Programming (OOP) – Part 2</td>
                         <td>
                           
                           <ul class="item-list">
@@ -1351,16 +485,13 @@
                         <td>
                           <span class="status-badge status-completed">
                             <i class="fa-solid fa-check-circle"></i>
-                            Completed
+                            <span>Completed</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.5s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Error Handling and Debugging
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Error Handling and Debugging</td>
                         <td>
                           
                           <ul class="item-list">
@@ -1378,16 +509,13 @@
                         <td>
                           <span class="status-badge status-completed">
                             <i class="fa-solid fa-check-circle"></i>
-                            Completed
+                            <span>Completed</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.55s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Final Project and Best Practices
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Final Project and Best Practices</td>
                         <td>
                           
                           <ul class="item-list">
@@ -1405,7 +533,7 @@
                         <td>
                           <span class="status-badge status-completed">
                             <i class="fa-solid fa-check-circle"></i>
-                            Completed
+                            <span>Completed</span>
                           </span>
                         </td>
                       </tr>
@@ -1415,19 +543,11 @@
             </div>
           </div>
           
-      </div>
-    </div>
-  
-    <div class="role-section" id="role-1" style="display: none;">
-      <div class="content-container">
-        
-          <div class="tech-stack-section" style="animation-delay: 0s;">
+          <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-solid fa-code"></i>
-                </div>
-                lovable
+                <i class="fa-solid fa-code tech-stack-icon"></i>
+                <span>lovable</span>
               </div>
               <div class="progress-container">
                 <div class="progress-bar-container">
@@ -1440,31 +560,16 @@
               <table class="roadmap-table">
                 <thead>
                   <tr>
-                    <th width="20%">
-                      <i class="fas fa-bookmark" style="margin-right: 0.5rem;"></i>
-                      TOPIC
-                    </th>
-                    <th width="30%">
-                      <i class="fas fa-list-ul" style="margin-right: 0.5rem;"></i>
-                      SUB-TOPIC
-                    </th>
-                    <th width="30%">
-                      <i class="fas fa-project-diagram" style="margin-right: 0.5rem;"></i>
-                      PROJECT
-                    </th>
-                    <th width="20%">
-                      <i class="fas fa-chart-pie" style="margin-right: 0.5rem;"></i>
-                      STATUS
-                    </th>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPIC</th>
+                    <th width="30%">PROJECT</th>
+                    <th width="20%">STATUS</th>
                   </tr>
                 </thead>
                 <tbody>
                   
-                      <tr style="animation-delay: 0.3s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Introduction to Lovable.dev
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Introduction to Lovable.dev</td>
                         <td>
                           
                           <ul class="item-list">
@@ -1482,16 +587,13 @@
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.35s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Building Applications with AI
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Building Applications with AI</td>
                         <td>
                           
                           <ul class="item-list">
@@ -1509,16 +611,13 @@
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.4s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Advanced Customization
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Advanced Customization</td>
                         <td>
                           
                           <ul class="item-list">
@@ -1536,16 +635,13 @@
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.45s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Deployment & Collaboration
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Deployment & Collaboration</td>
                         <td>
                           
                           <ul class="item-list">
@@ -1563,7 +659,7 @@
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
@@ -1573,13 +669,11 @@
             </div>
           </div>
           
-          <div class="tech-stack-section" style="animation-delay: 0.1s;">
+          <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-solid fa-code"></i>
-                </div>
-                DSA
+                <i class="fa-solid fa-code tech-stack-icon"></i>
+                <span>Jetpack</span>
               </div>
               <div class="progress-container">
                 <div class="progress-bar-container">
@@ -1592,562 +686,130 @@
               <table class="roadmap-table">
                 <thead>
                   <tr>
-                    <th width="20%">
-                      <i class="fas fa-bookmark" style="margin-right: 0.5rem;"></i>
-                      TOPICS
-                    </th>
-                    <th width="30%">
-                      <i class="fas fa-list-ul" style="margin-right: 0.5rem;"></i>
-                      SUBTOPICS
-                    </th>
-                    <th width="30%">
-                      <i class="fas fa-project-diagram" style="margin-right: 0.5rem;"></i>
-                      HANDS-ON TASKS
-                    </th>
-                    <th width="20%">
-                      <i class="fas fa-chart-pie" style="margin-right: 0.5rem;"></i>
-                      STATUS
-                    </th>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPIC</th>
+                    <th width="30%">PROJECT</th>
+                    <th width="20%">STATUS</th>
                   </tr>
                 </thead>
                 <tbody>
                   
-                      <tr style="animation-delay: 0.3s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Intro to DSA & Time Complexity
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Introduction to Jetpack</td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Big O, Time vs Space trade-off, Best-Worst-Average</li>
+                            <li>What is Jetpack, Setting up Jetpack with WordPress, Overview of Jetpack Features, Security Basics, Performance Features</li>
                           </ul>
                           
                         </td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Dry-run basic loops, analyze time complexities, solve 3 time complexity classification problems</li>
+                            <li>Install and configure Jetpack on a WordPress test site, enable security and backup features</li>
                           </ul>
                           
                         </td>
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.35s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Arrays
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Site Security & Backups</td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Traversals, Modifications, Prefix Sum, Sliding Window</li>
+                            <li>Protecting Login Pages, Enabling Two-Factor Authentication, Managing Site Backups, Restoring Backups, Monitoring Downtime</li>
                           </ul>
                           
                         </td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Reverse Array, Max Subarray Sum (Kadane), Sliding window maximum</li>
+                            <li>Set up backup plans and simulate a site restoration</li>
                           </ul>
                           
                         </td>
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.4s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          2D Arrays & Matrix Problems
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Performance & Optimization</td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Row-wise/Col-wise Traversals, Diagonal, Spiral</li>
+                            <li>Image CDN, Lazy Loading Images, Site Accelerator, SEO Tools Integration, Reducing Page Load Times</li>
                           </ul>
                           
                         </td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Spiral matrix, Transpose, Search in 2D sorted matrix</li>
+                            <li>Optimize a WordPress site with Jetpack tools, run before/after performance tests</li>
                           </ul>
                           
                         </td>
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.45s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Strings
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Content Tools & Engagement</td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>String Manipulation, Frequency Maps, Palindromes</li>
+                            <li>Related Posts, Sharing Tools, Comment Enhancements, Subscription Forms, Site Stats and Analytics</li>
                           </ul>
                           
                         </td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Longest Palindromic Substring, Anagram check, Reverse words</li>
+                            <li>Add related posts, social sharing, and subscription features to a blog</li>
                           </ul>
                           
                         </td>
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.5s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Recursion - Part 1
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Advanced Customization</td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Basics, Stack Memory, Recursion Tree</li>
+                            <li>Custom CSS Editing, Widgets Visibility Control, Jetpack CRM Overview, Using Jetpack Boost, Integration with WooCommerce</li>
                           </ul>
                           
                         </td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Factorial, Fibonacci, Print all subsequences</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.55s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Recursion - Part 2
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Backtracking Intro, Subset, Permutations</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>N-Queens (4x4), Rat in Maze, Permutations of a string</li>
+                            <li>Customize a WordPress e-commerce homepage with CRM integration and performance boost</li>
                           </ul>
                           
                         </td>
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.6000000000000001s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Sorting
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Bubble, Selection, Insertion, Merge, Quick</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Implement each, Compare time taken, Count Inversions using Merge Sort</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.65s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Searching
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Linear, Binary, Lower Bound, Upper Bound</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Binary Search on Sorted Array, Search in Rotated Array</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.7s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Bit Manipulation
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>AND, OR, XOR, Set/Clear/Toggle bits</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Single Number, Count Set Bits, Subsets using bits</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.75s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Stack
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>LIFO, Implementation, Infix to Postfix, Histograms</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Balanced Parentheses, Next Greater Element, Largest Histogram</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.8s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Queue & Deque
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>FIFO, Circular Queue, Monotonic Queue</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Implement Queue using Stack, Sliding Window Max using Deque</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.8500000000000001s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Linked List - Part 1
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Singly LL, Reversing, Cycle Detection</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Reverse LL, Detect & Remove Cycle (Floyd's algo)</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.9000000000000001s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Linked List - Part 2
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>DLL, Merge K Lists, Intersection Point</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Merge Sort LL, K-group reverse, Intersection of two LLs</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.95s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Hashing & Maps
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>HashMap, HashSet, Count Frequency, Custom Key</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>2 Sum, Longest Subarray with 0 sum, Group Anagrams</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 1s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Trees - Part 1
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Binary Tree, Traversals (DFS, BFS)</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Inorder, Postorder, Level Order traversal</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 1.05s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Trees - Part 2
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>BST, LCA, Diameter, Height Balance</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Validate BST, Lowest Common Ancestor, Diameter of Tree</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 1.1s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Heap & Priority Queue
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Min-Heap, Max-Heap, K-Largest/Smallest</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Kth largest element, Merge K sorted arrays</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 1.1500000000000001s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Graphs - Part 1
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Representations, BFS, DFS, Cycle Detection</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>BFS traversal, DFS traversal, Cycle in Undirected Graph</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 1.2s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Graphs - Part 2
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Topo Sort, Union Find, MST, Dijkstra</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Topo Sort (Kahn’s Algo), Kruskal’s MST, Dijkstra's shortest path</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 1.25s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Dynamic Programming (DP)
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Memoization, Tabulation, 0/1 Knapsack, LCS</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Climbing Stairs, LCS, 0/1 Knapsack, DP on Subsets</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
@@ -2157,13 +819,17 @@
             </div>
           </div>
           
-          <div class="tech-stack-section" style="animation-delay: 0.2s;">
+      </div>
+    </div>
+  
+    <div class="role-section" id="role-1" style="display: none;">
+      <div class="content-container">
+        
+          <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-solid fa-code"></i>
-                </div>
-                IAM
+                <i class="fa-solid fa-code tech-stack-icon"></i>
+                <span>IAM</span>
               </div>
               <div class="progress-container">
                 <div class="progress-bar-container">
@@ -2176,31 +842,16 @@
               <table class="roadmap-table">
                 <thead>
                   <tr>
-                    <th width="20%">
-                      <i class="fas fa-bookmark" style="margin-right: 0.5rem;"></i>
-                      TOPIC
-                    </th>
-                    <th width="30%">
-                      <i class="fas fa-list-ul" style="margin-right: 0.5rem;"></i>
-                      SUB-TOPICS
-                    </th>
-                    <th width="30%">
-                      <i class="fas fa-project-diagram" style="margin-right: 0.5rem;"></i>
-                      PROJECT / TASK
-                    </th>
-                    <th width="20%">
-                      <i class="fas fa-chart-pie" style="margin-right: 0.5rem;"></i>
-                      STATUS
-                    </th>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPICS</th>
+                    <th width="30%">PROJECT / TASK</th>
+                    <th width="20%">STATUS</th>
                   </tr>
                 </thead>
                 <tbody>
                   
-                      <tr style="animation-delay: 0.3s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Introduction to IAM & Core Concepts
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Introduction to IAM & Core Concepts</td>
                         <td>
                           
                           <ul class="item-list">
@@ -2218,16 +869,13 @@
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.35s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          IAM Policies & Role-Based Access Control
-                        </td>
+                      <tr>
+                        <td class="topic-cell">IAM Policies & Role-Based Access Control</td>
                         <td>
                           
                           <ul class="item-list">
@@ -2245,16 +893,13 @@
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.4s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Cloud IAM Implementations (AWS/Azure/GCP)
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Cloud IAM Implementations (AWS/Azure/GCP)</td>
                         <td>
                           
                           <ul class="item-list">
@@ -2272,16 +917,13 @@
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.45s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Federation, SSO, and IAM Best Practices
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Federation, SSO, and IAM Best Practices</td>
                         <td>
                           
                           <ul class="item-list">
@@ -2299,7 +941,7 @@
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
@@ -2309,13 +951,11 @@
             </div>
           </div>
           
-          <div class="tech-stack-section" style="animation-delay: 0.30000000000000004s;">
+          <div class="tech-stack-section">
             <div class="tech-stack-header">
               <div class="tech-stack-title">
-                <div class="tech-stack-icon">
-                  <i class="fa-brands fa-js"></i>
-                </div>
-                Vue.js
+                <i class="fa-solid fa-code tech-stack-icon"></i>
+                <span>Copilot</span>
               </div>
               <div class="progress-container">
                 <div class="progress-bar-container">
@@ -2328,562 +968,208 @@
               <table class="roadmap-table">
                 <thead>
                   <tr>
-                    <th width="20%">
-                      <i class="fas fa-bookmark" style="margin-right: 0.5rem;"></i>
-                      TOPIC
-                    </th>
-                    <th width="30%">
-                      <i class="fas fa-list-ul" style="margin-right: 0.5rem;"></i>
-                      SUB-TOPIC
-                    </th>
-                    <th width="30%">
-                      <i class="fas fa-project-diagram" style="margin-right: 0.5rem;"></i>
-                      PROJECT
-                    </th>
-                    <th width="20%">
-                      <i class="fas fa-chart-pie" style="margin-right: 0.5rem;"></i>
-                      STATUS
-                    </th>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPIC</th>
+                    <th width="30%">PROJECT</th>
+                    <th width="20%">STATUS</th>
                   </tr>
                 </thead>
                 <tbody>
                   
-                      <tr style="animation-delay: 0.3s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Intro to Vue JS, Vite & First Components
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Getting Started with Copilot</td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>What is Vue?</li><li>Vue.js vs React: Key Differences</li><li>Vue 3 vs Vue 2</li><li>Vite Setup, Project structure</li><li>First component</li><li>Vue DevTools</li>
+                            <li>Installing Copilot in VS Code,</li><li>Setting up GitHub Authentication,</li><li>Understanding How Copilot Works,</li><li>Basic Prompting Techniques,</li><li>Exploring Language Support,</li><li>Enabling/Disabling Copilot Intelligently</li>
                           </ul>
                           
                         </td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Setup & Build a Welcome Page with Dynamic Title Binding</li>
+                            <li>Setup GitHub Copilot in VS Code, write small utilities (FizzBuzz, factorial, etc.) in Python & JS using prompts</li>
                           </ul>
                           
                         </td>
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.35s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Vue Template Syntax + Directives
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Real-world Usage in Development</td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Text interpolation</li><li>v-bind</li><li>v-if / v-else</li><li>v-for</li><li>v-show</li><li>Class/style bindings</li>
+                            <li>[Using Copilot for HTML/CSS Boilerplates,</li><li>React Component Generation,</li><li>Writing Python Functions with Docstrings,</li><li>Refactoring with Copilot,</li><li>Using Copilot in Git Workflow (Commit Msgs, PR Templates),</li><li>Auto-generating Tests]</li>
                           </ul>
                           
                         </td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Build a Dynamic FAQ Viewer</li>
+                            <li>Build a simple CRUD App (React + Express) using Copilot for components, API routes, and tests</li>
                           </ul>
                           
                         </td>
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.4s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Component System
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Copilot in Team & Production Settings</td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Global & Local Components</li><li>Props</li><li>Custom Events ($emit)</li><li>Slots Basics</li><li>Single File Components (.vue)</li>
+                            <li>[Pair Programming with Copilot,</li><li>Avoiding Over-Reliance,</li><li>Reviewing Copilot Suggestions,</li><li>Security Best Practices,</li><li>Prompt Engineering for Complex Code,</li><li>Copilot in Large Codebases]</li>
                           </ul>
                           
                         </td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Weather Info Card with Props & Slots</li>
+                            <li>Collaboratively review and refactor a Copilot-generated mini project, simulate a code review workflow with PRs</li>
                           </ul>
                           
                         </td>
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.45s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Forms & Event Handling
-                        </td>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="tech-stack-section">
+            <div class="tech-stack-header">
+              <div class="tech-stack-title">
+                <i class="fa-solid fa-code tech-stack-icon"></i>
+                <span>Blockchain</span>
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <span class="progress-text">0% Complete</span>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="roadmap-table">
+                <thead>
+                  <tr>
+                    <th width="20%">TOPIC</th>
+                    <th width="30%">SUB-TOPIC</th>
+                    <th width="30%">PROJECT</th>
+                    <th width="20%">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                      <tr>
+                        <td class="topic-cell">Introduction to Ethereum & Smart Contracts</td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>v-model</li><li>Form Inputs</li><li>Computed Properties</li><li>Watchers</li><li>Handling Form Events</li>
+                            <li>Ethereum basics, Blockchain fundamentals, Smart Contracts, Gas & Transactions, Solidity Basics, Remix IDE</li>
                           </ul>
                           
                         </td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Build a Live Form with Auto Suggestions</li>
+                            <li>Deploy a simple "Hello Blockchain" smart contract on a local testnet</li>
                           </ul>
                           
                         </td>
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.5s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Component Communication & Lifecycle
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Advanced Solidity & Smart Contract Development</td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Parent-Child Communication</li><li>Props Down, Events Up</li><li>Lifecycle Hooks</li><li>Dynamic & Async Components</li>
+                            <li>Solidity Functions, Storage & Memory, Events & Modifiers, Mappings & Structs, Inheritance & Libraries, Error Handling,ERC-20, ERC-721, ERC-1155 Basics & Differences</li>
                           </ul>
                           
                         </td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Messaging Interface with Chat Threads</li>
+                            <li>Create a decentralized voting system on Ethereum</li>
                           </ul>
                           
                         </td>
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.55s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Routing with Vue Router
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Web3.js & DApp Development</td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Vue Router Setup</li><li>Route Configuration</li><li>Dynamic Params</li><li>Route Guards</li><li>Nested Routes</li>
+                            <li>Web3.js Basics, Connecting Frontend with Blockchain, Interacting with Smart Contracts, MetaMask & Wallet Integration, Handling Transactions</li>
                           </ul>
                           
                         </td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Multi-page App with Protected Routes</li>
+                            <li>Develop a simple Ethereum-based crowdfunding DApp</li>
                           </ul>
                           
                         </td>
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
                       
-                      <tr style="animation-delay: 0.6000000000000001s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          State Management with Vuex
-                        </td>
+                      <tr>
+                        <td class="topic-cell">Security, Optimization & Deployment</td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Vuex vs Redux</li><li>State, Getters</li><li>Mutations & Actions</li><li>Connecting Store to Components</li>
+                            <li>Smart Contract Security (Reentrancy, Overflows, Front-running), Gas Optimization, Testing & Debugging with Hardhat, Deployment to Testnet & Mainnet, Deploying on Base , Best Practices</li>
                           </ul>
                           
                         </td>
                         <td>
                           
                           <ul class="item-list">
-                            <li>Shopping Cart with Global State</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.65s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Advanced Vuex & API Integration
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Structuring Vuex for Large Apps</li><li>API Integration in Actions</li><li>Handling Loading & Errors</li><li>Axios Setup</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Product Catalog with Backend Integration</li>
+                            <li>Deploy a fully functional ERC-20 token and a staking smart contract</li>
                           </ul>
                           
                         </td>
                         <td>
                           <span class="status-badge status-not-started">
                             <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.7s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Vue Composition API
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Options API vs Composition API</li><li>ref & reactive</li><li>computed & watch</li><li>Lifecycle Hooks</li><li>Comparison with React Hooks</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Task Manager using Composition API</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.75s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Advanced Component Patterns
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Scoped Slots</li><li>Provide/Inject</li><li>Mixins vs Composables</li><li>Teleport</li><li>Render Functions</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Build a Mini Component Library</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.8s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Transitions & Animations
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Vue <transition> and <transition-group></li><li>CSS & JS Animations</li><li>List Transitions</li><li>Hooks for Animations</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Animated Dashboard Widgets</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.8500000000000001s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Testing Vue Apps
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Vue Test Utils Basics</li><li>Unit Testing Components</li><li>Mocking APIs</li><li>E2E Testing with Cypress</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Test-Driven Signup/Login Flow</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.9000000000000001s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Performance Optimization
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Lazy Loading Components</li><li>Code Splitting</li><li>Virtual Scrolling</li><li>Optimizing Re-renders</li><li>Memory Leak Prevention</li><li>Vue DevTools</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Performance Optimized Gallery</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 0.95s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Reusable Patterns & Plugins
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Mixins (vs HOCs)</li><li>Custom Directives</li><li>Creating Plugins</li><li>Composables (vs Custom Hooks)</li><li>Provide/Inject (vs React Context)</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Widget Dashboard with Reusable Components</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 1s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Nuxt.js Introduction
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Nuxt Overview</li><li>SSR & SSG</li><li>Pages & Layouts</li><li>Routing in Nuxt</li><li>Fetching Strategies</li><li>SEO Optimization</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Blog Platform with Nuxt.js</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 1.05s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Vue 3 Advanced Features
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Fragments</li><li>Teleport (vs Portals)</li><li>Suspense</li><li>Multiple v-models</li><li>script setup syntax</li><li>Global Mounting Changes</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Advanced UI Components</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 1.1s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Internationalization & A11y
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Vue I18n Setup</li><li>Translation Files</li><li>Dynamic Locale Switching</li><li>Number & Date Formatting</li><li>Pluralization</li><li>ARIA Tags</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Multilingual Application</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 1.1500000000000001s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Vue + TypeScript
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>TypeScript Setup</li><li>Type Definitions</li><li>Typed Props, Events, Emits</li><li>Type-safe Stores</li><li>Class-based Components (optional)</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>TypeScript Todo App</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 1.2s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Mobile & PWA Development
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>PWA Basics</li><li>Service Workers</li><li>Offline Access</li><li>Touch Events</li><li>Capacitor Overview</li><li>Responsive Design Patterns</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Mobile-friendly Offline PWA</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr style="animation-delay: 1.25s;">
-                        <td class="topic-cell">
-                          <i class="fas fa-hashtag" style="margin-right: 0.5rem; color: var(--primary-500); font-size: 0.8rem;"></i>
-                          Final Capstone & Deployment
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Project Planning</li><li>State + API Integration</li><li>Routing & Auth</li><li>CI/CD Pipeline</li><li>Testing Strategy</li><li>Deployment Best Practices</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          
-                          <ul class="item-list">
-                            <li>Full E-commerce Single Page Application</li>
-                          </ul>
-                          
-                        </td>
-                        <td>
-                          <span class="status-badge status-not-started">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            Yet to Start
+                            <span>Yet to Start</span>
                           </span>
                         </td>
                       </tr>
@@ -2897,247 +1183,40 @@
     </div>
   
   
-  <!-- Floating Action Button -->
-  <button class="scroll-top-btn" id="scrollTopBtn" title="Back to Top">
+  <button class="scroll-top-btn" id="scrollTopBtn" title="Scroll to top">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
   
-  <!-- Particle Effect Canvas (Optional Enhancement) -->
-  <canvas id="particleCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; opacity: 0.3;"></canvas>
-  
   <script>
-    // Enhanced Tab Switching with Smooth Animations
     function showRole(roleIndex) {
-      // Hide all role sections with fade out
-      document.querySelectorAll('.role-section').forEach((section, index) => {
-        if (section.style.display !== 'none') {
-          section.style.opacity = '0';
-          section.style.transform = 'translateY(20px)';
-          setTimeout(() => {
-            section.style.display = 'none';
-          }, 300);
-        }
+      document.querySelectorAll('.role-section').forEach(section => {
+        section.style.display = 'none';
       });
-      
-      // Show the selected role section with fade in
-      setTimeout(() => {
-        const targetSection = document.getElementById('role-' + roleIndex);
-        targetSection.style.display = 'block';
-        targetSection.style.opacity = '0';
-        targetSection.style.transform = 'translateY(20px)';
-        
-        setTimeout(() => {
-          targetSection.style.opacity = '1';
-          targetSection.style.transform = 'translateY(0)';
-        }, 50);
-      }, 300);
-      
-      // Update active tab with enhanced animation
+      document.getElementById('role-' + roleIndex).style.display = 'block';
       document.querySelectorAll('.role-tab').forEach((tab, index) => {
-        tab.classList.remove('active');
         if (index === roleIndex) {
-          setTimeout(() => {
-            tab.classList.add('active');
-          }, 150);
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
         }
       });
-      
-      // Smooth scroll to top
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    
-    // Enhanced Scroll to Top Button
     const scrollButton = document.getElementById('scrollTopBtn');
-    
     window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const rate = scrolled * -0.5;
-      
-      // Parallax effect for background
-      document.body.style.backgroundPosition = `center ${rate}px`;
-      
-      // Show/hide scroll button with smooth transition
-      if (scrolled > 500) {
+      if (window.pageYOffset > 300) {
         scrollButton.classList.add('visible');
       } else {
         scrollButton.classList.remove('visible');
       }
     });
-    
     scrollButton.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-    
-    // Particle Animation System (Optional Enhancement)
-    function initParticles() {
-      const canvas = document.getElementById('particleCanvas');
-      const ctx = canvas.getContext('2d');
-      
-      function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
-      
-      resizeCanvas();
-      window.addEventListener('resize', resizeCanvas);
-      
-      const particles = [];
-      const particleCount = 50;
-      
-      class Particle {
-        constructor() {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-          this.vx = (Math.random() - 0.5) * 0.5;
-          this.vy = (Math.random() - 0.5) * 0.5;
-          this.size = Math.random() * 2 + 1;
-          this.opacity = Math.random() * 0.5 + 0.2;
-        }
-        
-        update() {
-          this.x += this.vx;
-          this.y += this.vy;
-          
-          if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-          if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-        }
-        
-        draw() {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(139, 92, 246, ${this.opacity})`;
-          ctx.fill();
-        }
-      }
-      
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
-      
-      function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        particles.forEach(particle => {
-          particle.update();
-          particle.draw();
-        });
-        
-        requestAnimationFrame(animate);
-      }
-      
-      animate();
-    }
-    
-    // Initialize particles on load
     window.addEventListener('load', () => {
-      initParticles();
-      
-      // Add initial loading animation to visible elements
-      const techSections = document.querySelectorAll('.tech-stack-section');
-      techSections.forEach((section, index) => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        
-        setTimeout(() => {
-          section.style.transition = 'all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1)';
-          section.style.opacity = '1';
-          section.style.transform = 'translateY(0)';
-        }, index * 100 + 200);
-      });
-    });
-    
-    // Enhanced hover effects for status badges
-    document.addEventListener('DOMContentLoaded', () => {
-      const statusBadges = document.querySelectorAll('.status-badge');
-      
-      statusBadges.forEach(badge => {
-        badge.addEventListener('mouseenter', () => {
-          badge.style.transform = 'scale(1.05) translateY(-2px)';
-        });
-        
-        badge.addEventListener('mouseleave', () => {
-          badge.style.transform = 'scale(1) translateY(0)';
-        });
-      });
-      
-      // Add ripple effect to tabs
-      const tabs = document.querySelectorAll('.role-tab');
-      tabs.forEach(tab => {
-        tab.addEventListener('click', function(e) {
-          const ripple = document.createElement('span');
-          const rect = this.getBoundingClientRect();
-          const size = Math.max(rect.width, rect.height);
-          const x = e.clientX - rect.left - size / 2;
-          const y = e.clientY - rect.top - size / 2;
-          
-          ripple.style.cssText = `
-            position: absolute;
-            width: ${size}px;
-            height: ${size}px;
-            left: ${x}px;
-            top: ${y}px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple 0.6s linear;
-            pointer-events: none;
-          `;
-          
-          this.appendChild(ripple);
-          
-          setTimeout(() => {
-            ripple.remove();
-          }, 600);
-        });
-      });
-      
-      // Add CSS for ripple animation
-      const style = document.createElement('style');
-      style.textContent = `
-        @keyframes ripple {
-          to {
-            transform: scale(2);
-            opacity: 0;
-          }
-        }
-        .role-tab {
-          position: relative;
-          overflow: hidden;
-        }
-      `;
-      document.head.appendChild(style);
-    });
-    
-    // Smooth reveal animations for table rows
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
-    
-    // Observe all table rows for reveal animation
-    document.addEventListener('DOMContentLoaded', () => {
-      const tableRows = document.querySelectorAll('.roadmap-table tbody tr');
-      tableRows.forEach((row, index) => {
-        row.style.opacity = '0';
-        row.style.transform = 'translateY(20px)';
-        row.style.transition = `all 0.6s ease ${index * 0.1}s`;
-        observer.observe(row);
-      });
+      if (window.pageYOffset > 300) {
+        scrollButton.classList.add('visible');
+      }
     });
   </script>
 </body>
