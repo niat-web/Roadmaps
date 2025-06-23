@@ -195,14 +195,16 @@
     
     /* Content */
     .content-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 28px 20px;
-  scroll-margin-top: 60px; /* Space for fixed header */
-}
-  .role-section[id="role-0"] .content-container {
-  padding-top: 0;
-}
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 28px 20px;
+      scroll-margin-top: 60px; /* Space for fixed header */
+    }
+    
+    /* Special styling for Foundation Training tab */
+    .role-section[id="role-0"] .content-container {
+      padding-top: 0;
+    }
     
     /* Foundation Training Info */
     .foundation-info {
@@ -230,6 +232,7 @@
     .info-text {
       color: var(--text-secondary);
       font-size: 0.95rem;
+      line-height: 1.5;
     }
     
     .highlight {
@@ -620,7 +623,13 @@
             <i class="fa-solid fa-circle-info"></i>
           </div>
           <div class="info-text">
-            <strong>Foundation Training</strong> is <span class="highlight">common for all roles</span> and provides essential skills needed across different technology tracks.
+            <strong style="color: var(--primary-dark);">Foundation Training</strong> with technologies like 
+            <span style="color: #E34F26; font-weight: 600;">HTML</span>, 
+            <span style="color: #1572B6; font-weight: 600;">CSS</span>, 
+            <span style="color: #F7DF1E; font-weight: 600; background-color: rgba(0,0,0,0.05); padding: 0 3px; border-radius: 3px;">JS</span>, 
+            <span style="color: #3776AB; font-weight: 600;">Python</span> and 
+            <span style="color: #4479A1; font-weight: 600;">SQL</span> is 
+            <span class="highlight">common for all students</span> irrespective of the technologies requested by companies to be custom trained.
           </div>
         </div>
       </div>
